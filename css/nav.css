@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body {
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 
@@ -9,8 +10,7 @@ header {
     margin: 0;
     position: fixed;
     width: 100vw;
-    background: #31274d93;
-
+    background: transparent;
 }
 
 
@@ -19,21 +19,17 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin: 0px 80px;
-    padding: 20px 0;
 }
 
 .nav__left {
     margin: 20px 0px;
 }
 
-.nav__right {
-}
-
 .nav__right a:not(.nav__active) {
     color: white;
     text-decoration: none;
     font-size: 20px;
-    margin-left: 30px;
+    margin-left: 60px;
 }
 
 .nav__active {
@@ -42,6 +38,10 @@ nav {
     font-size: 20px;
     background: linear-gradient(90deg, #DAD299 -11.59%, #B0DAB9 131.46%);
     border-radius: 6px;
-    margin-left: 30px;  
+    margin-left: 60px;  
     padding: 10px 40px;
 }
+
+
+.nav-colored { background-color:rgb(148, 148, 148); }
+.nav-transparent { background-color:transparent;}

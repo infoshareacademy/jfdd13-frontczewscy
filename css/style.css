@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 main {
     justify-content: center;
     max-width: 800px;
@@ -10,16 +14,32 @@ main {
     justify-content: center;
     align-items: center;
     padding: 50px;
-    background: rgb(126, 87, 87)
+    background: url(../img/vaporwave_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    background-clip: padding-box;;
 }
 
 .hero__text {
     width: 50%;
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-bottom: 150px;
     flex-direction: column;
+    color: white;
+    font-size: 30px;
+}
+.hero__certe {
+    color: #f00
+}
+.hero__text h1 {
+    margin: 10px 0;
+}
+.hero__text p {
+    margin: 0;
 }
 .hero__image {
     width: 50%;
@@ -44,19 +64,4 @@ img {
 
 h3 {
     text-align: center;
-}
-
-nav {
-    display: flex;
-    align-items: flex-start;
-}
-
-nav a {
-    border: 2px solid back;
-    padding: 4px;
-}
-
-nav a:hover {
-    background-color: black;
-    color: white;
 }
