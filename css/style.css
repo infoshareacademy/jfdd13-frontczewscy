@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 main {
     justify-content: center;
     max-width: 800px;
@@ -28,6 +32,7 @@ main {
     align-items: center;
     justify-content: center;
 }
+
 
 
 
