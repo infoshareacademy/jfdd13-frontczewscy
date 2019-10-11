@@ -43,5 +43,11 @@ nav {
 }
 
 
-.nav-colored { background-color:rgb(148, 148, 148); }
-.nav-transparent { background-color:transparent;}
+.nav-colored { 
+    background-color:rgb(148, 148, 148);
+    transition: .3s;
+}
+.nav-transparent { 
+    background-color:transparent;
+    transition: .3s;
+}
