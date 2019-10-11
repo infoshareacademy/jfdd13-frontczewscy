@@ -1,19 +1,29 @@
 *{
    box-sizing: border-box;
+  
+font-family: 'Share Tech Mono', monospace;
     
 }
 .container{
     background: linear-gradient(to bottom, rgba(217,97,32,1) 0%, rgba(112,32,217,1) 100%);
+    height: 100%;
+    width: 100%;
 }
 h1{
-    
+     font-family: 'Press Start 2P', cursive;
+}
+
+.socials{
+
 }
 img{
 
 }
+
 nav {
     display: flex;
     align-items: flex-start;
+    font-family: 'Press Start 2P', cursive;
 }
 
 nav a {
