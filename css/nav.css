@@ -43,6 +43,7 @@ nav {
 
 .nav__left {
     margin: 20px 0px;
+    grid-area: nav-left;
 }
 
 .nav__right a:not(.nav__active) {
@@ -60,4 +61,36 @@ nav {
     border-radius: 6px;
     margin-left: 60px;  
     padding: 10px 40px;
+}
+.nav__icon {
+    display: none;
+}
+
+
+@media (max-width: 800px) {
+    .nav__icon {
+        display: inline;
+    }
+    
+    nav {
+        display: grid;
+        grid-template-areas: "nav-left nav-icon"
+            "nav-right nav-right";
+    }
+    .nav__right {
+        display: none;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 80px;
+        grid-area: nav-right;
+    }
+    .nav__right a, .nav__right a:not(.nav__active) {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .nav__right a {
+        margin-top: 10px;
+    }
 }
