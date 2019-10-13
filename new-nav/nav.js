@@ -25,10 +25,13 @@ const makeResponsive = () => {
 
 const closeMenu = () => {
     navigation.className = "navigation__links";
+    navigationButton.classList.remove("change");
 }
 
 navigationButton.addEventListener("click", () => {
   makeResponsive();
+  navigationButton.classList.toggle("change");
+  
 });
 
 window.addEventListener("scroll", () => {
