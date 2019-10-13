@@ -2,22 +2,6 @@ const navigation = document.querySelector(".navigation__links");
 const navigationButton = document.querySelector("#navigation__button");
 const myNav = document.querySelector(".navigation");
 
-const makeResponsive = () => {
-  if (navigation.className === "navigation__links") {
-    navigation.className += " responsive";
-    myNav.classList.add("navigation-colored");
-    myNav.classList.remove("navigation-transparent");
-  } else {
-    navigation.className = "navigation__links";
-    myNav.classList.add("navigation-transparent");
-    myNav.classList.remove("navigation-colored");
-  }
-};
-
-const closeMenu = () => {
-    navigation.className = "navigation__links";
-}
-
 const addBackground = () => {
   if (window.pageYOffset >= 500) {
     myNav.classList.add("navigation-colored");
@@ -27,6 +11,21 @@ const addBackground = () => {
     myNav.classList.remove("navigation-colored");
   }
 };
+
+const makeResponsive = () => {
+  if (navigation.className === "navigation__links") {
+    navigation.className += " responsive";
+    myNav.classList.add("navigation-colored");
+    myNav.classList.remove("navigation-transparent");
+  } else {
+    navigation.className = "navigation__links";
+    addBackground();
+  }
+};
+
+const closeMenu = () => {
+    navigation.className = "navigation__links";
+}
 
 navigationButton.addEventListener("click", () => {
   makeResponsive();
