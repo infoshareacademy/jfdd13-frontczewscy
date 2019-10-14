@@ -37,7 +37,7 @@
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .navigation-transparent::after, .navigation-colored::after {
@@ -47,6 +47,8 @@
     height: 100%;
     transition: 0.5s ease;
     z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 .navigation-transparent::after {
@@ -56,7 +58,6 @@
 
 .navigation-colored::after {
     background-color: #584198;
-    top: 0;
 }
 
 #navigation__button {
@@ -80,7 +81,7 @@
 .navigation__link {
     color: #fff;
     text-decoration: none;
-    margin: 0 20px;
+    margin: 0 40px;
     text-align: center;
 }
 

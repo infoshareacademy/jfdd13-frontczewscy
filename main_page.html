@@ -5,36 +5,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="./css/normalize.css" />
   <link rel="stylesheet" href="./css/nav.css" />
   <link rel="stylesheet" href="./css/style.css" />
-  <title>Document</title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>CONCERTE</title>
 </head>
 
 <body>
-  <header id="header">
-    <nav>
-      <div class="nav__left">
-        <svg width="150" height="99" viewBox="0 0 150 99" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M6.81958 69.5319L48.3478 85.2596L60.694 49.168C43.4841 37.7021 43.11 53.4298 16.5683 41.0723L11.4374 56.0511L6.81958 69.5319Z"
-            fill="#D1F53F" />
-          <path
-            d="M96.9844 92L140.799 70.7802C142.241 70.0816 142.88 68.3726 142.249 66.8993L137.604 56.0511L131.992 42.9447C102.97 59.4213 115.317 39.2 82.1204 52.6808L96.9844 92Z"
-            fill="#D1F53F" />
-          <path
-            d="M6.81958 69.5319L48.3478 85.2596M6.81958 69.5319C6.81958 69.5319 8.92785 63.3772 11.4374 56.0511M6.81958 69.5319L11.4374 56.0511M48.3478 85.2596C48.3478 85.2596 55.8725 63.2626 60.694 49.168M48.3478 85.2596L60.694 49.168M96.9844 92L140.799 70.7802C142.241 70.0816 142.88 68.3726 142.249 66.8993L137.604 56.0511M96.9844 92C96.9844 92 87.9251 68.0359 82.1204 52.6808M96.9844 92L82.1204 52.6808M16.5683 41.0723C43.11 53.4298 43.4841 37.7021 60.694 49.168M16.5683 41.0723C19.438 32.6947 23.2388 21.599 25.9322 13.7362M16.5683 41.0723C15.029 45.566 13.1407 51.0784 11.4374 56.0511M16.5683 41.0723L11.4374 56.0511M60.694 49.168C64.0459 39.3694 68.8349 25.3697 70.9029 19.3244C71.4573 17.7037 70.5411 15.9585 68.8958 15.4819L32.0136 4.79573C30.476 4.35022 28.8596 5.19012 28.3408 6.70462C27.7519 8.42393 26.9159 10.8644 25.9322 13.7362M25.9322 13.7362C25.9322 13.7362 17.2951 5.49787 8.31606 30.9617C-0.66301 56.4255 11.4374 56.0511 11.4374 56.0511M121.303 17.98L116.49 6.74005C115.841 5.22391 114.089 4.51613 112.569 5.15549L73.4613 21.6023C71.9734 22.228 71.2439 23.9096 71.8146 25.4194C73.8986 30.932 78.7356 43.7273 82.1204 52.6808M121.303 17.98C121.303 17.98 132.901 11.1149 141.88 30.9617C150.859 50.8085 137.604 56.0511 137.604 56.0511M121.303 17.98C121.303 17.98 127.818 33.1954 131.992 42.9447M137.604 56.0511C137.604 56.0511 134.184 48.063 131.992 42.9447M137.604 56.0511L131.992 42.9447M82.1204 52.6808C115.317 39.2 102.97 59.4213 131.992 42.9447"
-            stroke="white" stroke-width="9" />
-        </svg>
-      </div>
-      <div class="nav__right">
-        <a href="#O_nas">O nas</a>
-        <a href="#Kontakt">Kontakt</a>
-        <a class="nav__active" href="#Login">Login</a>
-      </div>
-    </nav>
+  <header class="navigation">
+    <svg class="navigation__logo" width="150" height="50" viewBox="0 0 150 99" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M6.81958 69.5319L48.3478 85.2596L60.694 49.168C43.4841 37.7021 43.11 53.4298 16.5683 41.0723L11.4374 56.0511L6.81958 69.5319Z"
+        fill="#D1F53F" />
+      <path
+        d="M96.9844 92L140.799 70.7802C142.241 70.0816 142.88 68.3726 142.249 66.8993L137.604 56.0511L131.992 42.9447C102.97 59.4213 115.317 39.2 82.1204 52.6808L96.9844 92Z"
+        fill="#D1F53F" />
+      <path
+        d="M6.81958 69.5319L48.3478 85.2596M6.81958 69.5319C6.81958 69.5319 8.92785 63.3772 11.4374 56.0511M6.81958 69.5319L11.4374 56.0511M48.3478 85.2596C48.3478 85.2596 55.8725 63.2626 60.694 49.168M48.3478 85.2596L60.694 49.168M96.9844 92L140.799 70.7802C142.241 70.0816 142.88 68.3726 142.249 66.8993L137.604 56.0511M96.9844 92C96.9844 92 87.9251 68.0359 82.1204 52.6808M96.9844 92L82.1204 52.6808M16.5683 41.0723C43.11 53.4298 43.4841 37.7021 60.694 49.168M16.5683 41.0723C19.438 32.6947 23.2388 21.599 25.9322 13.7362M16.5683 41.0723C15.029 45.566 13.1407 51.0784 11.4374 56.0511M16.5683 41.0723L11.4374 56.0511M60.694 49.168C64.0459 39.3694 68.8349 25.3697 70.9029 19.3244C71.4573 17.7037 70.5411 15.9585 68.8958 15.4819L32.0136 4.79573C30.476 4.35022 28.8596 5.19012 28.3408 6.70462C27.7519 8.42393 26.9159 10.8644 25.9322 13.7362M25.9322 13.7362C25.9322 13.7362 17.2951 5.49787 8.31606 30.9617C-0.66301 56.4255 11.4374 56.0511 11.4374 56.0511M121.303 17.98L116.49 6.74005C115.841 5.22391 114.089 4.51613 112.569 5.15549L73.4613 21.6023C71.9734 22.228 71.2439 23.9096 71.8146 25.4194C73.8986 30.932 78.7356 43.7273 82.1204 52.6808M121.303 17.98C121.303 17.98 132.901 11.1149 141.88 30.9617C150.859 50.8085 137.604 56.0511 137.604 56.0511M121.303 17.98C121.303 17.98 127.818 33.1954 131.992 42.9447M137.604 56.0511C137.604 56.0511 134.184 48.063 131.992 42.9447M137.604 56.0511L131.992 42.9447M82.1204 52.6808C115.317 39.2 102.97 59.4213 131.992 42.9447"
+        stroke="white" stroke-width="9" />
+    </svg>
+    <div class="navigation__links">
+      <a class="navigation__link" href="#news">News</a>
+      <a class="navigation__link" href="#contact">Contact</a>
+      <a class="navigation__link" href="#about">About</a>
+    </div>
+    <div id="navigation__button">
+      <div class="navigation__bar bar1"></div>
+      <div class="navigation__bar bar2"></div>
+      <div class="navigation__bar bar3"></div>
+    </div>
   </header>
-  <main>
+  <main class="container">
     <section class="hero">
       <div class="hero__text">
         <h1>CON<span class="hero__certe">CERTE</span></h1>
@@ -51,22 +54,30 @@
       </div>
     </section>
 
+
     <section class="info">
-      <div>
-        <img src="vapor.jpg" alt="PHOTO1" />
-        <h3>podpis</h3>
-      </div>
-      <div>
-        <img src="vapor.jpg" alt="PHOTO2" />
-        <h3>podpis</h3>
-      </div>
-      <div>
-        <img src="vapor.jpg" alt="PHOTO3" />
-        <h3>podpis</h3>
-      </div>
-      <div>
-        <img src="vapor.jpg" alt="PHOTO4" />
-        <h3>podpis</h3>
+      <h1>Podstawowe funckje aplikacji</h1>
+      <div class="info__functions">
+        <div class="info__row">
+          <div class="info__element">
+            <i class="fa fa-search"></i>
+            <h3>Wyszukiwarka imprez</h3>
+          </div>
+          <div class="info__element">
+            <i class="fa fa-filter"></i>
+            <h3>Filtrowanie wyszukiwań</h3>
+          </div>
+        </div>
+        <div class="info__row">
+          <div class="info__element">
+            <i class="fa fa-comment"></i>
+            <h3>Dodawanie komentarzy</h3>
+          </div>
+          <div class="info__element">
+            <i class="fa fa-thumbs-up"></i>
+            <h3>Dodawanie ocen</h3>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -100,22 +111,11 @@
   </main>
   <footer>STOPKA</footer>
 </body>
-<script>
 
-  var myNav = document.querySelector('#header');
-  window.onscroll = function () {
-    "use strict";
-    console.log()
-    if (window.pageYOffset >= 500) {
-      myNav.classList.add("nav-colored");
-      myNav.classList.remove("nav-transparent");
-    }
-    else {
-      myNav.classList.add("nav-transparent");
-      myNav.classList.remove("nav-colored");
-    }
-  };
+</main>
 
-</script>
+<script src="./js/nav.js"></script>
+
+</body>
 
 </html>
