@@ -7,36 +7,6 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-header {
-    top: 0;
-    position: relative;
-    margin: 0;
-    position: fixed;
-    width: 100vw;
-    background: transparent;
-}
-
-.nav-transparent::after, .nav-colored::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    transition: 0.5s;
-    z-index: -1;
-}
-
-.nav-transparent::after {
-    background-color: transparent;
-    top: -150px;
-}
-
-.nav-colored::after {
-    background-color: #584198;
-    top: 0;
-}
-
-=======
 .navigation__bar {
     width: 35px;
     height: 5px;
@@ -58,7 +28,6 @@ header {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
 }
->>>>>>> JFDDF-18_Navigation
 
 .navigation {
     width: 100%;
@@ -120,17 +89,6 @@ header {
     display: none;
 }
 
-<<<<<<< HEAD
-
-/* .nav-colored { 
-    background-color:rgb(148, 148, 148);
-    transition: .3s;
-}
-.nav-transparent { 
-    background-color:transparent;
-    transition: .3s;
-} */
-=======
 @media (max-width: 800px) {
     .navigation {
         width: 100%;
@@ -160,4 +118,3 @@ header {
         display: inline;
     }
 }
->>>>>>> JFDDF-18_Navigation
