@@ -12,7 +12,9 @@ body {
 
 .container {
     justify-content: center;
+    width: 100%;
 }
+
 
 
 .hero {
@@ -64,10 +66,17 @@ body {
     height: 100%;
     object-fit: contain;
 }
+.info {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-.info h1 {
+.info h2 {
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
+    margin: 0;
 }
 
 .info__functions {
@@ -93,6 +102,7 @@ body {
 
 .info__element i {
     font-size: 55px;
+    color: #7B1FA2;
 }
 
 .info__element h3 {
@@ -137,6 +147,10 @@ body {
 
 
 @media (max-width: 600px) {
+    .info {
+        height: auto;
+    }
+    
     .info__functions {
         flex-direction: column;
         width: 100%;
@@ -153,6 +167,7 @@ body {
     
     .info__element {
         width: 100%;
+        padding: 10px;
     }
 }
 
