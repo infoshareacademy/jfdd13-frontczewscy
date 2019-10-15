@@ -10,18 +10,11 @@ body {
 
 .container {
     justify-content: center;
-<<<<<<< HEAD
-  
-}
-.section--full {
-    width: 100vw;
-=======
 }
 
 
 .hero {
     width: 100%;
->>>>>>> develop
     height: 100vh;
     display: flex;
     justify-content: center;

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=latin-ext');
+
+
+.button {
+    background-color: darkmagenta;
+    border: none;
+    color: blue;
+    text-align: center;
+    font-size: 2em;
+    padding: 20px 40px;
+    width: 400px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 40px 0px;
+    border-radius: 10px;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+ 
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+
+  .button span:after {
+      font-family: "FontAwesome";
+   content: "\f1d8"; 
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    right: 50px;
+    transition: 0.2s;
+  
+  }
+
+
+  .button:hover span {
+    padding-right: 50px;
+    color: chartreuse;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+    color: chartreuse;
+  }
+
+.premiere__inputbox {
+    width: 75vw;
+    padding: 20px;
+
+
+}
+
+.premiere__inputbox:focus {
+    outline: none;
+}
+}
+
+
+  @media (max-width: 800px) {
+
+      
+
+  }
