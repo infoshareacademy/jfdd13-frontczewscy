@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/details.css">
   <link rel="stylesheet" href="./css/premiere.css">
+  <link rel="stylesheet" href="./css/scroll.css">
+  <style>
+  html {
+            scroll-behavior: smooth;
+        }
+  
+  </style>
  
   <title>CONCERTE</title>
 </head>
@@ -19,8 +26,8 @@
   <header class="navigation">
     <img class="navigation__logo" src="./img/logoconcerte2.png" alt="logoconcerte">
     <div class="navigation__links">
-      <a class="navigation__link" href="#news">Funckje</a>
-      <a class="navigation__link" href="#contact">Zapis na premiere</a>
+      <a class="navigation__link" href="#functions">Podstawowe Funkcje</a>
+      <a class="navigation__link" href="#premier">Zapis na premiere</a>
       <a class="navigation__link" href="#about">O nas</a>
     </div>
     <div id="navigation__button">
@@ -30,7 +37,7 @@
     </div>
   </header>
   <main class="container">
-    <section class="hero">
+    <section class="hero" id="hero-section">
       <div class="hero__text">
         <h1>CON<span class="hero__certe">CERTE</span></h1>
         <p>
@@ -45,7 +52,7 @@
     </section>
 
 
-    <section class="info">
+    <section class="info" id="functions">
       <h1>Podstawowe funckje aplikacji</h1>
       <div class="info__functions">
         <div class="info__row">
@@ -117,7 +124,7 @@
 </div>
     </section>
 
-    <section class="premiere section--full">
+    <section class="premiere section--full" id="premier">
       <form class="premiere__form">
         <label for="email">TU WPISZ E-MAIL</label>
         <input class="premiere__inputbox" type="email" name="email" value="email" placeholder="e-mail" />
@@ -143,6 +150,12 @@
       ratione maiores cumque totam sapiente vero!</p>
   </main>
   <footer>STOPKA</footer>
+
+  <button id="scrollToTop" class="scrollButton" title="Go to top">
+    <a href="#hero-section">
+      <i class="fa fa-angle-up icon"></i>
+    </a>    
+  </button>
 </body>
 
 </main>
