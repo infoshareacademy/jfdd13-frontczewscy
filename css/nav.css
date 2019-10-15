@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
@@ -32,6 +33,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .navigation__bar {
@@ -120,13 +122,20 @@
         display: block;
     }
     .navigation__links {
-        display: none;
-    }
-    .navigation__links.responsive {
-        top: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-180px);
+        transition: 0.5s;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        background-color: #7B1FA2;
+        z-index: -1;
+        width: 100%;
+    }
+    .navigation__links.responsive {
+        transform: translateY(80px);
     }
     .navigation__link {
         padding: 20px;
