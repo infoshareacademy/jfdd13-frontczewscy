@@ -1,65 +1,72 @@
 body{
-font-family: 'Share Tech Mono', monospace;
-    
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0px;
 }
 .wrapper{
-    height: 100vh;
     width: 100%;
+    height: 100vh;
     background-color: rgb(228, 166, 166);
     display: flex;
     flex-direction: column;
 }
-.header{
+.header{    
     width: 100%;
     height: 20%;
     background-color: burlywood;
+    color:  rgb(110, 92, 68);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.people{ 
+h1{
+    align-self: center;
+}
+/* ----------------------divy do divów z nami------------------ */
+.content{
     width: 100%;
-    height: 70%;
+    height: 80vh;
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
 .team{
-    width: 100%;
-    height: 70%;
+    width: 50%;
+    height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
-/* .images{
+/* -------------------------divy z nami---------------------- */
+.card{
     width: 40%;
-    height: 50%;
-    background-color: rgb(15, 97, 97);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 30px;
 }
-.images-1{
-    width: 40%;
-    height: 50%;
-    background-color: rgb(97, 15, 83);
-} */
-
-img{
-    border-radius: 50px;
-    align-self: center;
-    margin-left: 20%;
-
+/* divy z jpgami */
+.span{
+    max-width: 307.75px;
+    max-height: 158.91px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
-  /* Some left and right padding inside the container */
-  .container {
-    padding: 0 16px;
-  }
-  
-  /* Clear floats */
-  .container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
+.span>img{
+    max-width: 138.48px;
+    max-height: 216.38px;
+}
+/* divy z danymi do jpgów */
+.data{ 
+    max-width: 307.75px;
+    max-height: 158.91px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+/* ------------------------------------------------------*/
   .button {
     border: none;
     border-radius: 10px;
@@ -71,45 +78,8 @@ img{
     text-align: center;
     cursor: pointer;
     width: 100%;
-  }
-  
+  } 
   .button:hover {
     background-color: rgb(85, 85, 85);
   }
 
-@media (max-width: 800px){
-
-    .team{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .images{
-        margin: 0px 0px 20px;
-    }
-}
-
-@media (max-width: 500px){
-    .people{ 
-        width: 100%;
-        height: 70%;
-        display: flex;
-        align-items: center;
-    }
-    .team{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .images{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        margin: 0px 0px 20px;
-    }
-    .images-1{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-    }
-}
