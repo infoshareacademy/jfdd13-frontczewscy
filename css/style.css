@@ -41,6 +41,7 @@ body {
     flex-direction: column;
     color: white;
     font-size: 30px;
+    padding: 5vmax;
 }
 .hero__certe {
     color: #f00
@@ -127,12 +128,18 @@ body {
     .hero__text,
     .hero__image{
         width: 100%;
+        color: rgb(32, 32, 32);
     }
     .hero__text {
         height: 40%;
         margin: 0;
         font-size: 20px;
         padding: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero__text h1 {
+        font-size: 30px;
     }
     .hero__image {
         height: 60%;
