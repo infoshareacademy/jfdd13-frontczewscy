@@ -43,6 +43,7 @@ h1{
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: center;
     margin: 30px;
 }
 /* divy z jpgami */
@@ -74,6 +75,9 @@ h3{
     align-self: center;
     margin-bottom: 10px;
 }
+a{
+    color:#7B1FA2;
+}
 /* ------------------------------------------------------*/
   .button {
    
@@ -101,10 +105,17 @@ h3{
     .content{
         flex-direction: column;
     }
+    .team{
+        width: 100%;
+    }
 }
 @media (max-width: 500px){
+    .wrapper{
+        height: auto;
+    }
     .content{
-        flex-direction: column;    
+        flex-direction: column; 
+        height: auto;   
     }
     .team{
         flex-direction: column;
@@ -112,6 +123,7 @@ h3{
     }
     .card{
         height: 20vh;
+        width: 100%;
         margin: 10px;
     }
     .span{
