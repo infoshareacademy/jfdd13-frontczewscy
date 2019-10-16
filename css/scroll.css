@@ -1,0 +1,34 @@
+.scrollButton {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #7B1FA2;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0;
+    transition: 0.5s ease-in;
+    transform: translateY(100px);
+    opacity: 0;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    padding: 5px;
+    transform: translateY(-3px);
+    color: white;
+}
+  
+.scrollButton:hover {
+    background-color: #555;
+}
+
+.scrollButton.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
