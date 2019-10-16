@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -5,14 +8,6 @@
 #navigation__button {
     display: inline-block;
     cursor: pointer;
-}
-
-.navigation__bar {
-    width: 35px;
-    height: 5px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
 }
 
 .change .bar1 {
@@ -37,7 +32,21 @@
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.navigation__bar {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.navigation__logo {
+    width: 85px;
+    height: 85px;
 }
 
 .navigation-transparent::after, .navigation-colored::after {
@@ -57,7 +66,7 @@
 }
 
 .navigation-colored::after {
-    background-color: #584198;
+    background-color: #7B1FA2;
 }
 
 #navigation__button {
@@ -79,14 +88,30 @@
 }
 
 .navigation__link {
-    color: #fff;
+    color: #ececec;
     text-decoration: none;
-    margin: 0 40px;
+    margin: 0 10px;
     text-align: center;
+    font-weight: bold;
+    background: #212121;
+    padding: 20px 40px;
+    border-radius: 5px;
 }
 
 .navigation__right {
     display: none;
+}
+
+@media (max-width: 1200px) {
+    .navigation__link {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .navigation__link {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -95,6 +120,14 @@
         top: 0;
         position: fixed;
         flex-direction: column;
+        align-items: flex-start;
+    }
+    .navigation__logo {
+        width: 65px;
+        height: 65px;
+    }
+    .navigation__link {
+        margin: 0;
     }
     .navigation__left {
         justify-content: flex-start;
@@ -104,15 +137,25 @@
         display: block;
     }
     .navigation__links {
-        display: none;
-    }
-    .navigation__links.responsive {
-        top: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-180px);
+        transition: 0.5s ease;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        background-color: #7B1FA2;
+        z-index: -1;
+        width: 100%;
+    }
+    .navigation__links.responsive {
+        transform: translateY(80px);
     }
     .navigation__link {
         padding: 20px;
+        background-color: transparent;
+
     }
     .navigation__right {
         display: inline;
