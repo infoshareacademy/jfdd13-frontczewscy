@@ -39,12 +39,13 @@
 }
 /* -------------------------divy z nami---------------------- */
 .card{
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 0px;
+    padding: 30px;
 }
 /* divy z jpgami */
 .m-span{
