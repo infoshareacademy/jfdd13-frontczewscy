@@ -88,11 +88,14 @@
 }
 
 .navigation__link {
-    color: #fff;
+    color: #ececec;
     text-decoration: none;
-    margin: 0 40px;
+    margin: 0 10px;
     text-align: center;
     font-weight: bold;
+    background: rgb(54, 54, 54);
+    padding: 20px 40px;
+    border-radius: 5px;
 }
 
 .navigation__right {
@@ -139,6 +142,7 @@
     }
     .navigation__link {
         padding: 20px;
+        background-color: transparent;
 
     }
     .navigation__right {
