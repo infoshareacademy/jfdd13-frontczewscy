@@ -27,7 +27,7 @@ body {
     background: url(../img/background2.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right center;
+    background-position: 80% 100%;
     background-clip: padding-box;
 }
 
@@ -140,6 +140,7 @@ body {
     .hero__image img {
         width: auto;
         height: 100%;
+        margin-bottom: 30px;
     }
 }
 

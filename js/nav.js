@@ -3,8 +3,11 @@ const navigationButton = document.querySelector("#navigation__button");
 const myNav = document.querySelector(".navigation");
 const scrollButton = document.querySelector('#scrollToTop');
 
+const height = 500
+
+// Add background to the headder at height of 500px;
 const addBackground = () => {
-  if (window.pageYOffset >= 500) {
+  if (window.pageYOffset >= height) {
     myNav.classList.add("navigation-colored");
     myNav.classList.remove("navigation-transparent");
   } else {
@@ -13,17 +16,19 @@ const addBackground = () => {
   }
 };
 
+// Add scrollButton to the site at height of 
 const addScrollButton = () => {
-  if (window.pageYOffset >= 500) {
+  if (window.pageYOffset >= height) {
     scrollButton.classList.add("active");
   } else {
     scrollButton.classList.remove("active");
   }
 }
 
+// Add responsive class to the navigation
 const makeResponsive = () => {
   if (navigation.className === "navigation__links") {
-    navigation.className += " responsive";
+    navigation.classList.add("responsive");
     myNav.classList.add("navigation-colored");
     myNav.classList.remove("navigation-transparent");
   } else {
@@ -32,40 +37,22 @@ const makeResponsive = () => {
   }
 };
 
+// Add change class to the navigation links
 const closeMenu = () => {
     navigation.className = "navigation__links";
     navigationButton.classList.remove("change");
 }
 
+// Checks for the click on navigation button
 navigationButton.addEventListener("click", () => {
   makeResponsive();
   navigationButton.classList.toggle("change");
   
 });
 
+// Checks for the scroll in window
 window.addEventListener("scroll", () => {
   addBackground();
   closeMenu();
   addScrollButton();
 });
-
-
-//Get the button
-// const scrollButton = document.querySelector('#scrollToTop');
-
-// // When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function() {scrollFunction()};
-
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     mybutton.style.display = "block";
-//   } else {
-//     mybutton.style.display = "none";
-//   }
-// }
-
-// // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//   document.body.scrollTop = 0;
-//   document.documentElement.scrollTop = 0;
-// }
