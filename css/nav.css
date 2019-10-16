@@ -102,6 +102,18 @@
     display: none;
 }
 
+@media (max-width: 1200px) {
+    .navigation__link {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .navigation__link {
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 800px) {
     .navigation {
         width: 100%;
