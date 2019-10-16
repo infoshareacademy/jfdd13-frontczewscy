@@ -52,20 +52,36 @@
   }
 
 .premiere__inputbox {
-    width: 75vw;
+    width: 50vw;
     padding: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    
 
 
 }
-
+::placeholder {
+    color: chartreuse;
+}
 .premiere__inputbox:focus {
     outline: none;
 }
+
+.premiere__form label {
+    
+    width: 75vw;
+    padding: 40px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+
+
 }
 
 
   @media (max-width: 800px) {
 
-      
+    .premiere__inputbox {
+        width: 85vw;
+    }
 
   }
