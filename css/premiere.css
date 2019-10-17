@@ -3,9 +3,9 @@
 .button {
   background-color: var(--primary-color);
   border: none;
-  color: var(--dark-primary-color);
+  color: var(--secondary-text);
   text-align: center;
-  font-size: 2em;
+  font-size: 1.3em;
   padding: 20px 40px;
   width: 400px;
   transition: all 0.5s;
