@@ -113,6 +113,9 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+.info__title {
+  font-size: 30px;
+}
 
 .info h2 {
     text-align: center;
@@ -124,7 +127,6 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    font-size: 30px;
     margin-bottom: 50px;
 }
 
@@ -147,7 +149,7 @@ body {
 }
 
 .info__element h3 {
-    font-size: 25px;
+    font-size: 20px;
     margin: 50px 0;
 }
 

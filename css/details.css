@@ -13,12 +13,13 @@
   font-size: 1.2em;
   width: 50%;
   text-align: center;
-  padding: 30px;
+  padding: 50px;
   font-weight: 100;
 }
 
 .details__box i {
   font-size: 40px;
+  
 }
 
 .details__box p {
@@ -26,7 +27,8 @@
 }
 
 .details__title {
-  text-align: center;
+  text-align: center;  
+  font-size: 30px;
 }
 
 @media (max-width: 800px) {
