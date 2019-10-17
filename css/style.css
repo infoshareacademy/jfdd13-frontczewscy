@@ -143,7 +143,7 @@ body {
 
 .info__element i {
     font-size: 55px;
-    color: var(--secondary-text);
+    color: var(--primary-text);
 }
 
 .info__element h3 {

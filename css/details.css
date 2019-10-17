@@ -1,6 +1,7 @@
 .details {
   width: 100%;
 }
+
 .details__all {
   display: flex;
   flex-direction: row;
@@ -9,9 +10,19 @@
 }
 
 .details__box {
-  font-size: 2em;
+  font-size: 1.2em;
   width: 50%;
   text-align: center;
+  padding: 30px;
+  font-weight: 100;
+}
+
+.details__box i {
+  font-size: 40px;
+}
+
+.details__box p {
+  color: var(--primary-text);
 }
 
 .details__title {
@@ -22,7 +33,6 @@
   .details__alls {
     flex-direction: column;
   }
-
   .details__box {
     width: 100%;
   }

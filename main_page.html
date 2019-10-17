@@ -33,7 +33,7 @@
     <div class="navigation__links">
       <a class="navigation__link" href="#functions">Podstawowe Funkcje</a>
       <a class="navigation__link" href="#premier">Zapis na premiere</a>
-      <a class="navigation__link" href="#about">O nas</a>
+      <a class="navigation__link" href="#">O nas</a>
     </div>
     <div id="navigation__button">
       <div class="navigation__bar bar1"></div>
@@ -132,12 +132,18 @@
     <section class="premiere section--full" id="premier">
       <form class="premiere__form">
         <label for="email">TU WPISZ E-MAIL</label>
-        <input class="premiere__inputbox" type="email" name="email"  placeholder="e-mail" />
+        
+        <input class="premiere__inputbox" type="email" name="email"  id="email" placeholder="e-mail" />
+        <div class="premiere__info">
+          <p>Zapewniamy bezpieczeństwo o Twoich danych.</p>
+          <p>Na wskazany emial zostanie wysłana tylko jedna wiadomość.</p>
+        </div>
         <button class="button"><span>ZAPISZ</span></button>
       </form>
+      
     </section>
     <!-- ----------------------------------------TEAM---SECTION------------------------------------------------------------------------- -->
-    <section class="m-wrapper">
+    <section class="m-wrapper" id="about">
       <div class="m-header">
           <h1>ZESPÓŁ</h1>
       </div>

@@ -67,7 +67,11 @@
 }
 
 .premiere {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text)
 }
 
 .premiere__form {
@@ -100,6 +104,12 @@
   border-radius:50px;
 
 
+}
+.premiere__info {
+  text-align: center;
+}
+.premiere__info p {
+  margin: 0;
 }
 
 @media (max-width: 800px) {
