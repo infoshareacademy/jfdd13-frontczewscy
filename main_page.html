@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/nav.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/nav.css" />  
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/team.css ">
@@ -20,9 +20,7 @@
   <link rel="stylesheet" href="./css/premiere.css">
   <link rel="stylesheet" href="./css/scroll.css">
   <style>
-  html {
-            scroll-behavior: smooth;
-        }
+ 
   
   </style>
  
@@ -35,7 +33,7 @@
     <div class="navigation__links">
       <a class="navigation__link" href="#functions">Podstawowe Funkcje</a>
       <a class="navigation__link" href="#premier">Zapis na premiere</a>
-      <a class="navigation__link" href="#about">O nas</a>
+      <a class="navigation__link" href="#">O nas</a>
     </div>
     <div id="navigation__button">
       <div class="navigation__bar bar1"></div>
@@ -48,9 +46,7 @@
       <div class="hero__text">
         <h1>CON<span class="hero__certe">CERTE</span></h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-          natus reiciendis dolore voluptates cumque, autem iure corporis
-          possimus. Vel, magnam.
+          Zorganizuj z nami swój dzień! Trójmiejskie wydarzenia, restauracje, bary, pogoda i planer twojego dnia! 
         </p>
       </div>
       <div class="hero__image">
@@ -59,8 +55,8 @@
     </section>
 
 
-    <section class="info" id="functions" style="background: rgb(151, 151, 151)">
-      <h2>Podstawowe funkcje aplikacji</h2>
+    <section class="info" id="functions">
+      <h2 class="info__title">Podstawowe funkcje aplikacji</h2>
       <div class="info__functions">
         <div class="info__row">
           <div class="info__element">
@@ -85,61 +81,67 @@
       </div>
     </section>
 
-    <section class="details section--full" style="background: rgb(203, 164, 235)">
-        <h2 class="details__title">Podstawowe funkcje aplikacji</h2>
+    <section class="details section--full">
+        <h2 class="details__title">Dodatkowe funkcje aplikacji</h2>
         <div class="details__all">
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-cutlery"></i>
+        <h3>RESTAURACJE NA DZIŚ</h3>
+        <p>Nie możesz się zdecydować gdzie zjeść super obiad? Skorzystaj z naszej podpowiedzi i sprawdź, którą restaurację dziś polecamy!</p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-glass"></i>
+        <h3>BAR NA DZIŚ</h3>
+        <p>Kłotnia z kolegami, bo nie możecie się zdecydować gdzie wypić piwko? Żaden problem! Sprawdź, który bar jest dzisiaj polecamy!</p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-coffee"></i>
+        <h3>KAWIARNIA NA DZIŚ</h3>
+        <p>Pragniesz sponytanicznej kawy z koleżanką ale nie masz pojęcia gdzie iść. Mamy rozwiązanie. Obczai Kawiarnie na dziś! </p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-cloud"></i>
+        <h3>POGODA</h3>
+        <p>Planujesz ostry melanż do rana na plaży ale nie chcesz, żeby zaskoczył Cię deszcz? Sprawdź u nas pogodę!</p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-spotify"></i>
+        <h3>TWOJA PLAYLISTA NA DZIŚ</h3>
+        <p>Zapętlona playlista Ariany Grande Cię nudzi? Muzyka Seleny Gomez nie sprawia już radości? Sprawdź naszą świeżą muzę i poczuj radość na nowo!</p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-search-plus"></i>
+        <h3>INFORMACJE O NOWO DODANYCH MIEJSCACH</h3>
+        <p>Byłeś już wszędzie i chciałbyś poznać nowe miejsca? Bez problemu znajdziesz je w jednej z naszych sekcji na stronie</p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-map-o"></i>
+        <h3>PLANOWANIE</h3>
+        <p>Zaplanuj imprezę, dodaj znajomych, ustal dress code, żonie/dziewczynie załatw bilet do muzeum i miej wszystko po kontrolą dzięki naszej funcki Planowania wydarzeµ! </p>
       </div>
       <div class="details__box">
-        <i class="fa fa-thumbs-up"></i>
-        <h3>FUNKCJA 1</h3>
-        <p>opis funkcji 1</p>
+        <i class="fa fa-star"></i>
+        <h3>SZCZĘŚLIWY TRAF</h3>
+        <p>Nie masz pomysłu na nic, jesteś hardcotem i nie boisz się wyzwań? Wylosuj sobie wydarzenie i sprawdź czy przeznaczenie rzuci Cię na szaloną imprezę do rana czy zaproponuje Ci wieczór z playlistą Steviego Wondera</p>
       </div>
 </div>
     </section>
 
-    <section class="premiere section--full" id="premier" style="background: rgb(119, 78, 172)">
+    <section class="premiere section--full" id="premier">
       <form class="premiere__form">
         <label for="email">TU WPISZ E-MAIL</label>
-        <input class="premiere__inputbox" type="email" name="email"  placeholder="e-mail" />
+        
+        <input class="premiere__inputbox" type="email" name="email"  id="email" placeholder="e-mail" />
+        <div class="premiere__info">
+          <p>Zapewniamy bezpieczeństwo o Twoich danych.</p>
+          <p>Na wskazany emial zostanie wysłana tylko jedna wiadomość.</p>
+        </div>
         <button class="button"><span>ZAPISZ</span></button>
       </form>
+      
     </section>
     <!-- ----------------------------------------TEAM---SECTION------------------------------------------------------------------------- -->
-    <section class="m-wrapper">
+    <section class="m-wrapper" id="about">
       <div class="m-header">
           <h1>ZESPÓŁ</h1>
       </div>
@@ -199,23 +201,6 @@
 
       </div>
   </section>
-    <h1>Test heading</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, incidunt accusamus? Aliquid alias deleniti
-      ratione maiores cumque totam sapiente vero!</p>
-    <h1>Test heading</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, incidunt accusamus? Aliquid alias deleniti
-      ratione maiores cumque totam sapiente vero!</p>
-    <h1>Test heading</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, incidunt accusamus? Aliquid alias deleniti
-      ratione maiores cumque totam sapiente vero!</p>
-    <h1>Test heading</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, incidunt accusamus? Aliquid alias deleniti
-      ratione maiores cumque totam sapiente vero!</p>
-    <h1>Test heading</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, incidunt accusamus? Aliquid alias deleniti
-      ratione maiores cumque totam sapiente vero!</p>
-  </main>
-  <footer>STOPKA</footer>
 
   <button id="scrollToTop" class="scrollButton" title="Przewiń na górę">
     <a href="#hero-section">
@@ -244,10 +229,3 @@
 </body>
 
 </html>
-
-
-
-
-<a href="#facebook">
-  <i class="fa fa-facebook"></i>
-  </a>

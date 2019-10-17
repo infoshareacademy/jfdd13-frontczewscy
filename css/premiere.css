@@ -1,87 +1,119 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=latin-ext');
-
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=latin-ext");
 
 .button {
-    background-color: darkmagenta;
-    border: none;
-    color: blue;
-    text-align: center;
-    font-size: 2em;
-    padding: 20px 40px;
-    width: 400px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 40px 0px;
-    border-radius: 10px;
-    display: flex;
-        align-items: center;
-        justify-content: center;
- 
-  }
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    font-family: 'Press Start 2P', cursive;
-  }
-  
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--secondary-text);
+  text-align: center;
+  font-size: 1.3em;
+  padding: 20px 40px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 40px 0px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .button span:after {
-      font-family: "FontAwesome";
-   content: "\f1d8"; 
-    position: absolute;
-    opacity: 0;
-    top: 0px;
-    right: 50px;
-    transition: 0.2s;
-  
-  }
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-family: "Press Start 2P", cursive;
+}
 
+.button span:after {
+  font-family: "FontAwesome";
+  content: "\f1d8";
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  right: 50px;
+  transition: 0.2s;
+}
 
-  .button:hover span {
-    padding-right: 50px;
-    color: chartreuse;
-  }
+.button:hover span {
+  padding-right: 50px;
+  color: var(--divider-color);
+}
 
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-    color: chartreuse;
-  }
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+  color: var(--divider-color);
+}
 
 .premiere__inputbox {
-    width: 50vw;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
-    
-
-
+  width: 50vw;
+  padding: 20px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
 }
 ::placeholder {
-    color: chartreuse;
+  color: var(--divider-color);
 }
 .premiere__inputbox:focus {
-    outline: none;
+  outline: none;
 }
 
 .premiere__form label {
-    
-    width: 75vw;
-    padding: 40px;
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
+  width: 75vw;
+  padding: 40px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+.premiere {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text)
+}
+
+.premiere__form {
+  margin-left: -10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: cursive;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.premiere__button {
+
+  background-color: var(--dark-primary-color);
+  padding: 20px 10px;
+  border-radius: 20px;
+  border: 4px solid var(--primary-color);
+
+}
+.premiere__button:hover {
+
+  background-color:var(--primary-color);
+  color: var(--dark-primary-color);
+  border: 4px solid var(--dark-primary-color);
+ transition: all 0.5s ease 0s;
+}
+.premiere__inputbox{
+  background-color: var(--dark-primary-color);
+  border-radius:50px;
 
 
 }
+.premiere__info {
+  text-align: center;
+}
+.premiere__info p {
+  margin: 0;
+}
 
-
-  @media (max-width: 800px) {
-
-    .premiere__inputbox {
-        width: 85vw;
-    }
-
+@media (max-width: 800px) {
+  .premiere__inputbox {
+    width: 85vw;
   }
+}
