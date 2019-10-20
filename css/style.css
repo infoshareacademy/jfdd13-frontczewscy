@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Share Tech Mono', monospace;
     margin: 0;
 }
 .container {
@@ -87,13 +87,9 @@ body {
     margin: 10px 0;
 }
 .hero__text p {
+    font-weight: bold;
     margin: 0;
-    color: var(--primary-text);
-    text-shadow:
-     -1px -1px 0 rgb(255, 255, 255),  
-      1px -1px 0 white,
-      -1px 1px 0 white,
-       1px 1px 0 white;
+    color: var(--text-icons);
 }
 .hero__image {
     width: 50%;
