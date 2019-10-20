@@ -34,7 +34,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;     
+    padding: 50px;
 }
 
 .hero:before, .hero:after {
@@ -74,7 +74,7 @@ body {
     font-size: 30px;
     padding: 5vmax;
     text-shadow:
-       3px 3px 0 rgb(65, 61, 61),
+       3px 3px 6px rgb(65, 61, 61),
      -1px -1px 0 rgb(65, 61, 61),  
       1px -1px 0 rgb(65, 61, 61),
       -1px 1px 0 rgb(65, 61, 61),
@@ -168,6 +168,7 @@ body {
     .hero {
         flex-direction: column;
         padding: 5px;
+        text-align: center; 
     }
     .hero__text,
     .hero__image{
