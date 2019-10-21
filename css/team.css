@@ -15,6 +15,7 @@
 }
 .m-header>h1{
     align-self: center;
+    letter-spacing: 3px;
 }
 /* ----------------------divy do divów z nami------------------ */
 .m-content{
@@ -51,7 +52,7 @@
 .m-span>img{
     max-width: 138.48px;
     max-height: 216.38px;
-    border: 5px outset var(--secondary-text);
+    border: 7px outset var(--secondary-text);
     border-radius: 50%;
 }
 /* divy z danymi do jpgów */
