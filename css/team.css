@@ -52,6 +52,7 @@
     max-width: 138.48px;
     max-height: 216.38px;
     border: 5px outset var(--secondary-text);
+    border-radius: 50%;
 }
 /* divy z danymi do jpgów */
 .m-data{ 
