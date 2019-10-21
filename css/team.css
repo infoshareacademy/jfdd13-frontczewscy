@@ -1,6 +1,6 @@
 .m-wrapper{
     width: 100%;
-    background-color: var(--divider-color);
+    background-color: #DDCCFF;
     display: flex;
     flex-direction: column;
     padding: 40px 10px;
