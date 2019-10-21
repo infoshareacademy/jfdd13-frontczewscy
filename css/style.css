@@ -22,6 +22,7 @@ html {
 body {
     font-family: 'Share Tech Mono', monospace;
     margin: 0;
+    width: 100%;
 }
 .container {
     justify-content: center;
