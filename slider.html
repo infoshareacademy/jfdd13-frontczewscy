@@ -1,69 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="images-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/slider.css">
-</head>
 
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/slider.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
 
-
-
+  <body>
     <section class="slider">
-        <div class="slider__images">
-            <img class="mySlides" src="./img/Maria.png" style="display:none">
-            <img class="mySlides" src="./img/Mateusz.jpg" style="">
-            <img class="mySlides" src="./img/Michal.jpg" style="display:none">
-            <img class="mySlides" src="./img/Robert .jpg" style="display:none">
-            
-            <div class="indicators">
-                <div class="column">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Maria.png"
-                        style="" onclick="currentDiv(1)">
-                </div>
-                <div class="column">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Mateusz.jpg"
-                        style="" onclick="currentDiv(2)">
-                </div>
-                <div class="column">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Michal.jpg"
-                        style="" onclick="currentDiv(3)">
-                </div>
-                <div class="column">
-                        <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Robert .jpg"
-                            style="" onclick="currentDiv(3)">
-                    </div>
+      <div class="slider__images">
+        <img
+          class="slider__image"
+          src="./img/slider/concerting.jpg"
+          style="opacity: 1;"
+        />
+        <img class="slider__image" src="./img/slider/party.jpg"
+        style="opacity: 0;"
+        >
+        <img
+          class="slider__image"
+          src="./img/slider/comment.jpg"
+          style="opacity: 0;"
+        />
+        <img
+          class="slider__image"
+          src="./img/slider/rating.png"
+          style="opacity: 0;"
+        />
+
+        <div class="indicators">
+          <div class="info__functions">
+            <div class="info__row">
+              <div class="info__element">
+                <i class="fa fa-search"></i>
+                <h3>Wyszukiwarka imprez</h3>
+              </div>
+              <div class="info__element">
+                <i class=" fa fa-filter"></i>
+                <h3>Filtrowanie wyszukiwań</h3>
+              </div>
             </div>
+            <div class="info__row">
+              <div class="info__element">
+                <i class="fa fa-comment"></i>
+                <h3>Dodawanie komentarzy</h3>
+              </div>
+              <div class="info__element">
+                <i class=" fa fa-thumbs-up"></i>
+                <h3>Dodawanie ocen</h3>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <script>
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
+      const images = document.querySelectorAll(".slider__image");
+      const elements = document.querySelectorAll(".info__element");
 
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = x.length }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-            }
-            x[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " w3-opacity-off";
-        }
+      elements.forEach((element, index) => {
+        element.addEventListener("click", () => {
+          showImg(index);
+        });
+      });
 
+      function showImg(element) {
+        images.forEach((item, index) => {
+          item.style.opacity = "0";
+          console.log(item)
+        });
+        
+        images[element].style.opacity = "1";
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
