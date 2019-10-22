@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/slider.css">
+</head>
+
+<body>
+
+
+
+    <section class="slider">
+        <div class="slider__images">
+            <img class="mySlides" src="./img/Maria.png" style="display:none">
+            <img class="mySlides" src="./img/Mateusz.jpg" style="">
+            <img class="mySlides" src="./img/Michal.jpg" style="display:none">
+            <img class="mySlides" src="./img/Robert .jpg" style="display:none">
+            
+            <div class="indicators">
+                <div class="column">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Maria.png"
+                        style="" onclick="currentDiv(1)">
+                </div>
+                <div class="column">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Mateusz.jpg"
+                        style="" onclick="currentDiv(2)">
+                </div>
+                <div class="column">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Michal.jpg"
+                        style="" onclick="currentDiv(3)">
+                </div>
+                <div class="column">
+                        <img class="demo w3-opacity w3-hover-opacity-off" src="./img/Robert .jpg"
+                            style="" onclick="currentDiv(3)">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-opacity-off";
+        }
+
+    </script>
+
+</body>
+
+</html>

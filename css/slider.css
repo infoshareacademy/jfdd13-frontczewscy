@@ -1,0 +1,16 @@
+.slider__images {
+    width: 50%;
+}
+.slider__images img {
+    width: 100%;
+}
+
+.indicators {
+    display: flex;
+}
+.column {
+    width: 25%;
+}
+.column img {
+    width: 100%;
+}
