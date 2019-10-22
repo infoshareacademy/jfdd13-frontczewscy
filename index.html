@@ -1,298 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/team.css " />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/details.css" />
+    <link rel="stylesheet" href="./css/premiere.css" />
+    <link rel="stylesheet" href="./css/scroll.css" />
+    <link rel="stylesheet" href="./css/slider.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono&display=swap&subset=latin-ext"
-    rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/nav.css" />
-  <link rel="stylesheet" href="./css/team.css ">
-  <link rel="stylesheet" href="./css/footer.css">
-  <link rel="stylesheet" href="./css/details.css">
-  <link rel="stylesheet" href="./css/premiere.css">
-  <link rel="stylesheet" href="./css/scroll.css">
-  <link rel="stylesheet" href="./css/slider.css">
+    <title>CONCERTE</title>
+  </head>
 
-  <title>CONCERTE</title>
-</head>
-
-<body>
-  <header class="navigation">
-    <img class="navigation__logo" src="./img/logoconcerte2.png" alt="logoconcerte">
-    <div class="navigation__links">
-      <a class="navigation__link" href="#functions">Podstawowe Funkcje</a>
-      <a class="navigation__link" href="#premier">Zapis na premiere</a>
-      <a class="navigation__link" href="#about">O nas</a>
-    </div>
-    <div id="navigation__button">
-      <div class="navigation__bar bar1"></div>
-      <div class="navigation__bar bar2"></div>
-      <div class="navigation__bar bar3"></div>
-    </div>
-  </header>
-  <main class="container">
-    <section class="hero" id="hero-section">
-      <div class="hero__text">
-        <h1>CON<span class="hero__certe">CERTE</span></h1>
-        <p>
-          Zorganizuj z nami swój dzień! Trójmiejskie wydarzenia, restauracje, bary, pogoda i planer twojego dnia!
-        </p>
+  <body>
+    <header class="navigation">
+      <img
+        class="navigation__logo"
+        src="./img/logoconcerte2.png"
+        alt="logoconcerte"
+      />
+      <div class="navigation__links">
+        <a class="navigation__link" href="#functions">Podstawowe Funkcje</a>
+        <a class="navigation__link" href="#premier">Zapis na premiere</a>
+        <a class="navigation__link" href="#about">O nas</a>
       </div>
-      <div class="hero__image">
-        <img src="./img/greece3_720.png" alt="">
+      <div id="navigation__button">
+        <div class="navigation__bar bar1"></div>
+        <div class="navigation__bar bar2"></div>
+        <div class="navigation__bar bar3"></div>
       </div>
-    </section>
-
-    <section class="slider">
-      <div class="w3-container">
-        <h2>Slideshow Indicators</h2>
-        <p>Using images to indicate how many slides there are in the slideshow, and highlight the image the user is currently viewing.</p>
-      </div>
-      
-      <div class="w3-content" style="max-width:1200px">
-        <img class="mySlides" src="img_nature_wide.jpg" style="width:100%;display:none">
-        <img class="mySlides" src="img_snow_wide.jpg" style="width:100%">
-        <img class="mySlides" src="img_mountains_wide.jpg" style="width:100%;display:none">
-      
-        <div class="w3-row-padding w3-section">
-          <div class="w3-col s4">
-            <img class="demo w3-opacity w3-hover-opacity-off" src="img_nature_wide.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
-          </div>
-          <div class="w3-col s4">
-            <img class="demo w3-opacity w3-hover-opacity-off" src="img_snow_wide.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
-          </div>
-          <div class="w3-col s4">
-            <img class="demo w3-opacity w3-hover-opacity-off" src="img_mountains_wide.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="info" id="functions">
-      <h2 class="info__title">Podstawowe funkcje aplikacji</h2>
-      <div class="info__functions">
-        <div class="info__row">
-          <div class="info__element">
-            <i class="fa fa-search"></i>
-            <h3>Wyszukiwarka imprez</h3>
-          </div>
-          <div class="info__element">
-            <i class="fa fa-filter"></i>
-            <h3>Filtrowanie wyszukiwań</h3>
-          </div>
-        </div>
-        <div class="info__row">
-          <div class="info__element">
-            <i class="fa fa-comment"></i>
-            <h3>Dodawanie komentarzy</h3>
-          </div>
-          <div class="info__element">
-            <i class="fa fa-thumbs-up"></i>
-            <h3>Dodawanie ocen</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="details section--full">
-      <h2 class="details__title">Dodatkowe funkcje aplikacji</h2>
-      <div class="details__all">
-        <div class="details__box">
-          <i class="fa fa-cutlery"></i>
-          <h3>RESTAURACJE NA DZIŚ</h3>
-          <p>Nie możesz się zdecydować gdzie zjeść super obiad? Skorzystaj z naszej podpowiedzi i sprawdź, którą
-            restaurację dziś polecamy!</p>
-        </div>
-        <div class="details__box">
-          <i class="fa fa-glass"></i>
-          <h3>BAR NA DZIŚ</h3>
-          <p>Kłotnia z kolegami, bo nie możecie się zdecydować gdzie wypić piwko? Żaden problem! Sprawdź, który bar jest
-            dzisiaj polecany!</p>
-        </div>
-        <div class="details__box">
-          <i class="fa fa-coffee"></i>
-          <h3>KAWIARNIA NA DZIŚ</h3>
-          <p>Pragniesz sponytanicznej kawy z koleżanką ale nie masz pojęcia gdzie iść. Mamy rozwiązanie. Obczai
-            Kawiarnie na dziś! </p>
-        </div>
-        <div class="details__box">
-          <i class="fa fa-cloud"></i>
-          <h3>POGODA</h3>
-          <p>Planujesz ostry melanż do rana na plaży ale nie chcesz, żeby zaskoczył Cię deszcz? Sprawdź u nas pogodę!
+    </header>
+    <main class="container">
+      <section class="hero" id="hero-section">
+        <div class="hero__text">
+          <h1>CON<span class="hero__certe">CERTE</span></h1>
+          <p>
+            Zorganizuj z nami swój dzień! Trójmiejskie wydarzenia, restauracje,
+            bary, pogoda i planer twojego dnia!
           </p>
         </div>
-        <div class="details__box">
-          <i class="fa fa-spotify"></i>
-          <h3>TWOJA PLAYLISTA NA DZIŚ</h3>
-          <p>Zapętlona playlista Ariany Grande Cię nudzi? Muzyka Seleny Gomez nie sprawia już radości? Sprawdź naszą
-            świeżą muzę i poczuj radość na nowo!</p>
+        <div class="hero__image">
+          <img src="./img/greece3_720.png" alt="" />
         </div>
-        <div class="details__box">
-          <i class="fa fa-search-plus"></i>
-          <h3>INFORMACJE O NOWO DODANYCH MIEJSCACH</h3>
-          <p>Byłeś już wszędzie i chciałbyś poznać nowe miejsca? Bez problemu znajdziesz je w jednej z naszych sekcji na
-            stronie</p>
-        </div>
-        <div class="details__box">
-          <i class="fa fa-map-o"></i>
-          <h3>PLANOWANIE</h3>
-          <p>Zaplanuj imprezę, dodaj znajomych, ustal dress code, miej
-            wszystko po kontrolą dzięki naszej funcki Planowania wydarzeµ! </p>
-        </div>
-        <div class="details__box">
-          <i class="fa fa-star"></i>
-          <h3>SZCZĘŚLIWY TRAF</h3>
-          <p>Nie masz pomysłu na nic, jesteś hardcotem i nie boisz się wyzwań? Wylosuj sobie wydarzenie i sprawdź czy
-            przeznaczenie rzuci Cię na szaloną imprezę do rana czy zaproponuje Ci wieczór z playlistą Steviego Wondera
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="premiere section--full" id="premier">
-      <form class="premiere__form">
-        <label for="email">Zapisz sie na premiere naszej aplikacji!</label>
-
-        <input class="premiere__inputbox" type="email" name="email" id="email" placeholder="e-mail" />
-        <div class="premiere__info">
-          <p>Zapewniamy bezpieczeństwo Twoich danych.</p>
+      <section class="slider">
+        <div class="slider__images">
+          <img
+            class="slider__image"
+            src="./img/slider/concerting.jpg"
+            style="opacity: 1;"
+          />
+          <img
+            class="slider__image"
+            src="./img/slider/party.jpg"
+            style="opacity: 0;"
+          />
+          <img
+            class="slider__image"
+            src="./img/slider/comment.jpg"
+            style="opacity: 0;"
+          />
+          <img
+            class="slider__image"
+            src="./img/slider/rating.png"
+            style="opacity: 0;"
+          />
         </div>
-        <button class="button"><span>ZAPISZ</span></button>
-      </form>
-
-    </section>
-
-    <section class="m-wrapper" id="about">
-      <div class="m-header">
-        <h1>ZESPÓŁ</h1>
-      </div>
-      <div class="m-content">
-        <div class="team">
-          <div class="card">
-            <div class="m-span"><img src="img/Mateusz.jpg" alt="Mateusz"></div>
-            <div class="m-data">
-              <h3>Mateusz Rostkowski</h3>
-              <div class="m-socials">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/?lang=pl"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="m-usericon">
-                  <i class="fa fa-user"></i>
-                </a>
+        <div class="indicators">
+          <div class="info__functions">
+            <div class="info__row">
+              <div class="info__element" style="background-color: rgb(209, 164, 164)">
+                <i class="fa fa-search"></i>
+                <h3>Wyszukiwarka imprez</h3>
               </div>
-              <a href="#">
-                <div><button class="m-button">About me</button></div>
-              </a>
+              <div class="info__element">
+                <i class=" fa fa-filter"></i>
+                <h3>Filtrowanie wyszukiwań</h3>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="m-span"><img src="img/Robert .jpg" alt="Robert"></div>
-            <div class="m-data">
-              <h3>Robert Gancarczyk</h3>
-              <div class="m-socials">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/?lang=pl"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="m-usericon">
-                  <i class="fa fa-user"></i>
-                </a>
+            <div class="info__row">
+              <div class="info__element">
+                <i class="fa fa-comment"></i>
+                <h3>Dodawanie komentarzy</h3>
               </div>
-              <a href="#">
-                <div><button class="m-button">About me</button></div>
-              </a>
+              <div class="info__element">
+                <i class=" fa fa-thumbs-up"></i>
+                <h3>Dodawanie ocen</h3>
+              </div>
             </div>
           </div>
         </div>
-        <div class="team">
-          <div class="card">
-            <div class="m-span"><img src="img/Michal.jpg" alt="Michał"></div>
-            <div class="m-data">
-              <h3>Michał Zarzycki</h3>
-              <div class="m-socials">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/?lang=pl"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="m-usericon">
-                  <i class="fa fa-user"></i>
+      </section>
+
+      <section class="details section--full">
+        <h2 class="details__title">Dodatkowe funkcje aplikacji</h2>
+        <div class="details__all">
+          <div class="details__box">
+            <i class="fa fa-cutlery"></i>
+            <h3>RESTAURACJE NA DZIŚ</h3>
+            <p>
+              Nie możesz się zdecydować gdzie zjeść super obiad? Skorzystaj z
+              naszej podpowiedzi i sprawdź, którą restaurację dziś polecamy!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-glass"></i>
+            <h3>BAR NA DZIŚ</h3>
+            <p>
+              Kłotnia z kolegami, bo nie możecie się zdecydować gdzie wypić
+              piwko? Żaden problem! Sprawdź, który bar jest dzisiaj polecany!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-coffee"></i>
+            <h3>KAWIARNIA NA DZIŚ</h3>
+            <p>
+              Pragniesz sponytanicznej kawy z koleżanką ale nie masz pojęcia
+              gdzie iść. Mamy rozwiązanie. Obczai Kawiarnie na dziś!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-cloud"></i>
+            <h3>POGODA</h3>
+            <p>
+              Planujesz ostry melanż do rana na plaży ale nie chcesz, żeby
+              zaskoczył Cię deszcz? Sprawdź u nas pogodę!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-spotify"></i>
+            <h3>TWOJA PLAYLISTA NA DZIŚ</h3>
+            <p>
+              Zapętlona playlista Ariany Grande Cię nudzi? Muzyka Seleny Gomez
+              nie sprawia już radości? Sprawdź naszą świeżą muzę i poczuj radość
+              na nowo!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-search-plus"></i>
+            <h3>INFORMACJE O NOWO DODANYCH MIEJSCACH</h3>
+            <p>
+              Byłeś już wszędzie i chciałbyś poznać nowe miejsca? Bez problemu
+              znajdziesz je w jednej z naszych sekcji na stronie
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-map-o"></i>
+            <h3>PLANOWANIE</h3>
+            <p>
+              Zaplanuj imprezę, dodaj znajomych, ustal dress code, miej wszystko
+              po kontrolą dzięki naszej funcki Planowania wydarzeµ!
+            </p>
+          </div>
+          <div class="details__box">
+            <i class="fa fa-star"></i>
+            <h3>SZCZĘŚLIWY TRAF</h3>
+            <p>
+              Nie masz pomysłu na nic, jesteś hardcotem i nie boisz się wyzwań?
+              Wylosuj sobie wydarzenie i sprawdź czy przeznaczenie rzuci Cię na
+              szaloną imprezę do rana czy zaproponuje Ci wieczór z playlistą
+              Steviego Wondera
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="premiere section--full" id="premier">
+        <form class="premiere__form">
+          <label for="email">Zapisz sie na premiere naszej aplikacji!</label>
+
+          <input
+            class="premiere__inputbox"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="e-mail"
+          />
+          <div class="premiere__info">
+            <p>Zapewniamy bezpieczeństwo Twoich danych.</p>
+          </div>
+          <button class="button"><span>ZAPISZ</span></button>
+        </form>
+      </section>
+
+      <section class="m-wrapper" id="about">
+        <div class="m-header">
+          <h1>ZESPÓŁ</h1>
+        </div>
+        <div class="m-content">
+          <div class="team">
+            <div class="card">
+              <div class="m-span">
+                <img src="img/Mateusz.jpg" alt="Mateusz" />
+              </div>
+              <div class="m-data">
+                <h3>Mateusz Rostkowski</h3>
+                <div class="m-socials">
+                  <a href="https://www.facebook.com/"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                  <a href="https://twitter.com/?lang=pl"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                  <a href="#" class="m-usericon">
+                    <i class="fa fa-user"></i>
+                  </a>
+                </div>
+                <a href="#">
+                  <div><button class="m-button">About me</button></div>
                 </a>
               </div>
-              <a href="#">
-                <div><button class="m-button">About me</button></div>
-              </a>
+            </div>
+            <div class="card">
+              <div class="m-span">
+                <img src="img/Robert .jpg" alt="Robert" />
+              </div>
+              <div class="m-data">
+                <h3>Robert Gancarczyk</h3>
+                <div class="m-socials">
+                  <a href="https://www.facebook.com/"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                  <a href="https://twitter.com/?lang=pl"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                  <a href="#" class="m-usericon">
+                    <i class="fa fa-user"></i>
+                  </a>
+                </div>
+                <a href="#">
+                  <div><button class="m-button">About me</button></div>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <div class="m-span"><img src="img/Maria.png" alt="Maria"></div>
-            <div class="m-data">
-              <h3>Maria Romańczyk</h3>
-              <div class="m-socials">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/?lang=pl"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="m-usericon">
-                  <i class="fa fa-user"></i>
+          <div class="team">
+            <div class="card">
+              <div class="m-span">
+                <img src="img/Michal.jpg" alt="Michał" />
+              </div>
+              <div class="m-data">
+                <h3>Michał Zarzycki</h3>
+                <div class="m-socials">
+                  <a href="https://www.facebook.com/"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                  <a href="https://twitter.com/?lang=pl"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                  <a href="#" class="m-usericon">
+                    <i class="fa fa-user"></i>
+                  </a>
+                </div>
+                <a href="#">
+                  <div><button class="m-button">About me</button></div>
                 </a>
               </div>
-              <a href="#">
-                <div><button class="m-button">About me</button></div>
-              </a>
+            </div>
+            <div class="card">
+              <div class="m-span"><img src="img/Maria.png" alt="Maria" /></div>
+              <div class="m-data">
+                <h3>Maria Romańczyk</h3>
+                <div class="m-socials">
+                  <a href="https://www.facebook.com/"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                  <a href="https://twitter.com/?lang=pl"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                  <a href="#" class="m-usericon">
+                    <i class="fa fa-user"></i>
+                  </a>
+                </div>
+                <a href="#">
+                  <div><button class="m-button">About me</button></div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <button id="scrollToTop" class="scrollButton" title="Przewiń na górę">
-      <a href="#hero-section">
-        <i class="fa fa-angle-up icon"></i>
-      </a>
-    </button>
+      <button id="scrollToTop" class="scrollButton" title="Przewiń na górę">
+        <a href="#hero-section">
+          <i class="fa fa-angle-up icon"></i>
+        </a>
+      </button>
 
-    <footer class="footer">
-      <ul>
-        <li><a href="url">Informacje</a></li>
-        <li><a href="url">Regulamin</a></li>
-        <li><a href="url">Prywatność</a></li>
-        <li><a href="url">Cookies</a></li>
-        <li><a href="url">Reklama</a></li>
-        <li><a href="url">Marketing</a></li>
-        <li>© 2019 ConCerte</li>
-      </ul>
+      <footer class="footer">
+        <ul>
+          <li><a href="url">Informacje</a></li>
+          <li><a href="url">Regulamin</a></li>
+          <li><a href="url">Prywatność</a></li>
+          <li><a href="url">Cookies</a></li>
+          <li><a href="url">Reklama</a></li>
+          <li><a href="url">Marketing</a></li>
+          <li>© 2019 ConCerte</li>
+        </ul>
 
-      <a href="#facebook"><i class="fa fa-facebook footer__icon"></i></a>
-      <a href="https://github.com/infoshareacademy/jfdd13-frontczewscy"><i class="fa fa-git footer__icon"></i></a>
-    </footer>
+        <a href="#facebook"><i class="fa fa-facebook footer__icon"></i></a>
+        <a href="https://github.com/infoshareacademy/jfdd13-frontczewscy"
+          ><i class="fa fa-git footer__icon"></i
+        ></a>
+      </footer>
+    </main>
 
-  </main>
-
-  <script src="./js/nav.js"></script>
-  <script>
-      function currentDiv(n) {
-        showDivs(slideIndex = n);
-      }
-      
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-        }
-        x[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " w3-opacity-off";
-      }
-    
-  </script>
-
-</body>
-
+    <script src="./js/nav.js"></script>
+    <script src="./js/slider.js"></script>
+  </body>
 </html>
