@@ -178,13 +178,13 @@ body {
     .hero__text {
         height: 40%;
         margin: 0;
-        font-size: 20px;
+        font-size: 30px;
         padding: 40px;
         align-items: center;
         justify-content: center;
     }
     .hero__text h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
     .hero__image {
         height: 60%;
@@ -212,7 +212,7 @@ body {
         width: 100%;
     }
     .hero__text {
-        font-size: 15px;
+        font-size: 25px;
         height: 50vh;
     }
     
