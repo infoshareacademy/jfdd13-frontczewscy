@@ -175,23 +175,21 @@ body {
 }
 
 @media (max-width: 1000px) {
-  /* .hero {
-        flex-direction: column;
-        padding: 5px;
-        text-align: center; 
-    } */
-
   .left__button,
   .right__button {
     top: 40%;
   }
 
   .left__button {
-    left: 60px;
+    left: 40px;
   }
   .right__button {
-    right: 0px;
+    right: -20px;
   }
+
+  .left__button i::before, .right__button i::before {
+    width: auto;
+}
 
   .hero__item {
     flex-direction: column;
@@ -203,9 +201,6 @@ body {
     width: 100%;
     height: 500px;
 }
-
-
-
 
 
 @media (max-width: 1000px) {
