@@ -1,7 +1,12 @@
+.slider__holder {
+    overflow: hidden;
+}
+
 .slider__images {
     width: 100%;
     position: relative;
     height: 400px;
+    transition: 0.5s;
 }
 .slider__image {
     width: 100%;
@@ -82,7 +87,6 @@
 
 .info__element:hover {
     cursor: pointer;
-    transform: scale(1.2);
 }
 
 .info__element h3 {
