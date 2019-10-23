@@ -74,8 +74,8 @@
 
 #navigation__button {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 18px;
+    right: 18px;
     display: none;
 }
 
@@ -166,7 +166,7 @@
         width: 100%;
     }
     .navigation__links.responsive {
-        transform: translateY(80px);
+        transform: translateY(73px);
     }
     .navigation__link {
         padding: 20px;
