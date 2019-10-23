@@ -37,6 +37,11 @@ body {
 .hero__holder {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+.hero__slider {
+    width: 100%;
+    height: 100%;
 }
 
 .hero__item {
@@ -59,20 +64,49 @@ body {
 .right__button {
     position: absolute;
     top:50%;
+    width: 60px;
+    height: 60px;
     transform: translate(-50%, -50%);
+    z-index: 99;
+    border: none;
+    outline: none;
+    color: var(--text-icons);
+    cursor: pointer;
+    padding: 0;
+    transition: 0.5s ease-in;
+    background-color: var(--dark-primary-color);
+    border-radius: 50%;
+    opacity: 0.66;
 }
 .left__button {
-    left: 40px;
+    left: 80px;
 }
 .right__button {
-    right: 40px;
+    right: 20px;
 }
 
 .left__button i,
 .right__button i {
-    width: 100%;
-    height: 100%;
-    font-size: 50px
+    top:0;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    transform: translateY(-3px);
+    color: var(--text-icons);
+}
+
+.left__button i::before,
+.right__button i::before {
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.right__button i::before {
+    left: 23px;
 }
 
 
