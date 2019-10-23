@@ -1,67 +1,45 @@
-const images = document.querySelectorAll(".slider__image");
-const elements = document.querySelectorAll(".info__element");
-const slider = document.querySelector(".slider__images");
+
 
 const heroSlider = document.querySelector('.hero__slider');
 const heroElements = document.querySelectorAll(".hero__item");
+const leftButton = document.querySelector(".left__button");
+const rightButton = document.querySelector(".right__button");
 
-let n = 0;
-let interval = setInterval(() => {
-  n++;
-  if (n == heroElements.length) {
-    n = 0;
+let currentSlide = 0;
+let interval = null;
+let intervalTime = 5000; // in miliseconds
+
+interval = setInterval(animate, intervalTime);
+
+function animate() {
+  currentSlide++;
+  if (currentSlide == heroElements.length) {
+    currentSlide = 0;
   }
-  console.log(n);
-  heroSlideElements(n);
-}, 5000);
-
-function heroSlideElements(index) {
-    heroSlider.style.transform = `translateX(${-index}00%)`
+  heroSlideElements(currentSlide);
 }
 
-let a = 0;
-let counting = setInterval(() => {
-  if(a > 4) {
-    a--;
-  }
-  if (a < -1) {
-    a++;
-  }
-  console.log(a)
-}, 1000)
+function nextSlide() {
+  if(currentSlide < heroElements.length - 1){
+    currentSlide++;
+  }  
+  clearInterval(interval);
+  heroSlideElements(currentSlide);
+}
+
+function previousSlide() {
+  if(currentSlide > 0){
+    currentSlide--;
+  }  
+  heroSlideElements(currentSlide);
+  clearInterval(interval);
+}
+
+function heroSlideElements(index) {
+  heroSlider.style.transform = `translateX(${-index}00%)`
+}
+
+leftButton.addEventListener('click', previousSlide);
+rightButton.addEventListener('click', nextSlide)
 
 
-// let n = 0;
-
-// elements.forEach((element, index) => {
-//   element.addEventListener("click", () => {
-//     showImg(index);
-//     changeColor(index);
-//     console.log(index);
-//     n = index;
-//   });
-// });
-
-// function showImg(index) {
-//   slider.style.transform = `translateX(${-index}00%)`
-// }
-
-// function changeColor(element) {
-//   elements.forEach(item => {
-//     item.style.backgroundColor = "rgb(133, 93, 93)";
-//     item.style.transform = "scale(1)";
-//   });
-
-//   elements[element].style.backgroundColor = "rgb(209, 164, 164)";
-//   elements[element].style.transform = "scale(1.1)";
-// }
-
-// let interval = setInterval(() => {
-//     n++
-//     if(n == elements.length) {
-//         n = 0;
-//     }
-//     console.log(n);
-//     changeColor(n);
-//     showImg(n);
-// }, 5000);
