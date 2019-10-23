@@ -25,7 +25,7 @@
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     font-family: 'Press Start 2P', cursive;
     z-index: 9;
 }
@@ -43,8 +43,8 @@
 }
 
 .navigation__logo {
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
 }
 
 .navigation__text {
