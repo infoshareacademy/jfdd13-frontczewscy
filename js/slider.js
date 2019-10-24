@@ -20,21 +20,22 @@ function animate() {
     currentSlide = 0;
   }
   heroSlideElements(currentSlide);
-  console.log('set')
 }
-setTheInterval();
+
+function onSlideCLicks() {
+  clearInterval(interval);
+  heroSlideElements(currentSlide);
+  clearTimeout(setTheInterval)
+  setTimeout(setTheInterval, timeoutTime);
+}
 
 function nextSlide() {
   if(currentSlide < heroElements.length - 1){
     currentSlide++;
   } else {
     currentSlide = 0;
-  }
-  console.log(currentSlide);
-  clearInterval(interval);
-  heroSlideElements(currentSlide);
-  clearTimeout(setTheInterval)
-  setTimeout(setTheInterval, timeoutTime);
+  } 
+  onSlideCLicks();
 }
 
 function previousSlide() {
@@ -44,16 +45,15 @@ function previousSlide() {
   } 
   else {
     currentSlide--;
-  }
-  heroSlideElements(currentSlide);
-  clearInterval(interval);
-  clearTimeout(setTheInterval);
-  setTimeout(setTheInterval, timeoutTime);
+  };
+  onSlideCLicks()
 }
 
 function heroSlideElements(index) {
   heroSlider.style.transform = `translateX(${-index}00%)`
 }
+
+setTheInterval();
 
 leftButton.addEventListener('click', previousSlide);
 rightButton.addEventListener('click', nextSlide)
