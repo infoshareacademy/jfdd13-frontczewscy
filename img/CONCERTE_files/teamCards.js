@@ -35,18 +35,21 @@ cards.forEach((element, index) => {
 })
 
 cards.forEach((element, index) => {
+    console.log(element)
     element.addEventListener('mouseout', () => {
         showFront(index)
     })
 })
 
 document.addEventListener('scroll', () => {
-    if(showed == false && (window.pageYOffset >= bodyDocument.offsetHeight - window.screen.height - 200)) {
+    if(showed == false && (window.pageYoffset >= bodyDocument.offsetHeight - window.screen.height)) {
         showAll();
         showed = true;
         setTimeout(() => {
             hideAll();
         }, 1000);
     }
+
+    console.log(window.pageYOffset)
 })
 

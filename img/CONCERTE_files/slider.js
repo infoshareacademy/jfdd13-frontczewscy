@@ -20,6 +20,7 @@ function animate() {
     currentSlide = 0;
   }
   heroSlideElements(currentSlide);
+  console.log('set')
 }
 setTheInterval();
 
@@ -29,6 +30,7 @@ function nextSlide() {
   } else {
     currentSlide = 0;
   }
+  console.log(currentSlide);
   clearInterval(interval);
   heroSlideElements(currentSlide);
   clearTimeout(setTheInterval)
