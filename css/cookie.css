@@ -28,3 +28,11 @@
 .cookie>a>p{
     margin: 20px;
 }
+#but{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: 5px solid #7B1FA2;
+    background-color: #FF4081;
+    color: white;
+}

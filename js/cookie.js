@@ -1,1 +1,6 @@
-// widzialność diva przy uruchomieniu strony
+const buttonM = document.querySelector('#but');
+const cookieM = document.querySelector('.cookie');
+buttonM.addEventListener('click', function (){
+        cookieM.style = "display: none";
+    }
+    )
