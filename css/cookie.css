@@ -1,0 +1,21 @@
+.cookie{
+    margin: 0px;
+    padding: 20px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1000;
+
+    width: 100%;
+    height: 20vh;
+    background-color: #7B1FA2;
+    font-size: 12px;
+    color: white;
+    display: none;
+}
+
+.cookie>a>h6{
+    font-weight: bold;
+    
+}
