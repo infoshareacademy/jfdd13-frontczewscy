@@ -34,16 +34,11 @@ function nextSlide() {
     currentSlide++;
   } else {
     currentSlide = 0;
-<<<<<<< HEAD
-  } 
-  onSlideCLicks();
-=======
   }
   clearInterval(interval);
   heroSlideElements(currentSlide);
   clearTimeout(setTheInterval)
   setTimeout(setTheInterval, timeoutTime);
->>>>>>> 84f1e04a7de0c4d4bb7467677dc92e7b661f8af6
 }
 
 function previousSlide() {

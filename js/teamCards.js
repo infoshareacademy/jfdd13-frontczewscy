@@ -41,12 +41,12 @@ cards.forEach((element, index) => {
 })
 
 document.addEventListener('scroll', () => {
-    if(showed == false && (window.pageYOffset >= bodyDocument.offsetHeight - window.screen.height - 200)) {
+    if(showed == false && (window.pageYOffset >= bodyDocument.offsetHeight - window.screen.height - 200 || window.pageYOffset >= section.offsetTop - window.screen.height / 2)) {
         showAll();
         showed = true;
         setTimeout(() => {
             hideAll();
-        }, 1000);
+        }, 800);
     }
 })
 
