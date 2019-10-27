@@ -3,6 +3,16 @@ const navigationButton = document.querySelector("#navigation__button");
 const myNav = document.querySelector(".navigation");
 const scrollButton = document.querySelector('#scrollToTop');
 
+
+scrollButton.addEventListener('click', () => {
+  window.scroll({
+    top : 0,
+    left : 0,
+    behavior : 'smooth'
+  });
+})
+
+
 const height = 500
 
 // Add background to the headder at height of 500px;
