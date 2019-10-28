@@ -52,7 +52,7 @@
   padding: 20px;
   text-align: center;
   font-family: "Press Start 2P", cursive;
-  color: var(--divider-color);;
+  color: var(--text-icons);;
 }
 ::placeholder {
   color: var(--divider-color);
@@ -73,7 +73,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--secondary-text)
+  color: var(--primary-text)
 }
 
 .premiere__form {
@@ -81,7 +81,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 70px 0 50px;
+  padding: 50px 0;
+  
 }
 
 .premiere__button {
@@ -90,6 +91,7 @@
   padding: 20px 10px;
   border-radius: 20px;
   border: 4px solid var(--primary-color);
+ 
 
 }
 .premiere__button:hover {
