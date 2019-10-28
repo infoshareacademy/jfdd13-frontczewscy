@@ -20,14 +20,9 @@ function animate() {
     currentSlide = 0;
   }
   heroSlideElements(currentSlide);
+  console.log('set')
 }
-
-function onSlideCLicks() {
-  clearInterval(interval);
-  heroSlideElements(currentSlide);
-  clearTimeout(setTheInterval)
-  setTimeout(setTheInterval, timeoutTime);
-}
+setTheInterval();
 
 function nextSlide() {
   if(currentSlide < heroElements.length - 1){
@@ -35,6 +30,7 @@ function nextSlide() {
   } else {
     currentSlide = 0;
   }
+  console.log(currentSlide);
   clearInterval(interval);
   heroSlideElements(currentSlide);
   clearTimeout(setTheInterval)
@@ -48,15 +44,16 @@ function previousSlide() {
   } 
   else {
     currentSlide--;
-  };
-  onSlideCLicks()
+  }
+  heroSlideElements(currentSlide);
+  clearInterval(interval);
+  clearTimeout(setTheInterval);
+  setTimeout(setTheInterval, timeoutTime);
 }
 
 function heroSlideElements(index) {
   heroSlider.style.transform = `translateX(${-index}00%)`
 }
-
-setTheInterval();
 
 leftButton.addEventListener('click', previousSlide);
 rightButton.addEventListener('click', nextSlide)
