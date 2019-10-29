@@ -20,14 +20,11 @@ function createCookie() {
 if(localStorage.getItem('cookie') === null){
     createCookie();
     cookieM.style = "display: block";
+    const buttonM = document.querySelector('#but');
+    buttonM.addEventListener('click', function () {
+        cookieM.style = "display: none";
+        localStorage.setItem('cookie', 'true');
+    });
 }
 
 
-const buttonM = document.querySelector('#but');
-
-
-buttonM.addEventListener('click', function () {
-    cookieM.style = "display: none";
-    localStorage.setItem('cookie', 'true');
-}
-)
