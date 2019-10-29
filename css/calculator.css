@@ -46,7 +46,8 @@ text-align: center;
     background-color: var(--dark-primary-color);
     padding: 20px 10px;
     border-radius: 20px;
-    border: 4px solid var(--primary-color);
+    border: 4px solid black;
+    font-weight: bold;
 
 }
 
