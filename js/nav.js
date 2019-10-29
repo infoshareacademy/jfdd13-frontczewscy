@@ -72,9 +72,9 @@ document.addEventListener("scroll", navHighlight);
 
 
 function setBackground() {
-  link1.style.backgroundColor = "#212121";
-  link2.style.backgroundColor = "#212121";
-  link3.style.backgroundColor = "#212121";
+  link1.style.backgroundColor = "";
+  link2.style.backgroundColor = "";
+  link3.style.backgroundColor = "";
 }
 
 
