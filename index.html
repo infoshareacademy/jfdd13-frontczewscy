@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="./css/slider.css" />
     <link rel="stylesheet" href="./css/cookie.css">
     <link rel="stylesheet" href="./css/animated.css">
+    <link rel="stylesheet" href="./css/calculator.css">
+ 
 
     <title>CONCERTE</title>
   </head>
@@ -74,10 +76,12 @@
             </div>
             <div class="hero__item" style="transform: translateX(100%);">
               <div class="hero__text">
-                <h1>Filtrowanie<span class="hero__certe">wyszukiwań</span></h1>
+                <h1>Wylicz<span class="hero__certe"> koszt imprezy</span></h1>
                 <p>
-                  Zorganizuj z nami swój dzień! Trójmiejskie wydarzenia,
-                  restauracje, bary, pogoda i planer twojego dnia!
+                  Podaj liczbę osób, zaznacz czy jesteś studentem a nasz kalkulator wyliczy Ci przysługującą zniżkę oraz poda kwotę imprezy.
+                    <div class = "calculator__button">
+                        <button id="calcButton">KALKULATOR</button>
+                        </div>
                 </p>
               </div>
               <div class="hero__image">
@@ -291,6 +295,25 @@
           <i class="fa fa-angle-up icon"></i>
         </a>
       </button>
+    
+      <div id="calculator" style="display: none;">
+          <span class="exitButtonSpan"><button id="exitButton">X</button></span>
+        <h1>KALKULATOR CEN IMPREZ</h1>
+        <div class="container">
+            <div class="rangeDiv">
+              <input type="range" min="1" max="20" class="slider" value="1" class="slider" id="myRange" oninput="sliderChange()" >
+              <label for="range"></label>
+              </div>
+              <div class="checkboxDiv">
+              <input type="checkbox" name="checkbox" id="checkbox" onclick="sliderChange()">
+              <label for="checkbox" >JESTEM STUDENTEM</label>
+              </div>  
+               <p>Liczba osób: <span id="demo"></span></p>  
+               <p>CENA PODSTAWOWA: 20000zł</p>
+               <p>Zniżka: <span id="discount"></span></p>
+               <p>Cena po zniżce: <span id="cena"></span></p>  
+        </div>
+      </div>
       <div class="emailInfo"></div>
 
       <footer class="footer">
@@ -310,8 +333,10 @@
         ></a>
       </footer>
     </main>
+ 
     <div class="cookie">
       </div>
+      <script src="./js/calculator.js"></script>
     <script src="./js/nav.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/cookie.js"></script>
