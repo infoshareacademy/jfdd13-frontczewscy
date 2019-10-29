@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=latin-ext");
-
 :root {
   --dark-primary-color: #7b1fa2;
   --light-primary-color: #e1bee7;
@@ -125,19 +123,6 @@ body {
   object-fit: contain;
 }
 
-#info {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--dark-primary-color);
-  color: var(--text-icons);
-  padding: 40px;
-  border-radius: 5px;
-  border: 3px solid white;
-
-}
-
 @media (max-width: 1000px) {
 
   .hero__item {
@@ -150,12 +135,6 @@ body {
     width: 100%;
     height: 500px;
   }
-  .info__functions {
-    flex-direction: column;
-  }
-  .info__row {
-    width: 100%;
-  }
   .hero {
     flex-direction: column;
     padding: 5px;
@@ -166,18 +145,21 @@ body {
     width: 100%;
   }
   .hero__text {
-    height: 40%;
+    height: 60%;
     margin: 0;
     font-size: 30px;
-    padding: 40px;
+    padding: 40px 40px 20px;
     align-items: center;
     justify-content: center;
   }
   .hero__text h1 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+  .hero__text p {
+    font-size: 20px;
   }
   .hero__image {
-    height: 60%;
+    height: 40%;
   }
   .hero__image img {
     width: auto;
@@ -190,33 +172,11 @@ body {
 }
 
 @media (max-width: 600px) {
-  .info {
-    height: auto;
-  }
-
-  .info__functions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .info__row {
-    flex-direction: column;
-    width: 100%;
-  }
-  .hero__text {
-    font-size: 25px;
-    height: 50vh;
-  }
   .hero__text h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
   .hero__text p {
-    font-size: 21px;
-  }
-
-  .info__element {
-    width: 100%;
-    padding: 10px;
+    font-size: 18px;
   }
 }
 
