@@ -33,6 +33,7 @@ class DomControl {
   }
   static endGame() {
     alert('gameOver');
+    keys = [];
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
   }
