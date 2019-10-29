@@ -27,8 +27,9 @@
     <link rel="stylesheet" href="./css/premiere.css" />
     <link rel="stylesheet" href="./css/scroll.css" />
     <link rel="stylesheet" href="./css/slider.css" />
+    <link rel="stylesheet" href="./css/cookie.css">
     <link rel="stylesheet" href="./css/animated.css">
-    <link rel="stylesheet" href="/calculator.css">
+    <link rel="stylesheet" href="./css/calculator.css">
  
 
     <title>CONCERTE</title>
@@ -96,7 +97,7 @@
                 </p>
               </div>
               <div class="hero__image">
-                <img src="./img/greece3_720.png" alt="" />
+                <img src="./img/comment-png-27.png" alt="" style="width: 200px; height: 200px;"/>
               </div>
             </div>
             <div class="hero__item" style="transform: translateX(300%);">
@@ -203,11 +204,12 @@
             name="email"
             id="email"
             placeholder="e-mail"
+            required
           />
           <div class="premiere__info">
             <p>Zapewniamy bezpieczeństwo Twoich danych.</p>
           </div>
-          <button class="button"><span>ZAPISZ</span></button>
+          <button id="submit" class="button"><span>ZAPISZ</span></button>
         </form>
       </section>
 
@@ -312,6 +314,7 @@
                <p>Cena po zniżce: <span id="cena"></span></p>  
         </div>
       </div>
+      <div class="emailInfo"></div>
 
       <footer class="footer">
         <ul>
@@ -330,9 +333,14 @@
         ></a>
       </footer>
     </main>
-    <script src="./calculator.js"></script>
+ 
+    <div class="cookie">
+      </div>
+      <script src="./js/calculator.js"></script>
     <script src="./js/nav.js"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/cookie.js"></script>
     <script src="./js/teamCards.js"></script>
+    <script src="./js/email.js"></script>
   </body>
 </html>
