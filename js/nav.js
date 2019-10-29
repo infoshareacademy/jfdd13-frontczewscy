@@ -66,3 +66,32 @@ window.addEventListener("scroll", () => {
   closeMenu();
   addScrollButton();
 });
+
+
+document.addEventListener("scroll", navHighlight);
+
+
+function setBackground() {
+  link1.style.backgroundColor = "#212121";
+  link2.style.backgroundColor = "#212121";
+  link3.style.backgroundColor = "#212121";
+}
+
+
+function navHighlight() {
+  var link1=document.getElementById('link1');
+  var link2=document.getElementById('link2');
+  var link3=document.getElementById('link3');
+  let currentPosition = window.scrollY + 80;
+  setBackground();
+  console.log(currentPosition);
+  if (currentPosition  >= functions.offsetTop && currentPosition < premier.offsetTop) {
+   link1.style.backgroundColor = "#bd3161";
+  }
+  else if (currentPosition >=  premier.offsetTop && currentPosition <  about.offsetTop) {
+   link2.style.backgroundColor = "#bd3161";
+  }
+  else if  (currentPosition >=  about.offsetTop) { 
+   link3.style.backgroundColor = "#bd3161";
+  }
+}
