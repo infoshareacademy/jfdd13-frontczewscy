@@ -16,7 +16,7 @@ if (localStorage.getItem('email') == "true") {
     setTimeout(() =>{
         emailInfo.innerHTML = ``;
         localStorage.setItem('email', false);
-    }, 15000);
+    }, 5000);
 }
 
 form.addEventListener("submit", addToLocal)
