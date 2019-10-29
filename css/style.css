@@ -100,7 +100,7 @@ body {
     1px 1px 0 rgb(65, 61, 61);
 }
 .hero__certe {
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 .hero__text h1 {
   margin: 10px 0;
