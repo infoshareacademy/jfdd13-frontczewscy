@@ -84,7 +84,6 @@ function navHighlight() {
   var link3=document.getElementById('link3');
   let currentPosition = window.scrollY + 80;
   setBackground();
-  console.log(currentPosition);
   if (currentPosition  >= functions.offsetTop && currentPosition < premier.offsetTop) {
    link1.style.backgroundColor = "#bd3161";
   }
