@@ -5,14 +5,21 @@ const rightButton = document.querySelector(".right__button");
 
 let currentSlide = 0;
 let interval = null;
-let intervalTime = 5000; // in miliseconds
+let intervalTime = 6000; // in miliseconds
 let timeoutTime = 15000; // in miliseconds
 let time;
+let moving;
 
 function createTimeout() {
   clearTimeout(time)
   time = setTimeout(setTheInterval, timeoutTime);
 }
+
+window.addEventListener('mousemove', () => {
+  clearInterval(interval);
+  clearTimeout(time);
+  time = setTimeout(setTheInterval, timeoutTime);
+})
 
 
 

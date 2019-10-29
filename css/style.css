@@ -90,7 +90,7 @@ body {
   width: 50%;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   margin-bottom: 150px;
   flex-direction: column;
