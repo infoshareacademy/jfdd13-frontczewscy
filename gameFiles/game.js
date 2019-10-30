@@ -1,8 +1,10 @@
 const board = document.querySelector(".board");
+const suppBoard = document.querySelector('#support-board');
 let keys = [];
 let moveSpeed = 5;
 let moveX;
 let moveY;
+
 
 // Class for making Player in game;
 class Player {
@@ -59,6 +61,8 @@ let makerandom = setInterval(() => {
     Math.random() >= 0.5,
   ]
 }, 800)
+let allElements = []
+
 
 function animate() {
   player1.box.style.left = player1.x + "px";
@@ -94,12 +98,88 @@ function animate() {
   // console.log(keys);
   DomControl.checkCollision(player1.box, enemy.box, DomControl.endGame);
 
+  if (allElements.length > 2){
+    clearInterval(drinkRefreshing);
+  }
+  addDrinkToBoard();
+  drinkCollision();
   requestAnimationFrame(animate);
 }
 animate();
+
 
 DomControl.randomSpawn(player1);
 DomControl.randomSpawn(enemy);
 
 document.addEventListener("keydown", keyPressed);
 document.addEventListener("keyup", keyReleased);
+
+//Pojawienie sie obiektu co 5,5 sekundy
+var spawnRate = 5500;
+
+
+function spawnRandomObject() {
+    
+
+    //Obiekty zaczynaja od okreslonego polozenia
+    var spawnLineY = Math.random() * 470;
+    var spawnLineX = Math.random() * 470;
+    
+    var t;
+
+//Random od 0 do 1 czy bedzie pierwszy drink czy drugi
+    if (Math.random() < 0.50) {
+        t = "black";
+    } else {
+        t = "green";
+    }
+    const div = document.createElement('div');
+
+
+//Tworzenie obiektu (drinkow)
+    var object = {
+        box: div,
+        type: t,
+        x: Math.random() * (board.width - 30) + 15,
+        y: spawnLineY,
+        x: spawnLineX,
+    }
+
+    
+    div.classList.add('t');
+    div.style.backgroundColor = t;
+    div.style.top = object.y + 'px';
+    div.style.left = object.x + 'px';
+
+    allElements.push(object);
+}
+
+// Takes all elements from allElements & put them in the support board
+function addDrinkToBoard() {
+  suppBoard.innerHTML = "";
+  allElements.forEach((element) => {
+    suppBoard.appendChild(element.box)
+  })
+}
+
+
+
+
+// Deleting elements from array
+function collectDrink(index) {
+  allElements.splice(index,1)
+}
+// For each element in allElements array start a function 
+function drinkCollision() {
+  allElements.forEach((element, index) => {
+    DomControl.checkCollision(element.box, player1.box, () => {
+      collectDrink(index)
+    });
+    DomControl.checkCollision(element.box, enemy.box, () => {
+      collectDrink(index)
+    });
+  })
+}
+
+let drinkRefreshing = setInterval(spawnRandomObject, spawnRate)
+
