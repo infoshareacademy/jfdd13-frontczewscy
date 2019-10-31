@@ -1,6 +1,7 @@
 // getting dom elements
 const board = document.querySelector(".board");
 const suppBoard = document.querySelector("#support-board");
+const pointsBoard = document.querySelector("#points")
 
 // configuration
 let keys = [];
@@ -10,6 +11,7 @@ let playerSpeed = 5;
 let enemySpeed = 2;
 let moveX;
 let moveY;
+let playerPoints = 0;
 
 // Class for making Player in game;
 class Player {
@@ -26,8 +28,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 40) * 10;
-    player.y = Math.floor(Math.random() * 40) * 10;
+    player.x = Math.floor(Math.random() * 60) * 10;
+    player.y = Math.floor(Math.random() * 60) * 10;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -49,6 +51,7 @@ class DomControl {
     drinksArray = [];
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
+    playerPoints = 0;
   }
 }
 
@@ -91,6 +94,7 @@ let makeRandomMove = setInterval(() => {
     Math.random() >= 0.5,
     Math.random() >= 0.5
   ];
+  console.log(randomDirections);
 }, 800);
 
 // function for moving the enemy
@@ -121,6 +125,7 @@ function animate() {
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
   }
+  drawPoints();
   addDrinkToBoard();
   drinkCollision();
   requestAnimationFrame(animate);
@@ -140,8 +145,8 @@ var spawnRate = 5500;
 
 function spawnDrinks() {
   // Setting random spawn point for the drinks
-  let spawnLineY = Math.random() * 470;
-  let spawnLineX = Math.random() * 470;
+  let spawnLineY = Math.random() * 570;
+  let spawnLineX = Math.random() * 570;
 
   let color;
 
@@ -182,6 +187,18 @@ function addDrinkToBoard() {
   });
 }
 
+// Collecting drinks by player
+function addPlayerPoints() {
+  console.log("Point for player");
+  playerPoints++;
+}
+
+// Collecting drinks by enemy
+function addEnemyPoints() {
+  console.log("Point for enemy");
+  playerPoints--;
+}
+
 // Deleting elements from array
 function collectDrink(index) {
   clearInterval(drinkRefreshing);
@@ -193,11 +210,20 @@ function drinkCollision() {
   drinksArray.forEach((element, index) => {
     DomControl.checkCollision(element.box, player1.box, () => {
       collectDrink(index);
+      addPlayerPoints();
     });
     DomControl.checkCollision(element.box, enemy.box, () => {
       collectDrink(index);
+      addEnemyPoints();
     });
   });
+}
+
+function drawPoints() {
+  pointsBoard.innerHTML = `
+    <h2>Player Points</h2>
+    <p>${playerPoints}</p>
+  `
 }
 
 // start the interval that spawns drinks

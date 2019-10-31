@@ -8,8 +8,8 @@ body {
 .board {
     position: relative;
     background-color: red;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 }
 
 #player1, #enemy {
