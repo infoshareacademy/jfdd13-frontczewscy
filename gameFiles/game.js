@@ -103,3 +103,78 @@ DomControl.randomSpawn(enemy);
 
 document.addEventListener("keydown", keyPressed);
 document.addEventListener("keyup", keyReleased);
+
+const all = document.querySelector('body');
+const instr = document.createElement('div');
+const startButton = document.createElement('button');
+startButton.innerText = "START"
+startButton.classList.add('startButton');
+instr.classList.add('instr');
+
+let instC = true;
+
+instr.innerHTML = `
+    <h1>INSTRUKCJA</h1>
+    <ol>
+    <li>zbieraj drinki i pokaż innym jak dobrym imprezowiczem jesteś</li>
+    <li>uważaj na żula, kontakt z nim grozi zakończeniem kariery imprezowicza</li>
+    <li>jeśli żul zdobędzie drinka przed Tobą tracisz punkty (prawdziwy imprezowicz nie dzieli się alkoholem)</li>
+    <li>prawdziwy imprezowicz pije w tempie ekspresowym, wykaż się szybkością, bo czas na zebranie drinków jest ograniczony! (w końcu każda imreza się kiedyś kończy ;(((</li>
+    <li>Steruj strzałkami</li>
+    </ol>
+    <button class="instrButton">ROZUMIEM, GRAMY</button>
+`;
+board.appendChild(instr);
+board.appendChild(startButton)
+document.querySelector('.instrButton').addEventListener('click', instrDisplay);
+document.querySelector('.instr2').addEventListener('click', instrDisplay);
+startButton.addEventListener('click', function(){
+  timer.innerHTML = `01: 00`;
+  var interval = setInterval(function() {
+
+    sec--;
+      // if(sec==10)   timer.innerHTML = `00: 10}`;
+
+      if(sec< 10) timer.innerHTML = `00: 0${sec}`;
+    
+      else timer.innerHTML = `00: ${sec}`;
+    
+  
+      if(sec ==0) clearInterval(interval);
+  }, 1000);
+
+  startButton.style.display = "none";
+  
+
+});
+window.addEventListener('click', windowClicker);
+function instrDisplay() {
+    
+    if(instC) {
+      instC=false;
+
+        instr.style.display = "none";
+        window.removeEventListener('click', windowClicker);
+    }
+    else{ 
+      instC=true
+      instr.style.display = "flex";
+      window.addEventListener('click', windowClicker);
+    }
+}
+
+// // Add the listener:
+// window.addEventListener('click', windowClicker);
+
+// // Remove it:
+
+function windowClicker(event) {
+ 
+  if (event.target == all) {
+    instrDisplay()
+
+  }
+}
+
+const timer =document.querySelector(".timer");
+let sec = 60;
