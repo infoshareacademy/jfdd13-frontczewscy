@@ -230,11 +230,15 @@ function drawPoints() {
 
 // start the interval that spawns drinks
 let drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+
+// ------------instructions----------------
+// ------------startGame-------------------
 const all = document.querySelector('body');
 const instr = document.createElement('div');
 const startButton = document.createElement('button');
 startButton.innerText = "START"
 startButton.classList.add('startButton');
+startButton.classList.add('game-button');
 instr.classList.add('instr');
 
 let instC = true;
