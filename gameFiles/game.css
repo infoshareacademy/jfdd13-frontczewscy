@@ -5,6 +5,12 @@ body {
     justify-content: center;
 }
 
+#points {
+    position: absolute;
+    top: 50%;
+    right: -25%;
+}
+
 .board {
     position: relative;
     background-color: red;
