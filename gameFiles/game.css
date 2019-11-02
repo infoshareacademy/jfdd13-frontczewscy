@@ -13,15 +13,26 @@ body {
     right: -25%;
 }
 
+.btnInstr {
+    position: absolute;
+    right: -20%;
+    top: 70%;
+}
+
+.startButton {
+   padding: 50px;
+   position: absolute;
+   right: -30%;
+   top: 10%;
+
+}
+
 .board {
 
     background-color: red;
     width: 600px;
     height: 600px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     align-items: center;
     justify-content: center;
 }
@@ -34,14 +45,7 @@ body {
     justify-content: center;
 }
 
-.btnInstr {
-    position: fixed;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    justify-content: center;
-}
+
 
 #player1, #enemy {
     position: absolute;
@@ -52,6 +56,8 @@ body {
 #player1 {
     background-color: blue;
 }
+
+
 
 #enemy {
     background-color: rgb(74, 74, 94);
@@ -84,31 +90,4 @@ body {
     transform: translate(-50%, -50%);
     align-items: center;
     justify-content: center;
-}
-.startButton {
-         display: flex;
-        flex-direction: column;
-        width: 200px;
-        height: 90px;
-        padding: 50px;
-     
-        z-index: 1;
-      
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        align-items: center;
-      justify-content: center;
-    
-}
-.instr2 {    
-    position: fixed;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    justify-content: center;
-    display: block;
-
 }
