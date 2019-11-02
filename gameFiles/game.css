@@ -3,6 +3,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 #points {
@@ -12,10 +14,33 @@ body {
 }
 
 .board {
-    position: relative;
+
     background-color: red;
     width: 600px;
     height: 600px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+}
+.gameTitle, .timer {
+    position: fixed;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+}
+
+.btnInstr {
+    position: fixed;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
 }
 
 #player1, #enemy {
@@ -44,4 +69,46 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+.instr {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 300px;
+    padding: 50px;
+    background: darkmagenta;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+}
+.startButton {
+         display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 90px;
+        padding: 50px;
+     
+        z-index: 1;
+      
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+      justify-content: center;
+    
+}
+.instr2 {    
+    position: fixed;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    display: block;
+
 }
