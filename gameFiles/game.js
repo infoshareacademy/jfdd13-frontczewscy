@@ -45,13 +45,16 @@ class DomControl {
   }
 
   // ends the game
-  static endGame() {
+  static endGame(msg) {
     alert("gameOver");
     keys = [];
     drinksArray = [];
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
     playerPoints = 0;
+    if (msg === "Time ends") {
+      console.log(msg);
+    }
   }
 }
 
@@ -239,18 +242,19 @@ let instC = true;
 instr.innerHTML = `
     <h1>INSTRUKCJA</h1>
     <ol>
-    <li>zbieraj drinki i pokaż innym jak dobrym imprezowiczem jesteś</li>
-    <li>uważaj na żula, kontakt z nim grozi zakończeniem kariery imprezowicza</li>
-    <li>jeśli żul zdobędzie drinka przed Tobą tracisz punkty (prawdziwy imprezowicz nie dzieli się alkoholem)</li>
-    <li>prawdziwy imprezowicz pije w tempie ekspresowym, wykaż się szybkością, bo czas na zebranie drinków jest ograniczony! (w końcu każda imreza się kiedyś kończy ;(((</li>
-    <li>Steruj strzałkami</li>
+      <li>zbieraj drinki i pokaż innym jak dobrym imprezowiczem jesteś</li>
+      <li>uważaj na żula, kontakt z nim grozi zakończeniem kariery imprezowicza</li>
+      <li>jeśli żul zdobędzie drinka przed Tobą tracisz punkty (prawdziwy imprezowicz nie dzieli się alkoholem)</li>
+      <li>prawdziwy imprezowicz pije w tempie ekspresowym, wykaż się szybkością, bo czas na zebranie drinków jest ograniczony! (w końcu każda imreza się kiedyś kończy ;(((</li>
+      <li>Steruj strzałkami</li>
     </ol>
-    <button class="instrButton">ROZUMIEM, GRAMY</button>
+    <button id="close-instruction" class="game-button">ROZUMIEM, GRAMY</button>
 `;
+
 board.appendChild(instr);
 board.appendChild(startButton)
-document.querySelector('.instrButton').addEventListener('click', instrDisplay);
-document.querySelector('.instr2').addEventListener('click', instrDisplay);
+document.querySelector('#close-instruction').addEventListener('click', instrDisplay);
+document.querySelector('.btnInstr').addEventListener('click', instrDisplay);
 startButton.addEventListener('click', function(){
   timer.innerHTML = `01: 00`;
   var interval = setInterval(function() {
@@ -263,7 +267,10 @@ startButton.addEventListener('click', function(){
       else timer.innerHTML = `00: ${sec}`;
     
   
-      if(sec ==0) clearInterval(interval);
+      if(sec == 0) {
+        clearInterval(interval);
+        DomControl.endGame("Time ends")
+      };
   }, 1000);
 
   startButton.style.display = "none";
