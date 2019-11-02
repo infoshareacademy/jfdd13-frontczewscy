@@ -17,13 +17,28 @@ body {
 .btnInstr {
     position: absolute;
     right: -20%;
-    top: 70%;
+    top: 30%;
 }
 
 .startButton {
    position: absolute;
    right: -20%;
    top: 10%;
+}
+
+.game-button {
+    background: transparent;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 2px;
+    transition: 0.5s ease; 
+}
+
+.game-button:hover {
+    background: black;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .board {
