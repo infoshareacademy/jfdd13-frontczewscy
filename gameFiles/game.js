@@ -11,6 +11,7 @@ let playerSpeed = 5;
 let enemySpeed = 2;
 let moveX;
 let moveY;
+let makeRandomMove;
 let playerPoints = 0;
 
 // class for making message box
@@ -71,15 +72,23 @@ class DomControl {
   static endGame(msg) {
     keys = [];
     drinksArray = [];
+
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
-    cancelAnimationFrame(animate);
+
     playerPoints = 0;
+
+    // create messageBox with msg and 2 sec
     const message = new Message(msg, 2000);
     message.renderMessage();
-    if (msg === "Time ends") {
-      console.log(msg);
-    }
+
+    document.removeEventListener("keydown", keyPressed);
+    document.removeEventListener("keyup", keyReleased);
+
+    // interval function that is responsible for making random move of the enemy
+    clearTimeout(makeRandomMove);
+
+    
   }
 }
 
@@ -114,15 +123,14 @@ function movePlayer() {
   }
 }
 
-// interval function that is responsible for making random move of the enemy
-let makeRandomMove = setInterval(() => {
+function changeRandomDirection() {
   randomDirections = [
     Math.random() >= 0.5,
     Math.random() >= 0.5,
     Math.random() >= 0.5,
     Math.random() >= 0.5
   ];
-}, 800);
+}
 
 // function for moving the enemy
 function moveEnemy() {
@@ -162,14 +170,13 @@ function animate() {
   requestAnimationFrame(animate);
   
 }
+animate();
 
 // random spawn of the objects at start;
 DomControl.randomSpawn(player1);
 DomControl.randomSpawn(enemy);
 
-// listening for pressed keys
-document.addEventListener("keydown", keyPressed);
-document.addEventListener("keyup", keyReleased);
+
 
 // Appearance of the new drink every 5.5 seconds
 var spawnRate = 5500;
@@ -309,7 +316,11 @@ startButton.addEventListener('click', function(){
         DomControl.endGame("Time ends")
       };
   }, 1000);
-  animate();
+
+  makeRandomMove = setInterval(changeRandomDirection, 800);
+  // listening for pressed keys
+  document.addEventListener("keydown", keyPressed);
+  document.addEventListener("keyup", keyReleased);
 
   startButton.style.display = "none";
   
