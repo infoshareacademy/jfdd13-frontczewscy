@@ -13,6 +13,29 @@ let moveX;
 let moveY;
 let playerPoints = 0;
 
+// class for making message box
+class Message {
+  constructor(text, timeOut) {
+      this.box = document.createElement('div');
+      this.text = text;
+      this.timeOut = timeOut || 1000;
+  }
+  renderMessage() {
+      this.box.innerHTML = `<h2>${this.text}<h2>`;
+      this.box.classList.add('pop-up');
+      document.body.appendChild(this.box);
+      setTimeout(() => {
+          this.removeFromDom()
+      }, this.timeOut);        
+  }
+  removeFromDom() {
+      this.box.classList.add('remove');
+      this.box.addEventListener('animationend', () => {
+          this.box.remove();
+      });
+  }
+}
+
 // Class for making Player in game;
 class Player {
   constructor(box) {
@@ -46,49 +69,19 @@ class DomControl {
 
   // ends the game
   static endGame(msg) {
-    alert("gameOver");
     keys = [];
     drinksArray = [];
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
+    cancelAnimationFrame(animate);
     playerPoints = 0;
+    const message = new Message(msg, 2000);
+    message.renderMessage();
     if (msg === "Time ends") {
       console.log(msg);
     }
   }
 }
-
-// class for making message box
-class Message {
-  constructor(text) {
-      this.box = document.createElement('div');
-      this.text = text;
-  }
-  controlDom() {
-      this.box.innerHTML = `<h2>${this.text}<h2>`;
-      this.box.classList.add('pop-up');
-      document.body.appendChild(this.box);
-      setTimeout(() => {
-          this.removeFromDom()
-      }, 1000);        
-  }
-  removeFromDom() {
-      console.log(this.box);
-      this.box.classList.add('remove');
-      this.box.addEventListener('animationend', () => {
-          this.box.remove();
-      });
-  }
-}
-
-// addButton.addEventListener(
-//   'click',
-//   () => {
-//       const message = new Message("Hello");
-//       message.controlDom();
-//   }
-// )
-
 
 // creates new objects using Player class
 const player1 = new Player("#player1");
@@ -154,17 +147,21 @@ function moveEnemy() {
 function animate() {
   movePlayer();
   moveEnemy();
-  DomControl.checkCollision(player1.box, enemy.box, DomControl.endGame);
+  DomControl.checkCollision(player1.box, enemy.box, () => {
+    DomControl.endGame("Game over");
+  });
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
-  }
+  };
+
   drawPoints();
   addDrinkToBoard();
   drinkCollision();
+  
   requestAnimationFrame(animate);
+  
 }
-animate();
 
 // random spawn of the objects at start;
 DomControl.randomSpawn(player1);
@@ -246,13 +243,13 @@ function drinkCollision() {
       collectDrink(index);
       addPlayerPoints();
       const message = new Message("Point for Player");
-      message.controlDom();
+      message.renderMessage();
     });
     DomControl.checkCollision(element.box, enemy.box, () => {
       collectDrink(index);
       addEnemyPoints();
       const message = new Message("Enemy gain your point");
-      message.controlDom();
+      message.renderMessage();
     });
   });
 }
@@ -312,6 +309,7 @@ startButton.addEventListener('click', function(){
         DomControl.endGame("Time ends")
       };
   }, 1000);
+  animate();
 
   startButton.style.display = "none";
   
