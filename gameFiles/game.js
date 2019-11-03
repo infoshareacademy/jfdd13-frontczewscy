@@ -28,8 +28,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 60) * 10;
-    player.y = Math.floor(Math.random() * 60) * 10;
+    player.x = Math.floor(Math.random() * 57) * 10;
+    player.y = Math.floor(Math.random() * 57) * 10;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -57,6 +57,38 @@ class DomControl {
     }
   }
 }
+
+// class for making message box
+class Message {
+  constructor(text) {
+      this.box = document.createElement('div');
+      this.text = text;
+  }
+  controlDom() {
+      this.box.innerHTML = `<h2>${this.text}<h2>`;
+      this.box.classList.add('pop-up');
+      document.body.appendChild(this.box);
+      setTimeout(() => {
+          this.removeFromDom()
+      }, 1000);        
+  }
+  removeFromDom() {
+      console.log(this.box);
+      this.box.classList.add('remove');
+      this.box.addEventListener('animationend', () => {
+          this.box.remove();
+      });
+  }
+}
+
+// addButton.addEventListener(
+//   'click',
+//   () => {
+//       const message = new Message("Hello");
+//       message.controlDom();
+//   }
+// )
+
 
 // creates new objects using Player class
 const player1 = new Player("#player1");
@@ -213,10 +245,14 @@ function drinkCollision() {
     DomControl.checkCollision(element.box, player1.box, () => {
       collectDrink(index);
       addPlayerPoints();
+      const message = new Message("Point for Player");
+      message.controlDom();
     });
     DomControl.checkCollision(element.box, enemy.box, () => {
       collectDrink(index);
       addEnemyPoints();
+      const message = new Message("Enemy gain your point");
+      message.controlDom();
     });
   });
 }
