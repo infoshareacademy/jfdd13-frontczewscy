@@ -1,7 +1,7 @@
 // getting dom elements
 const board = document.querySelector(".board");
 const suppBoard = document.querySelector("#support-board");
-const pointsBoard = document.querySelector("#points")
+const pointsBoard = document.querySelector("#points");
 
 // configuration
 let keys = [];
@@ -11,29 +11,28 @@ let playerSpeed = 5;
 let enemySpeed = 2;
 let moveX;
 let moveY;
-let makeRandomMove;
 let playerPoints = 0;
 
 // class for making message box
 class Message {
   constructor(text, timeOut) {
-      this.box = document.createElement('div');
-      this.text = text;
-      this.timeOut = timeOut || 1000;
+    this.box = document.createElement("div");
+    this.text = text;
+    this.timeOut = timeOut || 1000;
   }
   renderMessage() {
-      this.box.innerHTML = `<h2>${this.text}<h2>`;
-      this.box.classList.add('pop-up');
-      document.body.appendChild(this.box);
-      setTimeout(() => {
-          this.removeFromDom()
-      }, this.timeOut);        
+    this.box.innerHTML = `<h2>${this.text}<h2>`;
+    this.box.classList.add("pop-up");
+    document.body.appendChild(this.box);
+    setTimeout(() => {
+      this.removeFromDom();
+    }, this.timeOut);
   }
   removeFromDom() {
-      this.box.classList.add('remove');
-      this.box.addEventListener('animationend', () => {
-          this.box.remove();
-      });
+    this.box.classList.add("remove");
+    this.box.addEventListener("animationend", () => {
+      this.box.remove();
+    });
   }
 }
 
@@ -71,24 +70,34 @@ class DomControl {
   // ends the game
   static endGame(msg) {
     keys = [];
+    // deletes drinks from the board
     drinksArray = [];
 
+    // moves players to random spot on the board
     DomControl.randomSpawn(player1);
     DomControl.randomSpawn(enemy);
 
+    // turns off the timer
+    clearInterval(timeInterval);
+
+    // set playerPoints to 0
+    // not best place to hold it
     playerPoints = 0;
 
     // create messageBox with msg and 2 sec
     const message = new Message(msg, 2000);
     message.renderMessage();
 
+    // removes listeners for keys, disable moving of the player
     document.removeEventListener("keydown", keyPressed);
     document.removeEventListener("keyup", keyReleased);
 
-    // interval function that is responsible for making random move of the enemy
-    clearTimeout(makeRandomMove);
+    // turns off enemy moves
+    makeRandomMove(false);
+    randomDirections = [];
 
-    
+    // stops drinks from appearing
+    clearInterval(drinkRefreshing);
   }
 }
 
@@ -132,6 +141,18 @@ function changeRandomDirection() {
   ];
 }
 
+let makeMove;
+
+function makeRandomMove(state) {
+  console.log("before", makeMove);
+  if (state) {
+    makeMove = setInterval(changeRandomDirection, 800);
+  } else {
+    clearInterval(makeMove);
+  }
+  console.log("after", makeMove);
+}
+
 // function for moving the enemy
 function moveEnemy() {
   enemy.box.style.left = enemy.x + "px";
@@ -161,22 +182,19 @@ function animate() {
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
-  };
+  }
 
   drawPoints();
   addDrinkToBoard();
   drinkCollision();
-  
+
   requestAnimationFrame(animate);
-  
 }
 animate();
 
 // random spawn of the objects at start;
 DomControl.randomSpawn(player1);
 DomControl.randomSpawn(enemy);
-
-
 
 // Appearance of the new drink every 5.5 seconds
 var spawnRate = 5500;
@@ -265,21 +283,21 @@ function drawPoints() {
   pointsBoard.innerHTML = `
     <h2>Player Points</h2>
     <p>${playerPoints}</p>
-  `
+  `;
 }
 
 // start the interval that spawns drinks
-let drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+let drinkRefreshing;
 
 // ------------instructions----------------
 // ------------startGame-------------------
-const all = document.querySelector('body');
-const instr = document.createElement('div');
-const startButton = document.createElement('button');
-startButton.innerText = "START"
-startButton.classList.add('startButton');
-startButton.classList.add('game-button');
-instr.classList.add('instr');
+const all = document.querySelector("body");
+const instr = document.createElement("div");
+const startButton = document.createElement("button");
+startButton.innerText = "START";
+startButton.classList.add("startButton");
+startButton.classList.add("game-button");
+instr.classList.add("instr");
 
 let instC = true;
 
@@ -295,51 +313,47 @@ instr.innerHTML = `
     <button id="close-instruction" class="game-button">ROZUMIEM, GRAMY</button>
 `;
 
+var timeInterval;
+
 board.appendChild(instr);
-board.appendChild(startButton)
-document.querySelector('#close-instruction').addEventListener('click', instrDisplay);
-document.querySelector('.btnInstr').addEventListener('click', instrDisplay);
-startButton.addEventListener('click', function(){
+board.appendChild(startButton);
+document
+  .querySelector("#close-instruction")
+  .addEventListener("click", instrDisplay);
+document.querySelector(".btnInstr").addEventListener("click", instrDisplay);
+startButton.addEventListener("click", function() {
   timer.innerHTML = `01: 00`;
-  var interval = setInterval(function() {
-
+  sec = 60;
+  clearInterval(timeInterval);
+  drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+  timeInterval = setInterval(function() {
     sec--;
-      // if(sec==10)   timer.innerHTML = `00: 10}`;
-
-      if(sec< 10) timer.innerHTML = `00: 0${sec}`;
-    
-      else timer.innerHTML = `00: ${sec}`;
-    
-  
-      if(sec == 0) {
-        clearInterval(interval);
-        DomControl.endGame("Time ends")
-      };
+    if (sec < 10) timer.innerHTML = `00: 0${sec}`;
+    else timer.innerHTML = `00: ${sec}`;
+    if (sec == 0) {
+      clearInterval(timeInterval);
+      DomControl.endGame("Time ends");
+    }
   }, 1000);
 
-  makeRandomMove = setInterval(changeRandomDirection, 800);
+  makeRandomMove(true);
+
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
-
-  startButton.style.display = "none";
-  
-
 });
-window.addEventListener('click', windowClicker);
+window.addEventListener("click", windowClicker);
 function instrDisplay() {
-    
-    if(instC) {
-      instC=false;
+  if (instC) {
+    instC = false;
 
-        instr.style.display = "none";
-        window.removeEventListener('click', windowClicker);
-    }
-    else{ 
-      instC=true
-      instr.style.display = "flex";
-      window.addEventListener('click', windowClicker);
-    }
+    instr.style.display = "none";
+    window.removeEventListener("click", windowClicker);
+  } else {
+    instC = true;
+    instr.style.display = "flex";
+    window.addEventListener("click", windowClicker);
+  }
 }
 
 // // Add the listener:
@@ -348,12 +362,10 @@ function instrDisplay() {
 // // Remove it:
 
 function windowClicker(event) {
- 
   if (event.target == all) {
-    instrDisplay()
-
+    instrDisplay();
   }
 }
 
-const timer =document.querySelector(".timer");
+const timer = document.querySelector(".timer");
 let sec = 60;
