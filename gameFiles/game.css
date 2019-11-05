@@ -47,6 +47,10 @@ body {
   width: 150px;
 }
 
+.game-button:focus {
+  outline: none;
+}
+
 .game-button:hover {
   background: black;
   color: white;

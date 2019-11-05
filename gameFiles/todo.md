@@ -6,7 +6,7 @@
 - [ ] przeżucić zmienne na góre pliku
 
 2. Rozpoczynanie gry:
-- [ ] Stworzyć funkcje która będzie rozpoczynać gre
+- [x] Stworzyć funkcje która będzie rozpoczynać gre
 - [x] Resetuje interwał odliczania czasu
 - [x] rozpoczynanie timera
 - [x] dodanie event listenerów / poruszanie gracza
@@ -53,7 +53,7 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [x] zerowanie punktów gracza
 - [x] wyświetlenie wiadomości końca gry
 - [x] wyłącza interwał odliczania czasu
-- [ ] wyświetla ekran końcowy
+- [x] wyświetla ekran końcowy
 
 ## Funkcja game over powinna zawierać
 ``` javascript
@@ -115,13 +115,15 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 10. Gra
 - [ ] Drinki pojawiają się jeden za drugim podczas picia?
 - [ ] Drinki pojawiają się zdecydowanie z za małą częstotliwością
-- [ ] Zwiększanie trudności
 
 11. Tablica wyników
-- [ ] Zapisywanie do localstorage najlepszego wyniku
-- [ ] Wyświetlanie go na ekranie końcowym
+- [x] Zapisywanie do localstorage najlepszego wyniku
+- [x] Wyświetlanie go na ekranie końcowym
 
 12. Ekran końcowy
-- [ ] Wyświetla aktualnie zdobyte punkty
-- [ ] Wyświetla najlepszy wynik
-- [ ] Jeżeli gracz pobije swój wynik wyświetla się komunikat "Braw pobiłeś swój wynik" Or smth.
+- [x] Wyświetla aktualnie zdobyte punkty
+- [x] Wyświetla najlepszy wynik
+- [x] Jeżeli gracz pobije swój wynik wyświetla się komunikat "Brawo pobiłeś swój wynik" Or smth.
+
+13. Dodać zwiększanie trudności w grze
+- [ ] Po zjedzeniu każdego drinka zwiększana jest trudność
