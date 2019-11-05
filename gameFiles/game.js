@@ -121,7 +121,9 @@ function showEndGameScreen(points, highest) {
     <p>You got: ${points} points</p>
     <p>Your hightscore is: ${highest} points</p>
   `;
-  endGameScreen.style.display = "block";
+  endGameScreen.style.opacity = "1";
+  endGameScreen.style.pointerEvents = "all";
+
 }
 
 function setHightScore(points) {
@@ -340,7 +342,8 @@ function startGame() {
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 
 
-  endGameScreen.style.display = "none";
+  endGameScreen.style.opacity = "0";
+  endGameScreen.style.pointerEvents = "none";
 }
 
 function timerFunction() {
