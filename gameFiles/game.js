@@ -7,6 +7,7 @@ const popup = document.querySelector(".popup-wrapper");
 const startButton = document.querySelector(".startButton");
 const timer = document.querySelector(".timer");
 const close = document.querySelector(".popup-close");
+const endGameScreen = document.querySelector("#end-game");
 
 // configuration
 let keys = [];
@@ -20,7 +21,6 @@ let playerPoints = 0;
 let timeInterval;
 let drinkRefreshing;
 let makeMove;
-
 
 // class for making message box
 class Message {
@@ -91,7 +91,6 @@ class DomControl {
 
     // set playerPoints to 0
     // not best place to hold it
-    playerPoints = 0;
 
     // create messageBox with msg and 2 sec
     const message = new Message(msg, 2000);
@@ -107,7 +106,39 @@ class DomControl {
 
     // stops drinks from appearing
     clearInterval(drinkRefreshing);
+
+    setTimeout(() => {
+      setHightScore(playerPoints);
+    }, 1500)
+    
+    playerPoints = 0;
   }
+}
+
+function showEndGameScreen(points, highest) {
+  endGameScreen.innerHTML = `
+    <h2>Message</h2>
+    <p>You got: ${points} points</p>
+    <p>Your hightscore is: ${highest} points</p>
+  `;
+  endGameScreen.style.display = "block";
+}
+
+function setHightScore(points) {
+  let highest = localStorage.getItem('hight');
+
+  if (highest === null) {
+    localStorage.setItem('hight', points)
+  }
+  if (highest < points) {
+    localStorage.setItem('hight', points)
+    console.log('You are going better')
+  } else if (highest > points) {
+    console.log("Try to beat yourself")
+  } else {
+    console.log('You have same score')
+  }
+  showEndGameScreen(points, highest);
 }
 
 // creates new objects using Player class
@@ -307,27 +338,30 @@ function startGame() {
 
   // Adds drinks to the board in spawnRate time
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+
+
+  endGameScreen.style.display = "none";
 }
 
-function timerFunction() {  
+function timerFunction() {
   let sec = 60;
   // set the timer
   timer.innerText = "01:00";
   //set the amount of seconds
   clearInterval(timeInterval);
-    timeInterval = setInterval(function() {
-      sec--;
-      if (sec < 10) timer.innerHTML = `00: 0${sec}`;
-      else timer.innerHTML = `00: ${sec}`;
-      if (sec == 0) {
-        // po skończeniu czasu gra się kończy
-        DomControl.endGame("Time ends");
-        clearInterval(timeInterval);
-  
-        // po skończeniu czasu gra się kończy
-        DomControl.endGame("Time ends");
-      }
-    }, 1000);  
+  timeInterval = setInterval(function() {
+    sec--;
+    if (sec < 10) timer.innerHTML = `00: 0${sec}`;
+    else timer.innerHTML = `00: ${sec}`;
+    if (sec == 0) {
+      // po skończeniu czasu gra się kończy
+      DomControl.endGame("Time ends");
+      clearInterval(timeInterval);
+
+      // po skończeniu czasu gra się kończy
+      DomControl.endGame("Time ends");
+    }
+  }, 1000);
 }
 
 openInstr.addEventListener("click", () => {

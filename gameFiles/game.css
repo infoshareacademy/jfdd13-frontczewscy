@@ -38,24 +38,6 @@ body {
   margin: 15px 10px;
 }
 
-#points {
-  /* position: absolute;
-  top: 50%;
-  right: -25%; */
-}
-
-.btnInstr {
-  /* position: absolute;
-  right: -20%;
-  top: 30%; */
-}
-
-.startButton {
-  /* position: absolute;
-  right: -20%;
-  top: 10%; */
-}
-
 .game-button {
   background: transparent;
   padding: 20px;
