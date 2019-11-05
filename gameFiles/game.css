@@ -36,9 +36,23 @@ body {
 }
 
 .startButton {
-  position: absolute;
-  right: -20%;
-  top: 10%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  background: black;
+  color: white;
+  transition: 0.5s ease;
+  z-index: 20;
+  display: none;
+}
+
+.startButton:hover {
+  color: black;
+  background: white;
+  border:5px solid black;
 }
 
 .game-button {
@@ -168,3 +182,54 @@ p {
   margin: 0;
   padding: 20px;
 }
+
+button {
+  display: block;
+  margin: 20px auto;
+  background: crimson;
+  color: darkgrey;
+  border: 0;
+  padding: 6px 10px;
+  }
+  
+  .popup-wrapper {
+      background: rgba(0,0,0,0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 22;
+  }
+  
+  .popup {
+      font-family: arial;
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 10% auto;
+      padding: 20px;
+      background: white;
+      position: relative;
+      z-index: 22;
+
+  }
+  
+  .popup a{
+      background: crimson;
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      z-index: 22;
+
+  }
+  
+  .popup-close{
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      cursor: pointer;
+      z-index: 22;
+
+  }
