@@ -317,6 +317,7 @@ console.log('loool')
   startButton.style.display = 'none';
   //start the timer
   timerFunction();
+
 }
 
 function timerFunction() {
@@ -324,15 +325,21 @@ function timerFunction() {
      timer.innerText = "01:00";
      //set the amount of seconds
      let sec = 60;
+     drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+
      let timeInterval = setInterval(function() {
            sec--;
            if (sec < 10) timer.innerHTML = `00: 0${sec}`;
            else timer.innerHTML = `00: ${sec}`;
            if (sec == 0) {
+                // po skończeniu czasu gra się kończy
+                DomControl.endGame("Time ends");
              clearInterval(timeInterval);
-             
-           }
-         }, 1000);
+            
+              // po skończeniu czasu gra się kończy
+              DomControl.endGame("Time ends");
+           
+         }}, 1000);
 
 }
 
