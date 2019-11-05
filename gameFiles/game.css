@@ -7,23 +7,23 @@ body {
 
 .board {
     position: relative;
-    background-color: red;
-    width: 500px;
-    height: 500px;
+    background-image: url("./background.jpg");
+    width: 600px;
+    height: 600px;
 }
 
 #player1, #enemy {
     position: absolute;
-    width: 20px;
-    height: 20px;    
+    width: 60px;
+    height: 60px;    
 }
 
 #player1 {
-    background-color: blue;
+    background-image: url("./gameNeptun.png");
 }
 
 #enemy {
-    background-color: rgb(74, 74, 94);
+    background-image: url("./gameZul.png");
 }
 
 
@@ -31,7 +31,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: lightgreen;
+    background-image: url("./drinkGreen.png");
 }
 
 #support-board {
