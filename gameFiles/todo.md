@@ -1,12 +1,12 @@
 1. Instrukcja/funkcja:
-- [] Refactor
-- [] Dodać sterowanie?
-- [] spakować wszystko w funkcje, które mogą być od razu wywołane, chodzi o reużywalność kodu
-- [] dodać zmienne pod elementy dom
-- [] przeżucić zmienne na góre pliku
+- [ ] Refactor
+- [ ] Dodać sterowanie?
+- [ ] spakować wszystko w funkcje, które mogą być od razu wywołane, chodzi o reużywalność kodu
+- [ ] dodać zmienne pod elementy dom
+- [ ] przeżucić zmienne na góre pliku
 
 2. Rozpoczynanie gry:
-- [] Stworzyć funkcje która będzie rozpoczynać gre
+- [ ] Stworzyć funkcje która będzie rozpoczynać gre
 - [x] Resetuje interwał odliczania czasu
 - [x] rozpoczynanie timera
 - [x] dodanie event listenerów / poruszanie gracza
@@ -53,7 +53,7 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [x] zerowanie punktów gracza
 - [x] wyświetlenie wiadomości końca gry
 - [x] wyłącza interwał odliczania czasu
-- [] wyświetla ekran końcowy
+- [ ] wyświetla ekran końcowy
 
 ## Funkcja game over powinna zawierać
 ``` javascript
@@ -98,30 +98,30 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [x] Gracz się nie rusza
 
 8. Grafika
-- [] Poprawić okno wiadomości ?
-- [] Dodać plansze
-- [] Dodać background (za planszą)
-- [] Dodać ikonke gracza
-- [] Dodać ikonke przeciwnika
-- [] Dodać ikonke drinka
+- [ ] Poprawić okno wiadomości ?
+- [ ] Dodać plansze
+- [ ] Dodać background (za planszą)
+- [ ] Dodać ikonke gracza
+- [ ] Dodać ikonke przeciwnika
+- [ ] Dodać ikonke drinka
 
 9. Dźwięki: 
-- [] Delikatny dźwięk zdobywania punktów
-- [] Delikatny dźwięk tracenia punktów
-- [] Gameover
-- [] Start game
-- [] Muzyczka w tle?
+- [ ] Delikatny dźwięk zdobywania punktów
+- [ ] Delikatny dźwięk tracenia punktów
+- [ ] Gameover
+- [ ] Start game
+- [ ] Muzyczka w tle?
 
 10. Gra
-- [] Drinki pojawiają się jeden za drugim podczas picia?
-- [] Drinki pojawiają się zdecydowanie z za małą częstotliwością
-- [] Zwiększanie trudności
+- [ ] Drinki pojawiają się jeden za drugim podczas picia?
+- [ ] Drinki pojawiają się zdecydowanie z za małą częstotliwością
+- [ ] Zwiększanie trudności
 
 11. Tablica wyników
-- [] Zapisywanie do localstorage najlepszego wyniku
-- [] Wyświetlanie go na ekranie końcowym
+- [ ] Zapisywanie do localstorage najlepszego wyniku
+- [ ] Wyświetlanie go na ekranie końcowym
 
 12. Ekran końcowy
-- [] Wyświetla aktualnie zdobyte punkty
-- [] Wyświetla najlepszy wynik
-- [] Jeżeli gracz pobije swój wynik wyświetla się komunikat "Braw pobiłeś swój wynik" Or smth.
+- [ ] Wyświetla aktualnie zdobyte punkty
+- [ ] Wyświetla najlepszy wynik
+- [ ] Jeżeli gracz pobije swój wynik wyświetla się komunikat "Braw pobiłeś swój wynik" Or smth.

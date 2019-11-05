@@ -2,6 +2,11 @@
 const board = document.querySelector(".board");
 const suppBoard = document.querySelector("#support-board");
 const pointsBoard = document.querySelector("#points");
+const openInstr = document.querySelector(".btnInstr");
+const popup = document.querySelector(".popup-wrapper");
+const startButton = document.querySelector(".startButton");
+const timer = document.querySelector(".timer");
+const close = document.querySelector(".popup-close");
 
 // configuration
 let keys = [];
@@ -12,6 +17,10 @@ let enemySpeed = 2;
 let moveX;
 let moveY;
 let playerPoints = 0;
+let timeInterval;
+let drinkRefreshing;
+let makeMove;
+
 
 // class for making message box
 class Message {
@@ -78,7 +87,7 @@ class DomControl {
     DomControl.randomSpawn(enemy);
 
     // turns off the timer
-   // clearInterval(timeInterval);
+    clearInterval(timeInterval);
 
     // set playerPoints to 0
     // not best place to hold it
@@ -140,8 +149,6 @@ function changeRandomDirection() {
     Math.random() >= 0.5
   ];
 }
-
-let makeMove;
 
 function makeRandomMove(state) {
   console.log("before", makeMove);
@@ -261,6 +268,7 @@ function collectDrink(index) {
   drinksArray.splice(index, 1);
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 }
+
 // For each element in drinksArray array start a function that looks for collisions between boxes
 function drinkCollision() {
   drinksArray.forEach((element, index) => {
@@ -281,135 +289,54 @@ function drinkCollision() {
 
 function drawPoints() {
   pointsBoard.innerHTML = `
-    <h2>Player Points</h2>
+    <h2>Your points</h2>
     <p>${playerPoints}</p>
   `;
 }
 
-// start the interval that spawns drinks
-let drinkRefreshing;
-
-// ------------instructions----------------
-// ------------startGame-------------------
-
-
-const button = document.querySelector('.btnInstr');
-const popup = document.querySelector('.popup-wrapper')
-const startButton = document.querySelector('.startButton')
-const timer = document.querySelector(".timer");
-
-button.addEventListener('click', () => {
-     popup.style.display = 'block'
-})
-const close = document.querySelector('.popup-close');
-
-close.addEventListener('click', () => {
-  popup.style.display = 'none';
-  startButton.style.display = 'block';
-
-})
-
-startButton.addEventListener('click', startGame);
-
 function startGame() {
-console.log('loool')
-  //hide the strat button
-  startButton.style.display = 'none';
   //start the timer
   timerFunction();
 
-}
-
-function timerFunction() {
-     // set the timer
-     timer.innerText = "01:00";
-     //set the amount of seconds
-     let sec = 60;
-     drinkRefreshing = setInterval(spawnDrinks, spawnRate);
-
-     let timeInterval = setInterval(function() {
-           sec--;
-           if (sec < 10) timer.innerHTML = `00: 0${sec}`;
-           else timer.innerHTML = `00: ${sec}`;
-           if (sec == 0) {
-                // po skończeniu czasu gra się kończy
-                DomControl.endGame("Time ends");
-             clearInterval(timeInterval);
-            
-              // po skończeniu czasu gra się kończy
-              DomControl.endGame("Time ends");
-           
-         }}, 1000);
-
-}
-
-// //Creating elements for instruction
-//  const instrWrapper = document.createElement('div'),
-//        instr = document.createElement('iframe'),
-//        startButton = document.createElement('button');
-
-// //Adding classes and text to instruction elements
-//    startButton.innerText = "START";
-//    startButton.classList.add("startButton");
-//    startButton.classList.add("game-button");
-//    instr.classList.add("instr");
-
-
-//    //Added instruction text from another html file
-//    instr.src = '/gameFiles/instructionText.html'
-
-
-// var timeInterval;
-
-//    board.appendChild(instr);
-//    board.appendChild(startButton);
-// // document
-// //   .querySelector("#close-instruction")
-//   .addEventListener("click", instrDisplay);
-// document.querySelector(".btnInstr").addEventListener("click", instrDisplay);
-// startButton.addEventListener("click", function() {
-//   timer.innerHTML = `01: 00`;
-//   sec = 60;
-//   clearInterval(timeInterval);
-//   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
-//   timeInterval = setInterval(function() {
-//     sec--;
-//     if (sec < 10) timer.innerHTML = `00: 0${sec}`;
-//     else timer.innerHTML = `00: ${sec}`;
-//     if (sec == 0) {
-//       clearInterval(timeInterval);
-//       DomControl.endGame("Time ends");
-//     }
-//   }, 1000);
-
+  // makes random move of the enemy
   makeRandomMove(true);
 
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
 
-// window.addEventListener("click", windowClicker);
-// function instrDisplay() {
-//   if (instC) {
-//     instC = false;
+  // Adds drinks to the board in spawnRate time
+  drinkRefreshing = setInterval(spawnDrinks, spawnRate);
+}
 
-//     instr.style.display = "none";
-//     window.removeEventListener("click", windowClicker);
-//   } else {
-//     instC = true;
-//     instr.style.display = "flex";
-//     window.addEventListener("click", windowClicker);
-//   }
-// }
+function timerFunction() {  
+  let sec = 60;
+  // set the timer
+  timer.innerText = "01:00";
+  //set the amount of seconds
+  clearInterval(timeInterval);
+    timeInterval = setInterval(function() {
+      sec--;
+      if (sec < 10) timer.innerHTML = `00: 0${sec}`;
+      else timer.innerHTML = `00: ${sec}`;
+      if (sec == 0) {
+        // po skończeniu czasu gra się kończy
+        DomControl.endGame("Time ends");
+        clearInterval(timeInterval);
+  
+        // po skończeniu czasu gra się kończy
+        DomControl.endGame("Time ends");
+      }
+    }, 1000);  
+}
 
-// // Add the listener:
-// window.addEventListener('click', windowClicker);
+openInstr.addEventListener("click", () => {
+  popup.style.display = "block";
+});
 
-// // Remove it:
+startButton.addEventListener("click", startGame);
 
-// function windowClicker(event) {
-//   if (event.target == all) {
-//     instrDisplay();
-//   }
-// }
-
+close.addEventListener("click", () => {
+  popup.style.display = "none";
+  startButton.style.display = "block";
+});
