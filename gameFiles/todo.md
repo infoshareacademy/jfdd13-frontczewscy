@@ -43,11 +43,7 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 ```
 
 3. funkcja stop czas
-- [] to do
-
-```
-
-```
+- [x] to do
 
 4. Fukcja gameover:
 - [x] zablokowanie ruchu gracza

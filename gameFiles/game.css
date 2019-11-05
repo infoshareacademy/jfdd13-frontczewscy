@@ -153,3 +153,18 @@ p {
 .pop-up.remove {
   animation: reduce 0.5s ease-in-out;
 }
+
+#end-game {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+#end-game * {
+  margin: 0;
+  padding: 20px;
+}
