@@ -94,7 +94,7 @@ body {
 }
 
 #player1,
-#enemy {
+#enemy1, #enemy2 {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -105,8 +105,12 @@ body {
   background-image: url(gameNeptun.png);
 }
 
-#enemy {
+#enemy1, #enemy2 {
   background-image: url(gameZul.png);
+}
+
+#enemy2 {
+  transition: transform 1s ease;
 }
 
 .drink {
