@@ -13,6 +13,10 @@
   }
 }
 
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -170,7 +174,7 @@ p {
   color: white;
 }
 
-#end-game * {
+#end-game *:not(.end-game_close) {
   margin: 0;
   padding: 20px;
 }
@@ -212,4 +216,14 @@ p {
   right: 8px;
   cursor: pointer;
   z-index: 22;
+}
+
+.end-game_close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: white;
+  color: black;
+  padding: 10px 14px;
+  cursor: pointer;
 }

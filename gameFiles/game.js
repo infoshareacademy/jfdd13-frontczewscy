@@ -115,11 +115,17 @@ class DomControl {
 
 function showEndGameScreen(points, highest, msg, moreInfo) {
   endGameScreen.innerHTML = `
+    <div class="end-game_close">x</div>
     <h2>${msg}</h2>
     <p>${moreInfo}</p>
     <p>Liczba zdobytych punktów: ${points}</p>
     <p>Najwięcej zdobytych punktów: ${highest}</p>
   `;
+  const endGameCloseBtn = document.querySelector('.end-game_close');
+  endGameCloseBtn.addEventListener('click', () => { 
+    endGameScreen.style.opacity = "0";
+    endGameScreen.style.pointerEvents = "none";
+  })
   endGameScreen.style.opacity = "1";
   endGameScreen.style.pointerEvents = "all";
 
