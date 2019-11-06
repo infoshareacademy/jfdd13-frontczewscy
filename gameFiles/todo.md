@@ -98,12 +98,12 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [x] Gracz się nie rusza
 
 8. Grafika
-- [ ] Poprawić okno wiadomości ?
+- [x] Poprawić okno wiadomości ? jest eleganckie chyba - m
 - [ ] Dodać plansze
-- [ ] Dodać background (za planszą)
-- [ ] Dodać ikonke gracza
-- [ ] Dodać ikonke przeciwnika
-- [ ] Dodać ikonke drinka
+- [x] Dodać background (za planszą)
+- [x] Dodać ikonke gracza
+- [x] Dodać ikonke przeciwnika
+- [x] Dodać ikonke drinka
 
 9. Dźwięki: 
 - [ ] Delikatny dźwięk zdobywania punktów
