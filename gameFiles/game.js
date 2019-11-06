@@ -222,7 +222,7 @@ function animate() {
   movePlayer();
   moveEnemy();
   DomControl.checkCollision(player1.box, enemy.box, () => {
-    DomControl.endGame("Zderzenie");
+    DomControl.endGame("Żul Cię dopadł");
   });
 
   if (drinksArray.length > 2) {
