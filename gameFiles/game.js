@@ -192,10 +192,9 @@ function changeRandomDirection() {
 }
 
 function makeRandomMove(state) {
+  clearInterval(makeMove);
   if (state) {
     makeMove = setInterval(changeRandomDirection, 800);
-  } else {
-    clearInterval(makeMove);
   }
 }
 
@@ -341,14 +340,10 @@ function drawPoints() {
 function startGame() {
   // inforamtion for player at start of the game
   const message = new Message("Masz minute, śpiesz się!");
-  message.renderMessage();
-
-  
+  message.renderMessage();  
   
   //start the timer
-  timerFunction();
-
-  drinksArray = [];
+  timerFunction();  
 
   // makes random move of the enemy
   makeRandomMove(true);
@@ -356,6 +351,10 @@ function startGame() {
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
+
+  // 
+  drinksArray = [];
+  clearInterval(drinkRefreshing);
 
   // Adds drinks to the board in spawnRate time
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
