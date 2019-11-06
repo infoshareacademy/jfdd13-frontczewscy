@@ -251,10 +251,10 @@ function spawnDrinks() {
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.5) {
-    color = "black";
+    nameClass = "green";
     points = 1;
   } else {
-    color = "green";
+    nameClass = "yellow";
     points = 2;
   }
 
@@ -272,7 +272,7 @@ function spawnDrinks() {
 
   // styling of the drink
   div.classList.add("drink");
-  div.style.backgroundColor = color;
+  div.classList.add(nameClass);
   div.style.top = drink.y + "px";
   div.style.left = drink.x + "px";
 
@@ -374,9 +374,8 @@ function timerFunction() {
     sec--;
     
     if (sec == 40) {
-      const message = new Message("Poziom trudności wzrasta");
+      const message = new Message("Poziom trudności wzrasta", 2000);
       message.renderMessage();
-
     }
     if (sec < 10) timer.innerHTML = `00 : 0${sec}`
     else timer.innerHTML = `00 : ${sec}`; 
