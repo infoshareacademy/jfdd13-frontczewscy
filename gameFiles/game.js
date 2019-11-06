@@ -21,8 +21,8 @@ let playerPoints = 0;
 let timeInterval;
 let drinkRefreshing;
 let makeMove;
-// Appearance of the new drink every 1.5 seconds
-let spawnRate = 1500;
+// Appearance of the new drink every 1.0 seconds
+let spawnRate = 1000;
 
 // class for making message box
 class Message {
@@ -85,8 +85,8 @@ class DomControl {
     drinksArray = [];
 
     // moves players to random spot on the board
-  DomControl.randomSpawn(player1);
-  DomControl.randomSpawn(enemy);
+    DomControl.randomSpawn(player1);
+    DomControl.randomSpawn(enemy);
 
     // turns off the timer
     clearInterval(timeInterval);
@@ -153,7 +153,8 @@ function setHightScore(points, msg) {
 
 // creates new objects using Player class
 const player1 = new Player("#player1");
-const enemy = new Player("#enemy");
+const enemy = new Player("#enemy1");
+const enemy2 = new Player("#enemy2");
 
 // helping functions for detecting which key is pressed and released at a given time;
 function keyPressed(event) {
@@ -224,6 +225,9 @@ function animate() {
   DomControl.checkCollision(player1.box, enemy.box, () => {
     DomControl.endGame("Żul Cię dopadł");
   });
+  DomControl.checkCollision(player1.box, enemy2.box, () => {
+    DomControl.endGame("Żul Cię dopadł");
+  });
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
@@ -250,7 +254,7 @@ function spawnDrinks() {
   let points;
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
-  if (Math.random() < 0.5) {
+  if (Math.random() < 0.75) {
     nameClass = "green";
     points = 1;
   } else {
@@ -317,6 +321,12 @@ function drinkCollision() {
       const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
       message.renderMessage();
     });
+    DomControl.checkCollision(element.box, enemy2.box, () => {
+      collectDrink(index);
+      addEnemyPoints(element.weight);
+      const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
+      message.renderMessage();
+    });
   });
 }
 
@@ -362,6 +372,9 @@ function startGame() {
   // turn off the endgamescrren
   endGameScreen.style.opacity = "0";
   endGameScreen.style.pointerEvents = "none";
+
+  // set player points to 0
+  playerPoints = 0;
 }
 
 function timerFunction() {
@@ -376,6 +389,12 @@ function timerFunction() {
     if (sec == 40) {
       const message = new Message("Poziom trudności wzrasta", 2000);
       message.renderMessage();
+
+      enemy2.box.style.left = "0px";
+
+      enemy2.box.style.pointerEvents = "all";
+      enemy2.box.style.transform = "scale(1)";
+
     }
     if (sec < 10) timer.innerHTML = `00 : 0${sec}`
     else timer.innerHTML = `00 : ${sec}`; 
