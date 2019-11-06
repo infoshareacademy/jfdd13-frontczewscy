@@ -21,6 +21,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
+  background: rgb(80, 73, 141);
 }
 
 .side-bar {
@@ -34,6 +35,7 @@ body {
   height: 100%;
   justify-content: center;
 }
+
 .side-bar * {
   margin: 15px 10px;
 }
@@ -104,6 +106,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .instr {
   display: flex;
   flex-direction: column;

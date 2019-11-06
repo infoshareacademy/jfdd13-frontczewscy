@@ -131,17 +131,17 @@ function setHightScore(points, msg) {
 
   if (highest === null) {
     localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
   }
   if (highest < points) {
     localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
     showEndGameScreen(points, highest, msg, "Brawo pobiłeś swój najlepszy wynik");
   } else if (highest > points) {
     showEndGameScreen(points, highest, msg, "Próbuj dalej pobić swój najlepszy wynik");
   } else {
-    console.log('You have same score')
     showEndGameScreen(points, highest, msg, "Udało Ci się zrównać ze swoim najlepszym wynikiem");
   }
-  
 }
 
 // creates new objects using Player class
