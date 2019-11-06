@@ -266,7 +266,6 @@ function spawnDrinks() {
   var drink = {
     box: div,
     type: color,
-    x: Math.random() * (board.width - 30) + 15,
     y: spawnLineY,
     x: spawnLineX,
     weight: points
