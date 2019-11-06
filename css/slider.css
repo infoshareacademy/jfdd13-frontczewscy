@@ -112,6 +112,7 @@
   background-color: var(--dark-primary-color);
   border-radius: 50%;
   opacity: 0.66;
+  z-index: 4;
 }
 .left__button {
   left: 80px;

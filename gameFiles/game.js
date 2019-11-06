@@ -85,13 +85,13 @@ class DomControl {
     drinksArray = [];
 
     // moves players to random spot on the board
-    DomControl.randomSpawn(player1);
-    DomControl.randomSpawn(enemy);
+  DomControl.randomSpawn(player1);
+  DomControl.randomSpawn(enemy);
 
     // turns off the timer
     clearInterval(timeInterval);
 
-    // create messageBox with msg and 2 sec
+    // create messageBox with msg on 2 sec
     const message = new Message(msg, 2000);
     message.renderMessage();
 
@@ -106,6 +106,7 @@ class DomControl {
     // stops drinks from appearing
     clearInterval(drinkRefreshing);
 
+    // set hightscore and show end game screen
     setTimeout(() => {
       setHightScore(playerPoints, msg);
     }, 1500)
@@ -114,11 +115,17 @@ class DomControl {
 
 function showEndGameScreen(points, highest, msg, moreInfo) {
   endGameScreen.innerHTML = `
+    <div class="end-game_close">x</div>
     <h2>${msg}</h2>
     <p>${moreInfo}</p>
     <p>Liczba zdobytych punktów: ${points}</p>
     <p>Najwięcej zdobytych punktów: ${highest}</p>
   `;
+  const endGameCloseBtn = document.querySelector('.end-game_close');
+  endGameCloseBtn.addEventListener('click', () => { 
+    endGameScreen.style.opacity = "0";
+    endGameScreen.style.pointerEvents = "none";
+  })
   endGameScreen.style.opacity = "1";
   endGameScreen.style.pointerEvents = "all";
 
@@ -131,17 +138,17 @@ function setHightScore(points, msg) {
 
   if (highest === null) {
     localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
   }
   if (highest < points) {
     localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
     showEndGameScreen(points, highest, msg, "Brawo pobiłeś swój najlepszy wynik");
   } else if (highest > points) {
     showEndGameScreen(points, highest, msg, "Próbuj dalej pobić swój najlepszy wynik");
   } else {
-    console.log('You have same score')
     showEndGameScreen(points, highest, msg, "Udało Ci się zrównać ze swoim najlepszym wynikiem");
   }
-  
 }
 
 // creates new objects using Player class
@@ -185,13 +192,10 @@ function changeRandomDirection() {
 }
 
 function makeRandomMove(state) {
-  console.log("before", makeMove);
+  clearInterval(makeMove);
   if (state) {
     makeMove = setInterval(changeRandomDirection, 800);
-  } else {
-    clearInterval(makeMove);
   }
-  console.log("after", makeMove);
 }
 
 // function for moving the enemy
@@ -218,7 +222,7 @@ function animate() {
   movePlayer();
   moveEnemy();
   DomControl.checkCollision(player1.box, enemy.box, () => {
-    DomControl.endGame("Zderzenie");
+    DomControl.endGame("Żul Cię dopadł");
   });
 
   if (drinksArray.length > 2) {
@@ -243,12 +247,15 @@ function spawnDrinks() {
   let spawnLineX = Math.random() * 570;
 
   let color;
+  let points;
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.5) {
-    color = "black";
+    nameClass = "green";
+    points = 1;
   } else {
-    color = "green";
+    nameClass = "yellow";
+    points = 2;
   }
 
   // creating new div that will contain drink
@@ -258,14 +265,14 @@ function spawnDrinks() {
   var drink = {
     box: div,
     type: color,
-    x: Math.random() * (board.width - 30) + 15,
     y: spawnLineY,
-    x: spawnLineX
+    x: spawnLineX,
+    weight: points
   };
 
   // styling of the drink
   div.classList.add("drink");
-  div.style.backgroundColor = color;
+  div.classList.add(nameClass);
   div.style.top = drink.y + "px";
   div.style.left = drink.x + "px";
 
@@ -281,18 +288,6 @@ function addDrinkToBoard() {
   });
 }
 
-// Collecting drinks by player
-function addPlayerPoints() {
-  console.log("Point for player");
-  playerPoints++;
-}
-
-// Collecting drinks by enemy
-function addEnemyPoints() {
-  console.log("Point for enemy");
-  playerPoints--;
-}
-
 // Deleting elements from array
 function collectDrink(index) {
   clearInterval(drinkRefreshing);
@@ -303,19 +298,36 @@ function collectDrink(index) {
 // For each element in drinksArray array start a function that looks for collisions between boxes
 function drinkCollision() {
   drinksArray.forEach((element, index) => {
+    let addY
+    if (element.weight == 1) {
+      addY = "";
+    } else {
+      addY = "y";
+    }
     DomControl.checkCollision(element.box, player1.box, () => {
       collectDrink(index);
-      addPlayerPoints();
-      const message = new Message("Point for Player");
+      addPlayerPoints(element.weight);
+      
+      const message = new Message(`${element.weight} punkt${addY} dla gracza`);
       message.renderMessage();
     });
     DomControl.checkCollision(element.box, enemy.box, () => {
       collectDrink(index);
-      addEnemyPoints();
-      const message = new Message("Enemy gain your point");
+      addEnemyPoints(element.weight);
+      const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
       message.renderMessage();
     });
   });
+}
+
+// Collecting drinks by player
+function addPlayerPoints(point) {
+  playerPoints += point;
+}
+
+// Collecting drinks by enemy
+function addEnemyPoints(point) {
+  playerPoints -= point;
 }
 
 function drawPoints() {
@@ -326,10 +338,12 @@ function drawPoints() {
 }
 
 function startGame() {
+  // inforamtion for player at start of the game
+  const message = new Message("Masz minute, śpiesz się!");
+  message.renderMessage();  
+  
   //start the timer
-  timerFunction();
-
-  drinksArray = [];
+  timerFunction();  
 
   // makes random move of the enemy
   makeRandomMove(true);
@@ -337,6 +351,10 @@ function startGame() {
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
+
+  // 
+  drinksArray = [];
+  clearInterval(drinkRefreshing);
 
   // Adds drinks to the board in spawnRate time
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
@@ -349,13 +367,18 @@ function startGame() {
 function timerFunction() {
   let sec = 60;
   // set the timer
-  timer.innerText = "01:00";
+  timer.innerText = "01 : 00";
   //set the amount of seconds
   clearInterval(timeInterval);
   timeInterval = setInterval(function() {
     sec--;
-    if (sec < 10) timer.innerHTML = `00: 0${sec}`;
-    else timer.innerHTML = `00: ${sec}`;
+    
+    if (sec == 40) {
+      const message = new Message("Poziom trudności wzrasta", 2000);
+      message.renderMessage();
+    }
+    if (sec < 10) timer.innerHTML = `00 : 0${sec}`
+    else timer.innerHTML = `00 : ${sec}`; 
     if (sec == 0) {
       // at end of the time game ends
       DomControl.endGame("Czas się skończył");

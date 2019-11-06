@@ -1,9 +1,10 @@
 1. Instrukcja/funkcja:
 - [ ] Refactor
 - [ ] Dodać sterowanie?
-- [ ] spakować wszystko w funkcje, które mogą być od razu wywołane, chodzi o reużywalność kodu
-- [ ] dodać zmienne pod elementy dom
-- [ ] przeżucić zmienne na góre pliku
+- [x] spakować wszystko w funkcje, które mogą być od razu wywołane, chodzi o reużywalność kodu
+- [x] dodać zmienne pod elementy dom
+- [x] przeżucić zmienne na góre pliku
+- [ ] skończyć pisać instrukcje
 
 2. Rozpoczynanie gry:
 - [x] Stworzyć funkcje która będzie rozpoczynać gre
