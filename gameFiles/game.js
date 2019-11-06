@@ -129,9 +129,10 @@ function spawnRandomObject() {
 
 //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
     if (Math.random() < 0.50) {
-        t = "black";
+        t = 'url("gameFiles/drinkYellow.png")';
+        console.log(t)
     } else {
-        t = "green";
+        t = 'url("gameFiles/drinkGreen.png")';
     }
     const div = document.createElement('div');
 
@@ -147,7 +148,7 @@ function spawnRandomObject() {
 
     
     div.classList.add('t');
-    div.style.backgroundColor = t;
+    div.style.background = t;
     div.style.top = object.y + 'px';
     div.style.left = object.x + 'px';
 

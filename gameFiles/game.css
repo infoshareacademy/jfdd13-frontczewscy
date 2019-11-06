@@ -31,7 +31,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-image: url("./drinkGreen.png");
+    /* background-image: url("./drinkGreen.png"); */
 }
 
 #support-board {
