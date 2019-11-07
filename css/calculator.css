@@ -1,3 +1,5 @@
+
+
 .container {
 text-align: center;
 
@@ -29,8 +31,8 @@ text-align: center;
     padding:30px;
     transform: translate(-50%, -50%);  
     -webkit-box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75);
-box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75); 
+    -moz-box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75);
+    box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75); 
     
 }
 
@@ -46,15 +48,15 @@ box-shadow: -4px 10px 23px 0px rgba(0,0,0,0.75);
     background-color: var(--dark-primary-color);
     padding: 20px 10px;
     border-radius: 20px;
-    border: 4px solid var(--primary-color);
+    border: 4px solid black;
+    font-weight: bold;
 
 }
 
 #calcButton:hover {
     background-color:var(--primary-color);
-  color: var(--dark-primary-color);
-  border: 4px solid var(--dark-primary-color);
- transition: all 0.5s ease 0s;
+    border: 4px solid var(--dark-primary-color);
+    transition: all 0.5s ease 0s;
  
 }
 

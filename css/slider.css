@@ -112,6 +112,7 @@
   background-color: var(--dark-primary-color);
   border-radius: 50%;
   opacity: 0.66;
+  z-index: 4;
 }
 .left__button {
   left: 80px;
@@ -123,11 +124,9 @@
 .left__button i,
 .right__button i {
   top: 0;
-  position: relative;
-  width: 60px;
-  height: 60px;
+  left: 0;
+  position: absolute;
   font-size: 40px;
-  transform: translateY(-3px);
   color: var(--text-icons);
 }
 
@@ -138,6 +137,7 @@
   left: 20px;
   height: 60px;
   width: auto;
+  transform: translateY(-3px);
 }
 
 .right__button i::before {
@@ -148,6 +148,7 @@
     .left__button,
     .right__button {
       top: 40%;
+      transform: translate(-50%, -50%) scale(0.7);
     }
   
     .left__button {
