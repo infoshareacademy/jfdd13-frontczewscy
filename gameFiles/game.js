@@ -292,16 +292,6 @@ function spawnDrinks() {
   let color;
   let points;
 
-<<<<<<< HEAD
-//Random od 0 do 1 czy bedzie pierwszy drink czy drugi
-    if (Math.random() < 0.50) {
-        t = 'url("gameFiles/drinkYellow.png")';
-        console.log(t)
-    } else {
-        t = 'url("gameFiles/drinkGreen.png")';
-    }
-    const div = document.createElement('div');
-=======
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.75) {
     nameClass = "green";
@@ -310,7 +300,6 @@ function spawnDrinks() {
     nameClass = "yellow";
     points = 2;
   }
->>>>>>> master
 
   // creating new div that will contain drink
   const div = document.createElement("div");
@@ -324,19 +313,11 @@ function spawnDrinks() {
     weight: points
   };
 
-<<<<<<< HEAD
-    
-    div.classList.add('t');
-    div.style.background = t;
-    div.style.top = object.y + 'px';
-    div.style.left = object.x + 'px';
-=======
   // styling of the drink
   div.classList.add("drink");
   div.classList.add(nameClass);
   div.style.top = drink.y + "px";
   div.style.left = drink.x + "px";
->>>>>>> master
 
   // push new drink to the Array of the drinks
   drinksArray.push(drink);

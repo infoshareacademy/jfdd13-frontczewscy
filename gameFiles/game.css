@@ -69,26 +69,6 @@ body {
 }
 
 .board {
-<<<<<<< HEAD
-    position: relative;
-    background-image: url("./background.jpg");
-    width: 600px;
-    height: 600px;
-}
-
-#player1, #enemy {
-    position: absolute;
-    width: 60px;
-    height: 60px;    
-}
-
-#player1 {
-    background-image: url("./gameNeptun.png");
-}
-
-#enemy {
-    background-image: url("./gameZul.png");
-=======
   background-image: url(background.jpg);
   border: 2px solid #fff;
   border-radius: 2px;
@@ -138,23 +118,14 @@ body {
   position: absolute;
   width: 20px;
   height: 20px;
->>>>>>> master
 }
 
 .yellow {
   background-image: url(drinkYellow.png);
 }
 
-<<<<<<< HEAD
-.t {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    /* background-image: url("./drinkGreen.png"); */
-=======
 .green {
   background-image: url(drinkGreen.png);
->>>>>>> master
 }
 
 #support-board {
