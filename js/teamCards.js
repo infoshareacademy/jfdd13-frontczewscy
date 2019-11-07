@@ -1,3 +1,5 @@
+// UWAGI AS: kod zamknac w funkcji samowykonujacej sie
+
 const cardsFront = document.querySelectorAll('.front');
 const cardsBack = document.querySelectorAll('.back');
 const cards = document.querySelectorAll('.card');
@@ -7,13 +9,13 @@ const bodyDocument = document.querySelector('body');
 let showed = false;
 
 function showBack(index) {
-    cardsFront[index].style.transform = "perspective(600px) rotateY(-180deg)";
-    cardsBack[index].style.transform = "perspective(600px) rotateY(0deg)";
+    cardsFront[index].style.transform = "perspective(600px) rotateY(-180deg)"; // UWAGI AS: wyniesc do klasy css
+    cardsBack[index].style.transform = "perspective(600px) rotateY(0deg)";// UWAGI AS: wyniesc do klasy css
 }
 
 function showFront(index) {
-    cardsFront[index].style.transform = "perspective(600px) rotateY(0deg)";
-    cardsBack[index].style.transform = "perspective(600px) rotateY(180deg)";
+    cardsFront[index].style.transform = "perspective(600px) rotateY(0deg)";// UWAGI AS: wyniesc do klasy css
+    cardsBack[index].style.transform = "perspective(600px) rotateY(180deg)";// UWAGI AS: wyniesc do klasy css
 }
 
 function showAll() {
@@ -40,7 +42,7 @@ cards.forEach((element, index) => {
     })
 })
 
-document.addEventListener('scroll', () => {
+document.addEventListener('scroll', () => { // UWAGI AS: tak długi kod lepiej wyciągnac do funkcji
     if(showed == false && (window.pageYOffset >= bodyDocument.offsetHeight - window.screen.height - 200 || window.pageYOffset >= section.offsetTop - window.screen.height / 2)) {
         showAll();
         showed = true;

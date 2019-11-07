@@ -1,3 +1,5 @@
+// UWAGI AS: kod zamknac w funkcji samowykonujacej sie
+
 const heroSlider = document.querySelector('.hero__slider');
 const heroElements = document.querySelectorAll(".hero__item");
 const leftButton = document.querySelector(".left__button");
@@ -43,7 +45,7 @@ function onSlideCLicks() {
 
 function nextSlide() {
   if(currentSlide < heroElements.length - 1){
-    currentSlide++;
+    currentSlide++; // UWAGI AS: lepiej stosowac += 1
   } else {
     currentSlide = 0;
   }
@@ -53,23 +55,23 @@ function nextSlide() {
 }
 
 function previousSlide() {
-  if(currentSlide === 0){    
+  if(currentSlide === 0){  // UWAGI AS: wystarczy if (!currentSlide) {}
     currentSlide = heroElements.length - 1;
     console.log(currentSlide);
-  } 
+  }  // UWAGI AS: niepotrzebny enter po }
   else {
-    currentSlide--;
+    currentSlide--; // UWAGI AS: -= 1
   };
   onSlideCLicks()
 }
 
 function heroSlideElements(index) {
-  heroSlider.style.transform = `translateX(${-index}00%)`
+  heroSlider.style.transform = `translateX(${-index}00%)` // UWAGI AS: sredniki
 }
 
 setTheInterval();
 
 leftButton.addEventListener('click', previousSlide);
-rightButton.addEventListener('click', nextSlide)
+rightButton.addEventListener('click', nextSlide) // UWAGI AS: j/w
 
 

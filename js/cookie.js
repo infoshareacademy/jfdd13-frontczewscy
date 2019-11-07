@@ -1,4 +1,4 @@
-
+// UWAGI AS: kod zamknac w funkcji samowykonujacej sie
 
 const cookieM = document.querySelector('.cookie');
 
@@ -17,10 +17,11 @@ function createCookie() {
         `
 }
 
+// UWAGI AS: zapisujemy cookie w cookie
 if(localStorage.getItem('cookie') === null){
     createCookie();
     cookieM.style = "display: block";
-    const buttonM = document.querySelector('#but');
+    const buttonM = document.querySelector('#but'); // UWAGI AS: zmienne deklarujemy na poczatku bloku
     buttonM.addEventListener('click', function () {
         cookieM.style = "display: none";
         localStorage.setItem('cookie', 'true');

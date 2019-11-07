@@ -1,3 +1,5 @@
+// UWAGI AS: kod zamknac w funkcji samowykonujacej sie
+
 const navigation = document.querySelector(".navigation__links");
 const navigationButton = document.querySelector("#navigation__button");
 const myNav = document.querySelector(".navigation");
@@ -13,7 +15,7 @@ scrollButton.addEventListener('click', () => {
 })
 
 
-const height = 500
+const height = 500// UWAGI AS: sredniki
 
 // Add background to the headder at height of 500px;
 const addBackground = () => {
@@ -71,7 +73,7 @@ window.addEventListener("scroll", () => {
 document.addEventListener("scroll", navHighlight);
 
 
-function setBackground() {
+function setBackground() {// UWAGI AS: funkcja powinna sie raczej nazywac clearBackground, bo clearuje a nie cos ustawia
   link1.style.backgroundColor = "";
   link2.style.backgroundColor = "";
   link3.style.backgroundColor = "";
@@ -79,18 +81,18 @@ function setBackground() {
 
 
 function navHighlight() {
-  var link1=document.getElementById('link1');
+  var link1=document.getElementById('link1');// UWAGI AS: vary nie stosujemy, let i const, czyli const
   var link2=document.getElementById('link2');
   var link3=document.getElementById('link3');
   let currentPosition = window.scrollY + 80;
   setBackground();
   if (currentPosition  >= functions.offsetTop && currentPosition < premier.offsetTop) {
-   link1.style.backgroundColor = "#bd3161";
+   link1.style.backgroundColor = "#bd3161"; // UWAGI AS: kolory do css
   }
   else if (currentPosition >=  premier.offsetTop && currentPosition <  about.offsetTop) {
-   link2.style.backgroundColor = "#bd3161";
+   link2.style.backgroundColor = "#bd3161"; // UWAGI AS: j/w
   }
   else if  (currentPosition >=  about.offsetTop) { 
-   link3.style.backgroundColor = "#bd3161";
+   link3.style.backgroundColor = "#bd3161"; // UWAGI AS: j/w
   }
 }

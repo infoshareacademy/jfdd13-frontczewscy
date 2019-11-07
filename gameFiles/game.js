@@ -1,3 +1,5 @@
+// UWAGI AS: nie mieszajcie w katalogu plikow css i js.. brzydko to wyglada, zwlaszcza ze macie na to osobny katalog
+
 // getting dom elements
 const board = document.querySelector(".board");
 const suppBoard = document.querySelector("#support-board");
@@ -14,7 +16,7 @@ let keys = [];
 let randomDirections = [];
 let randomDirections2 = [];
 let drinksArray = [];
-let playerSpeed = 5;
+let playerSpeed = 5; // UWAGI AS: stała
 let enemySpeed = 2;
 let moveX;
 let moveY;
@@ -24,7 +26,7 @@ let drinkRefreshing;
 let makeMove;
 let makeMove2;
 // Appearance of the new drink every 1.0 seconds
-let spawnRate = 1000;
+let spawnRate = 1000; // UWAGI AS: stała
 
 // class for making message box
 class Message {
@@ -39,13 +41,13 @@ class Message {
     document.body.appendChild(this.box);
     setTimeout(() => {
       this.removeFromDom();
-    }, this.timeOut);
+    }, this.timeOut); // UWAGI AS: przesadzona forma, wystarczy setTimeout(this.removeFromDom, this.timeOut); 
   }
   removeFromDom() {
     this.box.classList.add("remove");
     this.box.addEventListener("animationend", () => {
       this.box.remove();
-    });
+    }); // UWAGI AS: jak wyzej, wystarczy this.box.addEventListener("animationend", this.box.remove);
   }
 }
 
@@ -64,8 +66,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 57) * 10;
-    player.y = Math.floor(Math.random() * 57) * 10;
+    player.x = Math.floor(Math.random() * 57) * 10; // UWAGI AS: 57 do zmiennej
+    player.y = Math.floor(Math.random() * 57) * 10; // UWAGI AS: j/w
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -113,7 +115,7 @@ class DomControl {
     // set hightscore and show end game screen
     setTimeout(() => {
       setHightScore(playerPoints, msg);
-    }, 1500)
+    }, 1500) // UWAGI AS: mozna tez zapisać w formie setTimeout(setHightScore, 1500, playerPoints, msg) ale nie upieram sie w takich przypadkach, to bardziej INFORMACYJNIE, ze jest taka forma
   }
 }
 
@@ -124,14 +126,14 @@ function showEndGameScreen(points, highest, msg, moreInfo) {
     <p>${moreInfo}</p>
     <p>Liczba zdobytych punktów: ${points}</p>
     <p>Najwięcej zdobytych punktów: ${highest}</p>
-  `;
+  `;// UWAGI AS: osobiscie nie przepadam za kodem html w js.. to jeszcze nie react :P
   const endGameCloseBtn = document.querySelector('.end-game_close');
   endGameCloseBtn.addEventListener('click', () => { 
-    endGameScreen.style.opacity = "0";
-    endGameScreen.style.pointerEvents = "none";
+    endGameScreen.style.opacity = "0"; // UWAGI AS: przeniesc do klasy css
+    endGameScreen.style.pointerEvents = "none"; // UWAGI AS: przeniesc do klasy css
   })
-  endGameScreen.style.opacity = "1";
-  endGameScreen.style.pointerEvents = "all";
+  endGameScreen.style.opacity = "1"; // UWAGI AS: przeniesc do klasy css
+  endGameScreen.style.pointerEvents = "all"; // UWAGI AS: przeniesc do klasy css
 
   // set playerPoints to 0
   playerPoints = 0;
@@ -156,8 +158,8 @@ function setHightScore(points, msg) {
 }
 
 // creates new objects using Player class
-const player1 = new Player("#player1");
-const enemy = new Player("#enemy1");
+const player1 = new Player("#player1"); // UWAGI AS: a jest wiecej playerow niz 1? jesli nie to po co ta 1?
+const enemy = new Player("#enemy1"); // UWAGI AS: brak konsekwencji w nazewnictwie
 const enemy2 = new Player("#enemy2");
 
 // helping functions for detecting which key is pressed and released at a given time;
@@ -187,6 +189,7 @@ function movePlayer() {
   }
 }
 
+// UWAGI AS: mamy powtarzający sie kod, na pewno da się te 2 funkcje scalić w jedną, a do tego moze nawet do jakiejs funkcji/petli wyciagnac wnetrze tablicy?
 function changeRandomDirection() {
   randomDirections = [
     Math.random() >= 0.5,
@@ -220,6 +223,7 @@ function makeRandomMove2(state) {
 }
 
 // function for moving the enemy
+// UWAGI AS: powtarzający sie kod, na 100% da sie te 2 funkcje zamknąć w 1
 function moveEnemy() {
   enemy.box.style.left = enemy.x + "px";
   enemy.box.style.top = enemy.y + "px";
@@ -259,8 +263,10 @@ function moveEnemy2() {
 // function that is responsible for frame-by-frame playback
 function animate() {
   movePlayer();
-  moveEnemy();
+  // UWAGI AS: tych enemy moglibyscie jakos do tablicy ladowac.. wtedy byloby mniej kodu i moglibyscie scalowac gre.. czyli dodawac w prosty sposob kolejnych wrogow.. no ale nie upieram sie..
+  moveEnemy(); // UWAGI AS: konsekwencja nazewnictwa
   moveEnemy2();
+  // UWAGI AS: powtarzający sie kod!
   DomControl.checkCollision(player1.box, enemy.box, () => {
     DomControl.endGame("Żul Cię dopadł");
   });
@@ -286,28 +292,28 @@ DomControl.randomSpawn(enemy);
 
 function spawnDrinks() {
   // Setting random spawn point for the drinks
-  let spawnLineY = Math.random() * 570;
-  let spawnLineX = Math.random() * 570;
+  let spawnLineY = Math.random() * 570; // UWAGI AS: sugeruje zaokrąglic do pełnych pikseli
+  let spawnLineX = Math.random() * 570; // UWAGI AS: sugeruje zaokrąglic do pełnych pikseli
 
-  let color;
+  let color; // UWAGI AS: a co to? nigdzie nie widze wartosci tej zmiennej
   let points;
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.75) {
-    nameClass = "green";
+    nameClass = "green"; // UWAGI AS: nie widze deklaracji zmiennej
     points = 1;
   } else {
-    nameClass = "yellow";
-    points = 2;
+    nameClass = "yellow"; // UWAGI AS: ta wartosc mozna smiao ustawic przy deklaracji zmiennej. i pozbyc sie elsa
+    points = 2; // UWAGI AS: ta wartosc mozna smiao ustawic przy deklaracji zmiennej. i pozbyc sie elsa
   }
 
   // creating new div that will contain drink
-  const div = document.createElement("div");
+  const div = document.createElement("div"); // UWAGI AS: na górę funkcji, do sekcji z deklaracjami zmiennych
 
   //Tworzenie obiektu (drinkow)
   var drink = {
     box: div,
-    type: color,
+    type: color, // UWAGI AS: a co to? nigdzie nie widze wartosci tej zmiennej
     y: spawnLineY,
     x: spawnLineX,
     weight: points
@@ -341,7 +347,7 @@ function collectDrink(index) {
 // For each element in drinksArray array start a function that looks for collisions between boxes
 function drinkCollision() {
   drinksArray.forEach((element, index) => {
-    let addY
+    let addY // UWAGI AS: brak średnika, brak konsekwencji
     if (element.weight == 1) {
       addY = "";
     } else {
@@ -423,7 +429,7 @@ function startGame() {
   setTimeout(() => {
     enemy2.x = -40;
     enemy2.y = 0;
-  }, 1000)
+  }, 1000)// UWAGI AS: brak średnika
   
 }
 
@@ -442,6 +448,7 @@ function timerFunction() {
 
       enemy2.x = 0;
 
+      // UWAGI AS: cssy do cssow
       enemy2.box.style.pointerEvents = "all";
       enemy2.box.style.transform = "scale(1)";
       makeRandomMove2(true);

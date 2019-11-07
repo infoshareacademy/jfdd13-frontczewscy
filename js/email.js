@@ -1,3 +1,5 @@
+// UWAGI AS: kod zamknac w funkcji samowykonujacej sie
+
 const emailInput = document.querySelector("#email");
 const form = document.querySelector(".premiere__form");
 const submit = document.querySelector("#submit");
@@ -19,4 +21,4 @@ if (localStorage.getItem('email') == "true") {
     }, 5000);
 }
 
-form.addEventListener("submit", addToLocal)
+form.addEventListener("submit", addToLocal)// UWAGI AS: sredniki, konsekwencja
