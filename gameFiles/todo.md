@@ -100,7 +100,7 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 
 8. Grafika
 - [x] Poprawić okno wiadomości ? jest eleganckie chyba - m
-- [ ] Dodać plansze
+- [x] Dodać plansze
 - [x] Dodać background (za planszą)
 - [x] Dodać ikonke gracza
 - [x] Dodać ikonke przeciwnika
@@ -114,8 +114,8 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [ ] Muzyczka w tle?
 
 10. Gra
-- [ ] Drinki pojawiają się jeden za drugim podczas picia?
-- [ ] Drinki pojawiają się zdecydowanie z za małą częstotliwością
+- [x] Drinki pojawiają się jeden za drugim podczas picia?
+- [x] Drinki pojawiają się zdecydowanie z za małą częstotliwością
 
 11. Tablica wyników
 - [x] Zapisywanie do localstorage najlepszego wyniku
@@ -127,4 +127,4 @@ drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 - [x] Jeżeli gracz pobije swój wynik wyświetla się komunikat "Brawo pobiłeś swój wynik" Or smth.
 
 13. Dodać zwiększanie trudności w grze
-- [ ] Po zjedzeniu każdego drinka zwiększana jest trudność
+- [x] Po zjedzeniu każdego drinka zwiększana jest trudność
