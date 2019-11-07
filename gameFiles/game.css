@@ -26,6 +26,7 @@ body {
   height: 100vh;
   margin: 0;
   background-image: url("./bigBackground.jpg");
+  background-repeat: round;
 }
 
 .side-bar {
