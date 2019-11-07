@@ -193,4 +193,7 @@
         width: auto;
         padding: 10px;
     }
+    .ryby{
+        display: none;
+    }
 }
