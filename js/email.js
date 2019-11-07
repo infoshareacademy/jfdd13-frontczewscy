@@ -10,12 +10,13 @@ function addToLocal() {
 
 if (localStorage.getItem('email') == "true") {
     emailInfo.innerHTML = `
-        <p id="info">Dziękujemy za podanie maila</p>
+        <p id="info">Dziękujemy za podanie maila <a href="./game.html">Teraz możesz zagrać w gre</a></p>
+        
     `
     setTimeout(() =>{
         emailInfo.innerHTML = ``;
         localStorage.setItem('email', false);
-    }, 3000);
+    }, 5000);
 }
 
 form.addEventListener("submit", addToLocal)

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./gameFiles/game.css" />
+  </head>
+  <body>
+
+    <div id="end-game" style="opacity: 0; pointer-events: none; transition: 0.7s ease-in;">
+    </div>
+
+    <div class="popup-wrapper">
+      <div class="popup">
+        <div class="popup-close">x</div>
+        <div class="popup-content">
+          <h2>instrukcja</h2>
+          <p>instruction</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="message-box"></div>
+    <div class="timer">00:00</div>
+
+    <div class="board">
+      <div id="player1" style="top: 300px; left: 300px"></div>
+      <div id="enemy1" style="top: 300px; left: 500px"></div>
+      <div id="enemy2" style="top: 0px; left: -40px; pointer-events: none; transform: scale(0);"></div>
+      <div id="support-board"></div>
+      <div class="side-bar">
+        <div id="points"></div>
+        <button class="btnInstr game-button">INSTRUKCJA</button>
+        <button class="startButton game-button">START</button>
+      </div>
+    </div>
+
+    <script src="./gameFiles/game.js"></script>
+    <script src="./gameFiles/drink.js"></script>
+  </body>
+</html>

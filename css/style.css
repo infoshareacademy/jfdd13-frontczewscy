@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=latin-ext");
-
 :root {
   --dark-primary-color: #7b1fa2;
   --light-primary-color: #e1bee7;
@@ -23,10 +21,23 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   width: 100%;
+  
 }
 .container {
   justify-content: center;
   width: 100%;
+}
+
+#info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--dark-primary-color);
+  color: var(--text-icons);
+  padding: 40px;
+  border-radius: 5px;
+  border: 3px solid white;
 }
 
 .hero {
@@ -60,55 +71,6 @@ body {
   transition: 1s;
 }
 
-.left__button,
-.right__button {
-  position: absolute;
-  top: 50%;
-  width: 60px;
-  height: 60px;
-  transform: translate(-50%, -50%);
-  z-index: 99;
-  border: none;
-  outline: none;
-  color: var(--text-icons);
-  cursor: pointer;
-  padding: 0;
-  transition: 0.5s ease-in;
-  background-color: var(--dark-primary-color);
-  border-radius: 50%;
-  opacity: 0.66;
-}
-.left__button {
-  left: 80px;
-}
-.right__button {
-  right: 20px;
-}
-
-.left__button i,
-.right__button i {
-  top: 0;
-  position: relative;
-  width: 60px;
-  height: 60px;
-  font-size: 40px;
-  transform: translateY(-3px);
-  color: var(--text-icons);
-}
-
-.left__button i::before,
-.right__button i::before {
-  position: absolute;
-  top: 13px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-}
-
-.right__button i::before {
-  left: 23px;
-}
-
 .hero:before,
 .hero:after {
   content: "";
@@ -121,7 +83,7 @@ body {
 }
 
 .hero:before {
-  background: var(--accent-color);
+  background: black;
   opacity: 0.2;
   z-index: -1;
 }
@@ -139,7 +101,7 @@ body {
   width: 50%;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   margin-bottom: 150px;
   flex-direction: column;
@@ -151,7 +113,7 @@ body {
     1px 1px 0 rgb(65, 61, 61);
 }
 .hero__certe {
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 .hero__text h1 {
   margin: 10px 0;
@@ -174,36 +136,7 @@ body {
   object-fit: contain;
 }
 
-#info {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--dark-primary-color);
-  color: var(--text-icons);
-  padding: 40px;
-  border-radius: 5px;
-  border: 3px solid white;
-
-}
-
 @media (max-width: 1000px) {
-  .left__button,
-  .right__button {
-    top: 40%;
-  }
-
-  .left__button {
-    left: 40px;
-  }
-  .right__button {
-    right: -20px;
-  }
-
-  .left__button i::before,
-  .right__button i::before {
-    width: auto;
-  }
 
   .hero__item {
     flex-direction: column;
@@ -215,12 +148,6 @@ body {
     width: 100%;
     height: 500px;
   }
-  .info__functions {
-    flex-direction: column;
-  }
-  .info__row {
-    width: 100%;
-  }
   .hero {
     flex-direction: column;
     padding: 5px;
@@ -231,54 +158,38 @@ body {
     width: 100%;
   }
   .hero__text {
-    height: 40%;
+    height: 60%;
     margin: 0;
     font-size: 30px;
-    padding: 40px;
+    padding: 40px 40px 20px;
     align-items: center;
     justify-content: center;
   }
   .hero__text h1 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+  .hero__text p {
+    font-size: 20px;
   }
   .hero__image {
-    height: 60%;
+    height: 40%;
   }
   .hero__image img {
     width: auto;
     height: 100%;
     margin-bottom: 30px;
   }
+  .hero:before {
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 600px) {
-  .info {
-    height: auto;
-  }
-
-  .info__functions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .info__row {
-    flex-direction: column;
-    width: 100%;
-  }
-  .hero__text {
-    font-size: 25px;
-    height: 50vh;
-  }
   .hero__text h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
   .hero__text p {
-    font-size: 21px;
-  }
-
-  .info__element {
-    width: 100%;
-    padding: 10px;
+    font-size: 18px;
   }
 }
 

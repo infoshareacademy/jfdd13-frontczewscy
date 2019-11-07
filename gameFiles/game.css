@@ -1,0 +1,251 @@
+@keyframes expand {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    background: black;
+  }
+}
+
+@keyframes reduce {
+  to {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-image: url("./bigBackground.jpg");
+}
+
+.side-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px;
+  left: -200px;
+  text-align: center;
+  height: 100%;
+  justify-content: center;
+  color:#fff;
+}
+
+.side-bar * {
+  margin: 15px 10px;
+}
+
+.game-button {
+  background-color: #523f79;
+  opacity: 80%;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  transition: 0.5s ease;
+  width: 150px;
+  color: #fff;
+}
+
+.game-button:focus {
+  outline: none;
+}
+
+.game-button:hover {
+  background: black;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.board {
+  background-image: url(background.jpg);
+  border: 2px solid #fff;
+  border-radius: 2px;
+  width: 600px;
+  height: 600px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: -1px 0px 161px 0px rgba(9,11,15,1);
+  -moz-box-shadow: -1px 0px 161px 0px rgba(9,11,15,1);
+  box-shadow: -1px 0px 161px 0px rgba(9,11,15,1);
+
+}
+.gameTitle,
+.timer {
+  position: fixed;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+}
+
+#player1,
+#enemy1, #enemy2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
+}
+
+#player1 {
+  background-image: url(gameNeptun.png);
+}
+
+#enemy1, #enemy2 {
+  background-image: url(gameZul.png);
+}
+
+#enemy2 {
+  transition: transform 1s ease;
+}
+
+.drink {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.yellow {
+  background-image: url(drinkYellow.png);
+}
+
+.green {
+  background-image: url(drinkGreen.png);
+}
+
+#support-board {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.instr {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 300px;
+  padding: 50px;
+  background: darkmagenta;
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin: 10px;
+}
+
+#addPopup {
+  background: #bdfced;
+  color: rgb(95, 81, 114);
+  font-size: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  margin: 40px 20px;
+}
+
+#addPopup:hover {
+  color: rgb(170, 142, 202);
+}
+.add-box:focus {
+  outline: 0;
+}
+
+.pop-up {
+  animation: expand 0.5s ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  background-size: cover;
+  border-radius: 10px;
+  z-index: 9;
+}
+
+.pop-up.remove {
+  animation: reduce 0.5s ease-in-out;
+}
+
+#end-game {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+#end-game *:not(.end-game_close) {
+  margin: 0;
+  padding: 20px;
+}
+
+.popup-wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 22;
+}
+
+.popup {
+  font-family: arial;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10% auto;
+  padding: 20px;
+  background: white;
+  position: relative;
+  z-index: 22;
+}
+
+.popup a {
+  background: crimson;
+  color: white;
+  text-decoration: none;
+  padding: 6px 10px;
+  z-index: 22;
+}
+
+.popup-close {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 22;
+}
+
+.end-game_close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: white;
+  color: black;
+  padding: 5px 9px;
+  cursor: pointer;
+}
