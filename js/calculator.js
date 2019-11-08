@@ -3,20 +3,22 @@ const slider = document.getElementById("myRange"),
   checkBox = document.getElementById("checkbox"),
   discountHTML = document.getElementById("discount"),
   price = document.getElementById("cena");
-let count = 0;
-
+let count = true;
+  
+  
 // document.querySelector(".submit").addEventListener('click', sliderChange);
 document.querySelector("#calcButton").addEventListener('click', calcDisplay);
 document.querySelector("#exitButton").addEventListener('click', calcDisplay);
 
 
 function calcDisplay() {
-  count += 1;
 
-  if (count % 2) {
-
+   
+  if (count) {
+    count = false;
     document.querySelector('#calculator').style.display = "block";
   } else {
+    count = true;
     document.querySelector('#calculator').style.display = "none";
   };
 
