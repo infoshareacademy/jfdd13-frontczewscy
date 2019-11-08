@@ -102,7 +102,7 @@ class DomControl {
     // turns off enemy moves
     makeRandomMove1(false);
     makeRandomMove2(false);
-    console.log(makeMove1);
+    
     randomDirections1 = [];
     randomDirections2 = [];
 
@@ -127,7 +127,7 @@ function showEndGameScreen(points, highest, msg, moreInfo) {
   const endGameCloseBtn = document.querySelector('.end-game_close');
   endGameCloseBtn.addEventListener('click', () => {    
     endGameScreen.classList.remove('shown');
-  })
+  });
   endGameScreen.classList.add('shown')
 
   // set playerPoints to 0
@@ -184,6 +184,7 @@ function movePlayer() {
   }
 }
 
+// can't make it in one function :(
 function changeRandomDirection1() {
   randomDirections1 = [
     Math.random() >= 0.5,
@@ -240,12 +241,18 @@ function animate() {
   movePlayer();
   moveEnemy(enemy1, randomDirections1);
   moveEnemy(enemy2, randomDirections2);
-  DomControl.checkCollision(player1.box, enemy1.box, () => {
-    DomControl.endGame("Żul Cię dopadł");
-  });
-  DomControl.checkCollision(player1.box, enemy2.box, () => {
-    DomControl.endGame("Żul Cię dopadł");
-  });
+
+  [enemy1.box, enemy2.box].forEach(enemy => {
+    DomControl.checkCollision(player1.box, enemy, () => {
+      DomControl.endGame("Żul Cię dopadł");
+    });
+  })
+  // DomControl.checkCollision(player1.box, enemy1.box, () => {
+  //   DomControl.endGame("Żul Cię dopadł");
+  // });
+  // DomControl.checkCollision(player1.box, enemy2.box, () => {
+  //   DomControl.endGame("Żul Cię dopadł");
+  // });
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
