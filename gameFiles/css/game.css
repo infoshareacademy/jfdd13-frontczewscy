@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background-image: url("./bigBackground.jpg");
+  background-image: url(../img/bigBackground.jpg);
   background-repeat: round;
 }
 
@@ -69,7 +69,7 @@ body {
 }
 
 .board {
-  background-image: url(background.jpg);
+  background-image: url(../img/background.jpg);
   border: 2px solid #fff;
   border-radius: 2px;
   width: 600px;
@@ -94,7 +94,7 @@ body {
   color: #fff;
 }
 
-#player1,
+#player,
 #enemy1, #enemy2 {
   position: absolute;
   width: 30px;
@@ -102,12 +102,12 @@ body {
   background-size: 100% 100%;
 }
 
-#player1 {
-  background-image: url(gameNeptun.png);
+#player {
+  background-image: url(../img/gameNeptun.png);
 }
 
 #enemy1, #enemy2 {
-  background-image: url(gameZul.png);
+  background-image: url(../img/gameZul.png);
 }
 
 #enemy2 {
@@ -121,11 +121,11 @@ body {
 }
 
 .yellow {
-  background-image: url(drinkYellow.png);
+  background-image: url(../img/drinkYellow.png);
 }
 
 .green {
-  background-image: url(drinkGreen.png);
+  background-image: url(../img/drinkGreen.png);
 }
 
 #support-board {
@@ -223,6 +223,20 @@ p {
   background: white;
   position: relative;
   z-index: 22;
+}
+
+.hidden {
+  opacity: 0; 
+  pointer-events: none; 
+  transition: 0.7s ease-in; 
+  transform: scale(0);
+}
+
+.shown {
+  opacity: 1; 
+  pointer-events: all; 
+  transition: 0.7s ease-in; 
+  transform: scale(1);
 }
 
 .popup a {

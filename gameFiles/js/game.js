@@ -1,30 +1,35 @@
 // getting dom elements
-const board = document.querySelector(".board");
-const suppBoard = document.querySelector("#support-board");
-const pointsBoard = document.querySelector("#points");
-const openInstr = document.querySelector(".btnInstr");
-const popup = document.querySelector(".popup-wrapper");
-const startButton = document.querySelector(".startButton");
-const timer = document.querySelector(".timer");
-const close = document.querySelector(".popup-close");
-const endGameScreen = document.querySelector("#end-game");
+const board = document.querySelector(".board"),
+    suppBoard = document.querySelector("#support-board"),
+    pointsBoard = document.querySelector("#points"),
+    openInstr = document.querySelector(".btnInstr"),
+    popup = document.querySelector(".popup-wrapper"),
+    startButton = document.querySelector(".startButton"),
+    timer = document.querySelector(".timer"),
+    close = document.querySelector(".popup-close"),
+    endGameScreen = document.querySelector("#end-game");
 
 // configuration
-let keys = [];
-let randomDirections = [];
-let randomDirections2 = [];
-let drinksArray = [];
-let playerSpeed = 5;
-let enemySpeed = 2;
-let moveX;
-let moveY;
-let playerPoints = 0;
-let timeInterval;
-let drinkRefreshing;
-let makeMove;
-let makeMove2;
+let keys = [],
+    randomDirections1 = [],
+    randomDirections2 = [],
+    drinksArray = [],
+    enemySpeed = 2,
+    moveX,
+    moveY,
+    playerPoints = 0,
+    timeInterval,
+    drinkRefreshing,
+    makeMove1,
+    makeMove2,
+    randomPosition =  57;
+
+    
+const playerSpeed = 5;
 // Appearance of the new drink every 1.0 seconds
-let spawnRate = 1000;
+const spawnRate = 1000;
+
+
 
 // class for making message box
 class Message {
@@ -64,8 +69,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 57) * 10;
-    player.y = Math.floor(Math.random() * 57) * 10;
+    player.x = Math.floor(Math.random() * randomPosition) * 10;
+    player.y = Math.floor(Math.random() * randomPosition) * 10;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -87,8 +92,8 @@ class DomControl {
     drinksArray = [];
 
     // moves players to random spot on the board
-    DomControl.randomSpawn(player1);
-    DomControl.randomSpawn(enemy);
+    DomControl.randomSpawn(player);
+    DomControl.randomSpawn(enemy1);
 
     // turns off the timer
     clearInterval(timeInterval);
@@ -102,63 +107,30 @@ class DomControl {
     document.removeEventListener("keyup", keyReleased);
 
     // turns off enemy moves
-    makeRandomMove(false);
+    makeRandomMove1(false);
     makeRandomMove2(false);
-    randomDirections = [];
+    
+    randomDirections1 = [];
     randomDirections2 = [];
 
     // stops drinks from appearing
     clearInterval(drinkRefreshing);
 
     // set hightscore and show end game screen
-    setTimeout(() => {
-      setHightScore(playerPoints, msg);
-    }, 1500)
-  }
-}
-
-function showEndGameScreen(points, highest, msg, moreInfo) {
-  endGameScreen.innerHTML = `
-    <div class="end-game_close">x</div>
-    <h2>${msg}</h2>
-    <p>${moreInfo}</p>
-    <p>Liczba zdobytych punktów: ${points}</p>
-    <p>Najwięcej zdobytych punktów: ${highest}</p>
-  `;
-  const endGameCloseBtn = document.querySelector('.end-game_close');
-  endGameCloseBtn.addEventListener('click', () => { 
-    endGameScreen.style.opacity = "0";
-    endGameScreen.style.pointerEvents = "none";
-  })
-  endGameScreen.style.opacity = "1";
-  endGameScreen.style.pointerEvents = "all";
-
-  // set playerPoints to 0
-  playerPoints = 0;
-}
-
-function setHightScore(points, msg) {
-  let highest = localStorage.getItem('hight');
-
-  if (highest === null) {
-    localStorage.setItem('hight', points)
-    highest = localStorage.getItem('hight')
-  }
-  if (highest < points) {
-    localStorage.setItem('hight', points)
-    highest = localStorage.getItem('hight')
-    showEndGameScreen(points, highest, msg, "Brawo pobiłeś swój najlepszy wynik");
-  } else if (highest > points) {
-    showEndGameScreen(points, highest, msg, "Próbuj dalej pobić swój najlepszy wynik");
-  } else {
-    showEndGameScreen(points, highest, msg, "Udało Ci się zrównać ze swoim najlepszym wynikiem");
+    setTimeout(setHightScore, 1500, playerPoints, msg)
   }
 }
 
 // creates new objects using Player class
-const player1 = new Player("#player1");
-const enemy = new Player("#enemy1");
+const player = new Player("#player");
+const enemy1 = new Player("#enemy1");
 const enemy2 = new Player("#enemy2");
+
+// getting enemys dom properties  
+const enemys = [
+  enemy1.box,
+  enemy2.box
+]
 
 // helping functions for detecting which key is pressed and released at a given time;
 function keyPressed(event) {
@@ -170,25 +142,26 @@ function keyReleased(event) {
 
 // function for moving the player
 function movePlayer() {
-  player1.box.style.left = player1.x + "px";
-  player1.box.style.top = player1.y + "px";
+  player.box.style.left = player.x + "px";
+  player.box.style.top = player.y + "px";
 
-  if (keys[37] && player1.x > 0) {
-    player1.x -= playerSpeed;
+  if (keys[37] && player.x > 0) {
+    player.x -= playerSpeed;
   }
-  if (keys[38] && player1.y > 0) {
-    player1.y -= playerSpeed;
+  if (keys[38] && player.y > 0) {
+    player.y -= playerSpeed;
   }
-  if (keys[39] && player1.x < board.offsetWidth - player1.w) {
-    player1.x += playerSpeed;
+  if (keys[39] && player.x < board.offsetWidth - player.w) {
+    player.x += playerSpeed;
   }
-  if (keys[40] && player1.y < board.offsetHeight - player1.h) {
-    player1.y += playerSpeed;
+  if (keys[40] && player.y < board.offsetHeight - player.h) {
+    player.y += playerSpeed;
   }
 }
 
-function changeRandomDirection() {
-  randomDirections = [
+// can't make it in one function :(
+function changeRandomDirection1() {
+  randomDirections1 = [
     Math.random() >= 0.5,
     Math.random() >= 0.5,
     Math.random() >= 0.5,
@@ -205,10 +178,10 @@ function changeRandomDirection2() {
   ];
 }
 
-function makeRandomMove(state) {
-  clearInterval(makeMove);
+function makeRandomMove1(state) {
+  clearInterval(makeMove1);
   if (state) {
-    makeMove = setInterval(changeRandomDirection, 800);
+    makeMove1 = setInterval(changeRandomDirection1, 800);
   }
 }
 
@@ -219,8 +192,8 @@ function makeRandomMove2(state) {
   }
 }
 
-// function for moving the enemy
-function moveEnemy() {
+
+function moveEnemy(enemy, randomDirections) {
   enemy.box.style.left = enemy.x + "px";
   enemy.box.style.top = enemy.y + "px";
 
@@ -238,35 +211,17 @@ function moveEnemy() {
   }
 }
 
-function moveEnemy2() {
-  enemy2.box.style.left = enemy2.x + "px";
-  enemy2.box.style.top = enemy2.y + "px";
-
-  if (randomDirections2[0] && enemy2.x > 0) {
-    enemy2.x -= enemySpeed;
-  }
-  if (randomDirections2[1] && enemy2.y > 0) {
-    enemy2.y -= enemySpeed;
-  }
-  if (randomDirections2[2] && enemy2.x < board.offsetWidth - enemy2.w) {
-    enemy2.x += enemySpeed;
-  }
-  if (randomDirections2[3] && enemy2.y < board.offsetHeight - enemy2.h) {
-    enemy2.y += enemySpeed;
-  }
-}
-
 // function that is responsible for frame-by-frame playback
 function animate() {
   movePlayer();
-  moveEnemy();
-  moveEnemy2();
-  DomControl.checkCollision(player1.box, enemy.box, () => {
-    DomControl.endGame("Żul Cię dopadł");
-  });
-  DomControl.checkCollision(player1.box, enemy2.box, () => {
-    DomControl.endGame("Żul Cię dopadł");
-  });
+  moveEnemy(enemy1, randomDirections1);
+  moveEnemy(enemy2, randomDirections2);
+
+  enemys.forEach(enemy => {
+    DomControl.checkCollision(player.box, enemy, () => {
+      DomControl.endGame("Żul Cię dopadł");
+    });
+  })
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
@@ -281,33 +236,29 @@ function animate() {
 animate();
 
 // random spawn of the objects at start;
-DomControl.randomSpawn(player1);
-DomControl.randomSpawn(enemy);
+DomControl.randomSpawn(player);
+DomControl.randomSpawn(enemy1);
 
 function spawnDrinks() {
-  // Setting random spawn point for the drinks
-  let spawnLineY = Math.random() * 570;
-  let spawnLineX = Math.random() * 570;
+  // creating new div that will contain drink
+  const div = document.createElement("div");
 
-  let color;
-  let points;
+  // Setting random spawn point for the drinks
+  let spawnLineY = Math.floor(Math.random() * 57) * 10; 
+  let spawnLineX = Math.floor(Math.random() * 57) * 10;
+
+  let points = 2;
+  let nameClass = "yellow";
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.75) {
     nameClass = "green";
     points = 1;
-  } else {
-    nameClass = "yellow";
-    points = 2;
-  }
-
-  // creating new div that will contain drink
-  const div = document.createElement("div");
+  };
 
   //Tworzenie obiektu (drinkow)
-  var drink = {
+  const drink = {
     box: div,
-    type: color,
     y: spawnLineY,
     x: spawnLineX,
     weight: points
@@ -341,31 +292,28 @@ function collectDrink(index) {
 // For each element in drinksArray array start a function that looks for collisions between boxes
 function drinkCollision() {
   drinksArray.forEach((element, index) => {
-    let addY
+    let addY;
     if (element.weight == 1) {
       addY = "";
     } else {
       addY = "y";
     }
-    DomControl.checkCollision(element.box, player1.box, () => {
+    DomControl.checkCollision(element.box, player.box, () => {
       collectDrink(index);
       addPlayerPoints(element.weight);
       
       const message = new Message(`${element.weight} punkt${addY} dla gracza`);
       message.renderMessage();
     });
-    DomControl.checkCollision(element.box, enemy.box, () => {
-      collectDrink(index);
-      addEnemyPoints(element.weight);
-      const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
-      message.renderMessage();
-    });
-    DomControl.checkCollision(element.box, enemy2.box, () => {
-      collectDrink(index);
-      addEnemyPoints(element.weight);
-      const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
-      message.renderMessage();
-    });
+
+    enemys.forEach(enemy => {
+      DomControl.checkCollision(element.box, enemy, () => {
+        collectDrink(index);
+        addEnemyPoints(element.weight);
+        const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
+        message.renderMessage();
+      });
+    })
   });
 }
 
@@ -395,7 +343,8 @@ function startGame() {
   timerFunction();  
 
   // makes random move of the enemy
-  makeRandomMove(true);
+
+  makeRandomMove1(true);
 
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
@@ -409,12 +358,12 @@ function startGame() {
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 
   // turn off the endgamescrren
-  endGameScreen.style.opacity = "0";
-  endGameScreen.style.pointerEvents = "none";
+  endGameScreen.classList.remove('shown');
 
   // set player points to 0
   playerPoints = 0;
 
+  // set enemSpeed to 2
   enemySpeed = 2;
 
   
@@ -423,7 +372,7 @@ function startGame() {
   setTimeout(() => {
     enemy2.x = -40;
     enemy2.y = 0;
-  }, 1000)
+  }, 1000);
   
 }
 
@@ -461,6 +410,42 @@ function timerFunction() {
       clearInterval(timeInterval);
     }
   }, 1000);
+};
+
+function showEndGameScreen(points, highest, msg, moreInfo) {
+  endGameScreen.innerHTML = `
+    <div class="end-game_close">x</div>
+    <h2>${msg}</h2>
+    <p>${moreInfo}</p>
+    <p>Liczba zdobytych punktów: ${points}</p>
+    <p>Najwięcej zdobytych punktów: ${highest}</p>
+  `;
+  const endGameCloseBtn = document.querySelector('.end-game_close');
+  endGameCloseBtn.addEventListener('click', () => {    
+    endGameScreen.classList.remove('shown');
+  });
+  endGameScreen.classList.add('shown')
+
+  // set playerPoints to 0
+  playerPoints = 0;
+}
+
+function setHightScore(points, msg) {
+  let highest = localStorage.getItem('hight');
+
+  if (highest === null) {
+    localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
+  }
+  if (highest < points) {
+    localStorage.setItem('hight', points)
+    highest = localStorage.getItem('hight')
+    showEndGameScreen(points, highest, msg, "Brawo pobiłeś swój najlepszy wynik");
+  } else if (highest > points) {
+    showEndGameScreen(points, highest, msg, "Próbuj dalej pobić swój najlepszy wynik");
+  } else {
+    showEndGameScreen(points, highest, msg, "Udało Ci się zrównać ze swoim najlepszym wynikiem");
+  }
 }
 
 openInstr.addEventListener("click", () => {
