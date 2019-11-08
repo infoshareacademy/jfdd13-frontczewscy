@@ -23,11 +23,10 @@ let timeInterval;
 let drinkRefreshing;
 let makeMove1;
 let makeMove2;
-// creating new div that will contain drink
-const div = document.createElement("div");
+
 // Appearance of the new drink every 1.0 seconds
 const spawnRate = 1000;
-let randomPosition =  Math.floor(Math.random() * 57) * 10;
+let randomPosition =  57;
 
 // class for making message box
 class Message {
@@ -67,8 +66,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = randomPosition;
-    player.y = randomPosition;
+    player.x = Math.floor(Math.random() * randomPosition) * 10;
+    player.y = Math.floor(Math.random() * randomPosition) * 10;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -247,17 +246,17 @@ function animate() {
   moveEnemy(enemy1, randomDirections1);
   moveEnemy(enemy2, randomDirections2);
 
-  [enemy1.box, enemy2.box].forEach(enemy => {
-    DomControl.checkCollision(player1.box, enemy, () => {
-      DomControl.endGame("Żul Cię dopadł");
-    });
-  })
-  // DomControl.checkCollision(player1.box, enemy1.box, () => {
-  //   DomControl.endGame("Żul Cię dopadł");
-  // });
-  // DomControl.checkCollision(player1.box, enemy2.box, () => {
-  //   DomControl.endGame("Żul Cię dopadł");
-  // });
+  // [enemy1.box, enemy2.box].forEach(enemy => {
+  //   DomControl.checkCollision(player1.box, enemy, () => {
+  //     DomControl.endGame("Żul Cię dopadł");
+  //   });
+  // })
+  DomControl.checkCollision(player1.box, enemy1.box, () => {
+    DomControl.endGame("Żul Cię dopadł");
+  });
+  DomControl.checkCollision(player1.box, enemy2.box, () => {
+    DomControl.endGame("Żul Cię dopadł");
+  });
 
   if (drinksArray.length > 2) {
     clearInterval(drinkRefreshing);
@@ -276,9 +275,12 @@ DomControl.randomSpawn(player1);
 DomControl.randomSpawn(enemy1);
 
 function spawnDrinks() {
+  // creating new div that will contain drink
+  const div = document.createElement("div");
+
   // Setting random spawn point for the drinks
-  let spawnLineY = randomPosition;
-  let spawnLineX = randomPosition;
+  let spawnLineY = Math.floor(Math.random() * 57) * 10; 
+  let spawnLineX = Math.floor(Math.random() * 57) * 10;
 
   let points = 2;
   let nameClass = "yellow";
