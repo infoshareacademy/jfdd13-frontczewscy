@@ -14,7 +14,7 @@ let keys = [];
 let randomDirections = [];
 let randomDirections2 = [];
 let drinksArray = [];
-const playerSpeed = 5;
+let playerSpeed = 5;
 let enemySpeed = 2;
 let moveX;
 let moveY;
@@ -23,8 +23,11 @@ let timeInterval;
 let drinkRefreshing;
 let makeMove;
 let makeMove2;
+// creating new div that will contain drink
+const div = document.createElement("div");
 // Appearance of the new drink every 1.0 seconds
 const spawnRate = 1000;
+let randomPosition =  Math.floor(Math.random() * 57) * 10;
 
 // class for making message box
 class Message {
@@ -43,7 +46,9 @@ class Message {
   }
   removeFromDom() {
     this.box.classList.add("remove");
-    this.box.addEventListener("animationend", this.box.remove);
+    this.box.addEventListener("animationend", () => {
+      this.box.remove();
+    });
   }
 }
 
@@ -62,8 +67,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 57) * 10;
-    player.y = Math.floor(Math.random() * 57) * 10;
+    player.x = randomPosition;
+    player.y = randomPosition;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -284,28 +289,21 @@ DomControl.randomSpawn(enemy);
 
 function spawnDrinks() {
   // Setting random spawn point for the drinks
-  let spawnLineY = Math.random() * 570;
-  let spawnLineX = Math.random() * 570;
+  let spawnLineY = randomPosition;
+  let spawnLineX = randomPosition;
 
-  let color;
-  let points;
+  let points = 2;
+  let nameClass = "yellow";
 
   //Random od 0 do 1 czy bedzie pierwszy drink czy drugi
   if (Math.random() < 0.75) {
     nameClass = "green";
     points = 1;
-  } else {
-    nameClass = "yellow";
-    points = 2;
-  }
-
-  // creating new div that will contain drink
-  const div = document.createElement("div");
+  };
 
   //Tworzenie obiektu (drinkow)
   var drink = {
     box: div,
-    type: color,
     y: spawnLineY,
     x: spawnLineX,
     weight: points
@@ -339,7 +337,7 @@ function collectDrink(index) {
 // For each element in drinksArray array start a function that looks for collisions between boxes
 function drinkCollision() {
   drinksArray.forEach((element, index) => {
-    let addY
+    let addY;
     if (element.weight == 1) {
       addY = "";
     } else {
@@ -421,7 +419,7 @@ function startGame() {
   setTimeout(() => {
     enemy2.x = -40;
     enemy2.y = 0;
-  }, 1000)
+  }, 1000);
   
 }
 
