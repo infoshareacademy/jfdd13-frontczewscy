@@ -37,7 +37,9 @@ class Message {
     this.box.innerHTML = `<h2>${this.text}<h2>`;
     this.box.classList.add("pop-up");
     document.body.appendChild(this.box);
-    setTimeout(this.removeFromDom, this.timeOut);
+    setTimeout(() => {
+      this.removeFromDom();
+    }, this.timeOut);
   }
   removeFromDom() {
     this.box.classList.add("remove");
