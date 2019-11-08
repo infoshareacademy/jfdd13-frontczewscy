@@ -14,7 +14,7 @@ let keys = [];
 let randomDirections = [];
 let randomDirections2 = [];
 let drinksArray = [];
-let playerSpeed = 5;
+const playerSpeed = 5;
 let enemySpeed = 2;
 let moveX;
 let moveY;
@@ -24,7 +24,7 @@ let drinkRefreshing;
 let makeMove;
 let makeMove2;
 // Appearance of the new drink every 1.0 seconds
-let spawnRate = 1000;
+const spawnRate = 1000;
 
 // class for making message box
 class Message {
@@ -37,15 +37,11 @@ class Message {
     this.box.innerHTML = `<h2>${this.text}<h2>`;
     this.box.classList.add("pop-up");
     document.body.appendChild(this.box);
-    setTimeout(() => {
-      this.removeFromDom();
-    }, this.timeOut);
+    setTimeout(this.removeFromDom, this.timeOut);
   }
   removeFromDom() {
     this.box.classList.add("remove");
-    this.box.addEventListener("animationend", () => {
-      this.box.remove();
-    });
+    this.box.addEventListener("animationend", this.box.remove);
   }
 }
 
