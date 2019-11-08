@@ -94,7 +94,7 @@ body {
   color: #fff;
 }
 
-#player1,
+#player,
 #enemy1, #enemy2 {
   position: absolute;
   width: 30px;
@@ -102,7 +102,7 @@ body {
   background-size: 100% 100%;
 }
 
-#player1 {
+#player {
   background-image: url(../img/gameNeptun.png);
 }
 
