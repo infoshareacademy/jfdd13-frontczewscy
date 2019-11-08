@@ -225,6 +225,20 @@ p {
   z-index: 22;
 }
 
+.hidden {
+  opacity: 0; 
+  pointer-events: none; 
+  transition: 0.7s ease-in; 
+  transform: scale(0);
+}
+
+.shown {
+  opacity: 1; 
+  pointer-events: all; 
+  transition: 0.7s ease-in; 
+  transform: scale(1);
+}
+
 .popup a {
   background: crimson;
   color: white;

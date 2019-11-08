@@ -86,7 +86,7 @@ class DomControl {
 
     // moves players to random spot on the board
     DomControl.randomSpawn(player1);
-    DomControl.randomSpawn(enemy);
+    DomControl.randomSpawn(enemy1);
 
     // turns off the timer
     clearInterval(timeInterval);
@@ -100,7 +100,7 @@ class DomControl {
     document.removeEventListener("keyup", keyReleased);
 
     // turns off enemy moves
-    makeRandomMove(false);
+    makeRandomMove1(false);
     makeRandomMove2(false);
     randomDirections = [];
     randomDirections2 = [];
@@ -124,12 +124,10 @@ function showEndGameScreen(points, highest, msg, moreInfo) {
     <p>Najwięcej zdobytych punktów: ${highest}</p>
   `;
   const endGameCloseBtn = document.querySelector('.end-game_close');
-  endGameCloseBtn.addEventListener('click', () => { 
-    endGameScreen.style.opacity = "0";
-    endGameScreen.style.pointerEvents = "none";
+  endGameCloseBtn.addEventListener('click', () => {    
+    endGameScreen.classList.remove('shown');
   })
-  endGameScreen.style.opacity = "1";
-  endGameScreen.style.pointerEvents = "all";
+  endGameScreen.classList.add('shown')
 
   // set playerPoints to 0
   playerPoints = 0;
@@ -155,7 +153,7 @@ function setHightScore(points, msg) {
 
 // creates new objects using Player class
 const player1 = new Player("#player1");
-const enemy = new Player("#enemy1");
+const enemy1 = new Player("#enemy1");
 const enemy2 = new Player("#enemy2");
 
 // helping functions for detecting which key is pressed and released at a given time;
@@ -185,7 +183,24 @@ function movePlayer() {
   }
 }
 
-function changeRandomDirection() {
+// function changeRandomDirection() {
+//   randomDirections = [
+//     [
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5
+//     ],
+//     [
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5,
+//       Math.random() >= 0.5
+//     ]
+//   ]
+// }
+
+function changeRandomDirection1() {
   randomDirections = [
     Math.random() >= 0.5,
     Math.random() >= 0.5,
@@ -203,36 +218,53 @@ function changeRandomDirection2() {
   ];
 }
 
-function makeRandomMove(state) {
+function makeRandomMove1(state) {
   clearInterval(makeMove);
   if (state) {
-    makeMove = setInterval(changeRandomDirection, 800);
+    makeMove = setInterval(changeRandomDirection1, 800);
   }
 }
 
 function makeRandomMove2(state) {
-  clearInterval(makeMove2);
+  clearInterval(makeMove);
   if (state) {
-    makeMove2 = setInterval(changeRandomDirection2, 800);
+    makeMove = setInterval(changeRandomDirection2, 800);
   }
 }
 
-// function for moving the enemy
-function moveEnemy() {
-  enemy.box.style.left = enemy.x + "px";
-  enemy.box.style.top = enemy.y + "px";
 
-  if (randomDirections[0] && enemy.x > 0) {
-    enemy.x -= enemySpeed;
+
+
+// function for moving the enemy
+function moveEnemy1() {
+  enemy1.box.style.left = enemy1.x + "px";
+  enemy1.box.style.top = enemy1.y + "px";
+
+  // randomDirections.forEach((element => {
+  //   if (element[0] && enemy1.x > 0) {
+  //     enemy1.x -= enemySpeed;
+  //   }
+  //   if (element[1] && enemy1.y > 0) {
+  //     enemy1.y -= enemySpeed;
+  //   }
+  //   if (element[2] && enemy1.x < board.offsetWidth - enemy1.w) {
+  //     enemy1.x += enemySpeed;
+  //   }
+  //   if (element[3] && enemy1.y < board.offsetHeight - enemy1.h) {
+  //     enemy1.y += enemySpeed;
+  //   }
+  // })
+  if (randomDirections[0] && enemy1.x > 0) {
+    enemy1.x -= enemySpeed;
   }
-  if (randomDirections[1] && enemy.y > 0) {
-    enemy.y -= enemySpeed;
+  if (randomDirections[1] && enemy1.y > 0) {
+    enemy1.y -= enemySpeed;
   }
-  if (randomDirections[2] && enemy.x < board.offsetWidth - enemy.w) {
-    enemy.x += enemySpeed;
+  if (randomDirections[2] && enemy1.x < board.offsetWidth - enemy1.w) {
+    enemy1.x += enemySpeed;
   }
-  if (randomDirections[3] && enemy.y < board.offsetHeight - enemy.h) {
-    enemy.y += enemySpeed;
+  if (randomDirections[3] && enemy1.y < board.offsetHeight - enemy1.h) {
+    enemy1.y += enemySpeed;
   }
 }
 
@@ -257,9 +289,9 @@ function moveEnemy2() {
 // function that is responsible for frame-by-frame playback
 function animate() {
   movePlayer();
-  moveEnemy();
+  moveEnemy1();
   moveEnemy2();
-  DomControl.checkCollision(player1.box, enemy.box, () => {
+  DomControl.checkCollision(player1.box, enemy1.box, () => {
     DomControl.endGame("Żul Cię dopadł");
   });
   DomControl.checkCollision(player1.box, enemy2.box, () => {
@@ -280,7 +312,7 @@ animate();
 
 // random spawn of the objects at start;
 DomControl.randomSpawn(player1);
-DomControl.randomSpawn(enemy);
+DomControl.randomSpawn(enemy1);
 
 function spawnDrinks() {
   // Setting random spawn point for the drinks
@@ -352,7 +384,7 @@ function drinkCollision() {
       const message = new Message(`${element.weight} punkt${addY} dla gracza`);
       message.renderMessage();
     });
-    DomControl.checkCollision(element.box, enemy.box, () => {
+    DomControl.checkCollision(element.box, enemy1.box, () => {
       collectDrink(index);
       addEnemyPoints(element.weight);
       const message = new Message(`Przeciwnik zabrał Ci ${element.weight} punkt${addY}`);
@@ -393,7 +425,7 @@ function startGame() {
   timerFunction();  
 
   // makes random move of the enemy
-  makeRandomMove(true);
+  makeRandomMove1(true);
 
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
@@ -407,8 +439,7 @@ function startGame() {
   drinkRefreshing = setInterval(spawnDrinks, spawnRate);
 
   // turn off the endgamescrren
-  endGameScreen.style.opacity = "0";
-  endGameScreen.style.pointerEvents = "none";
+  endGameScreen.classList.remove('shown');
 
   // set player points to 0
   playerPoints = 0;
