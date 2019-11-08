@@ -27,6 +27,7 @@ let makeMove2;
 const div = document.createElement("div");
 // Appearance of the new drink every 1.0 seconds
 const spawnRate = 1000;
+let randomPosition =  Math.floor(Math.random() * 57) * 10;
 
 // class for making message box
 class Message {
@@ -66,8 +67,8 @@ class Player {
 class DomControl {
   // static function that spawns object in random position on the board;
   static randomSpawn(player) {
-    player.x = Math.floor(Math.random() * 57) * 10;
-    player.y = Math.floor(Math.random() * 57) * 10;
+    player.x = randomPosition;
+    player.y = randomPosition;
   }
   // static function that looks for the collision between two objects
   // when it detects the collision it calls the function that is passed in parameter
@@ -288,8 +289,8 @@ DomControl.randomSpawn(enemy);
 
 function spawnDrinks() {
   // Setting random spawn point for the drinks
-  let spawnLineY = Math.floor(Math.random() * 57) * 10;
-  let spawnLineX = Math.floor(Math.random() * 57) * 10;
+  let spawnLineY = randomPosition;
+  let spawnLineX = randomPosition;
 
   let points = 2;
   let nameClass = "yellow";
