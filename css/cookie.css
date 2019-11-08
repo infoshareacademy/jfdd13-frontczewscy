@@ -1,4 +1,4 @@
-.cookie{
+#cookie{
     margin: 0px;
     padding: 5px;
     position: fixed;
@@ -12,12 +12,12 @@
     box-shadow: 0px -17px 65px -4px rgba(0,0,0,0.75);
     display: none;
 }
-.cookie>p{
+#cookie>p{
     color: #fff;
     font-size: 12px;
     margin: 20px;
 }
-.cookie>h6{
+#cookie>h6{
     font-weight: bold;
     font-size: 16px;    
     color: #fff;
@@ -32,7 +32,7 @@
     background-color: #FF4081;
     color: #fff;
 }
-.cookie>p>a{
+#cookie>p>a{
     color: rgb(233, 177, 177);
     border-bottom: solid 1px;
     font-size: 12px;
