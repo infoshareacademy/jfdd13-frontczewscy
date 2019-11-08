@@ -11,7 +11,7 @@ const endGameScreen = document.querySelector("#end-game");
 
 // configuration
 let keys = [];
-let randomDirections = [];
+let randomDirections1 = [];
 let randomDirections2 = [];
 let drinksArray = [];
 const playerSpeed = 5;
@@ -21,7 +21,7 @@ let moveY;
 let playerPoints = 0;
 let timeInterval;
 let drinkRefreshing;
-let makeMove;
+let makeMove1;
 let makeMove2;
 // Appearance of the new drink every 1.0 seconds
 const spawnRate = 1000;
@@ -102,7 +102,8 @@ class DomControl {
     // turns off enemy moves
     makeRandomMove1(false);
     makeRandomMove2(false);
-    randomDirections = [];
+    console.log(makeMove1);
+    randomDirections1 = [];
     randomDirections2 = [];
 
     // stops drinks from appearing
@@ -183,25 +184,8 @@ function movePlayer() {
   }
 }
 
-// function changeRandomDirection() {
-//   randomDirections = [
-//     [
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5
-//     ],
-//     [
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5,
-//       Math.random() >= 0.5
-//     ]
-//   ]
-// }
-
 function changeRandomDirection1() {
-  randomDirections = [
+  randomDirections1 = [
     Math.random() >= 0.5,
     Math.random() >= 0.5,
     Math.random() >= 0.5,
@@ -219,78 +203,43 @@ function changeRandomDirection2() {
 }
 
 function makeRandomMove1(state) {
-  clearInterval(makeMove);
+  clearInterval(makeMove1);
   if (state) {
-    makeMove = setInterval(changeRandomDirection1, 800);
+    makeMove1 = setInterval(changeRandomDirection1, 800);
   }
 }
 
 function makeRandomMove2(state) {
-  clearInterval(makeMove);
+  clearInterval(makeMove2);
   if (state) {
-    makeMove = setInterval(changeRandomDirection2, 800);
+    makeMove2 = setInterval(changeRandomDirection2, 800);
   }
 }
 
 
+function moveEnemy(enemy, randomDirections) {
+  enemy.box.style.left = enemy.x + "px";
+  enemy.box.style.top = enemy.y + "px";
 
-
-// function for moving the enemy
-function moveEnemy1() {
-  enemy1.box.style.left = enemy1.x + "px";
-  enemy1.box.style.top = enemy1.y + "px";
-
-  // randomDirections.forEach((element => {
-  //   if (element[0] && enemy1.x > 0) {
-  //     enemy1.x -= enemySpeed;
-  //   }
-  //   if (element[1] && enemy1.y > 0) {
-  //     enemy1.y -= enemySpeed;
-  //   }
-  //   if (element[2] && enemy1.x < board.offsetWidth - enemy1.w) {
-  //     enemy1.x += enemySpeed;
-  //   }
-  //   if (element[3] && enemy1.y < board.offsetHeight - enemy1.h) {
-  //     enemy1.y += enemySpeed;
-  //   }
-  // })
-  if (randomDirections[0] && enemy1.x > 0) {
-    enemy1.x -= enemySpeed;
+  if (randomDirections[0] && enemy.x > 0) {
+    enemy.x -= enemySpeed;
   }
-  if (randomDirections[1] && enemy1.y > 0) {
-    enemy1.y -= enemySpeed;
+  if (randomDirections[1] && enemy.y > 0) {
+    enemy.y -= enemySpeed;
   }
-  if (randomDirections[2] && enemy1.x < board.offsetWidth - enemy1.w) {
-    enemy1.x += enemySpeed;
+  if (randomDirections[2] && enemy.x < board.offsetWidth - enemy.w) {
+    enemy.x += enemySpeed;
   }
-  if (randomDirections[3] && enemy1.y < board.offsetHeight - enemy1.h) {
-    enemy1.y += enemySpeed;
-  }
-}
-
-function moveEnemy2() {
-  enemy2.box.style.left = enemy2.x + "px";
-  enemy2.box.style.top = enemy2.y + "px";
-
-  if (randomDirections2[0] && enemy2.x > 0) {
-    enemy2.x -= enemySpeed;
-  }
-  if (randomDirections2[1] && enemy2.y > 0) {
-    enemy2.y -= enemySpeed;
-  }
-  if (randomDirections2[2] && enemy2.x < board.offsetWidth - enemy2.w) {
-    enemy2.x += enemySpeed;
-  }
-  if (randomDirections2[3] && enemy2.y < board.offsetHeight - enemy2.h) {
-    enemy2.y += enemySpeed;
+  if (randomDirections[3] && enemy.y < board.offsetHeight - enemy.h) {
+    enemy.y += enemySpeed;
   }
 }
 
 // function that is responsible for frame-by-frame playback
 function animate() {
   movePlayer();
-  moveEnemy1();
-  moveEnemy2();
+  moveEnemy(enemy1, randomDirections1);
+  moveEnemy(enemy2, randomDirections2);
   DomControl.checkCollision(player1.box, enemy1.box, () => {
     DomControl.endGame("Żul Cię dopadł");
   });
@@ -425,6 +374,7 @@ function startGame() {
   timerFunction();  
 
   // makes random move of the enemy
+
   makeRandomMove1(true);
 
   // listening for pressed keys
