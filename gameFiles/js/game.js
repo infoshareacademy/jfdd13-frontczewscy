@@ -126,6 +126,12 @@ const player = new Player("#player");
 const enemy1 = new Player("#enemy1");
 const enemy2 = new Player("#enemy2");
 
+// getting enemys dom properties  
+const enemys = [
+  enemy1.box,
+  enemy2.box
+]
+
 // helping functions for detecting which key is pressed and released at a given time;
 function keyPressed(event) {
   keys[event.keyCode] = true;
@@ -204,7 +210,6 @@ function moveEnemy(enemy, randomDirections) {
     enemy.y += enemySpeed;
   }
 }
-const enemys = [enemy1.box, enemy2.box]
 
 // function that is responsible for frame-by-frame playback
 function animate() {
