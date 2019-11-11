@@ -172,7 +172,7 @@ p {
   outline: 0;
 }
 
-.pop-up {
+.message {
   animation: expand 0.6s ease-in-out;
   position: fixed;
   top: 50%;
@@ -183,7 +183,7 @@ p {
   opacity: 0.8;
 }
 
-.pop-up.remove {
+.message.remove {
   animation: reduce 0.6s ease-in-out;
 }
 
