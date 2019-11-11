@@ -43,8 +43,8 @@
 }
 
 .navigation__logo {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 .navigation__text {
@@ -138,8 +138,8 @@
         align-items: flex-start;
     }
     .navigation__logo {
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
     }
     .navigation__text {
         font-size: 1.5em;
@@ -169,7 +169,7 @@
         width: 100%;
     }
     .navigation__links.responsive {
-        transform: translateY(73px);
+        transform: translateY(69px);
     }
     .navigation__link {
         padding: 20px;
