@@ -33,12 +33,14 @@ const spawnRate = 1000;
 
 // class for making message box
 class Message {
-  constructor(text, timeOut) {
+  constructor(text, timeOut, top) {
     this.box = document.createElement("div");
     this.text = text;
     this.timeOut = timeOut || 1000;
+    this.top = top || "";
   }
-  renderMessage() {
+  renderMessage() {    
+    this.box.style.top = `${this.top}%`
     this.box.innerHTML = `<h2>${this.text}<h2>`;
     this.box.classList.add("message");
     document.body.appendChild(this.box);
@@ -99,7 +101,7 @@ class DomControl {
     clearInterval(timeInterval);
 
     // create messageBox with msg on 2 sec
-    const message = new Message(msg, 2000);
+    const message = new Message(msg, 2000, 30);
     message.renderMessage();
 
     // removes listeners for keys, disable moving of the player
@@ -336,7 +338,7 @@ function drawPoints() {
 
 function startGame() {
   // inforamtion for player at start of the game
-  const message = new Message("Masz minute, śpiesz się!");
+  const message = new Message("Masz minute, śpiesz się!", 2500, 30);
   message.renderMessage();  
   
   //start the timer
@@ -386,7 +388,7 @@ function timerFunction() {
     sec--;
     
     if (sec == 40) {
-      const message = new Message("Poziom trudności wzrasta", 2000);
+      const message = new Message("Poziom trudności wzrasta", 2500, 30);
       message.renderMessage();
 
       enemy2.x = 0;
@@ -396,7 +398,7 @@ function timerFunction() {
       makeRandomMove2(true);
     }
     if (sec == 25 ) {
-      const message = new Message("Poziom trudności ponownie wzrasta", 2000);
+      const message = new Message("Poziom trudności ponownie wzrasta", 2500, 30);
       message.renderMessage();
 
       enemySpeed = 5;
