@@ -101,6 +101,9 @@
     border-radius: 5px;
     font-size: 13px;
 }
+.navigation__link.hightlight {
+    background-color:#bd3161;
+}
 
 .navigation__right {
     display: none;
