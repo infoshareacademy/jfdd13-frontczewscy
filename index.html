@@ -297,17 +297,17 @@
         </a>
       </button>
    
-      <div id="calculator" style="display: none;">
+      <div id="calculator" class="popup" style="display: none;">
           <span class="exitButtonSpan"><button id="exitButton">X</button></span>
         <h1>KALKULATOR CEN IMPREZ</h1>
         <div class="container">
             <div class="rangeDiv">
               <input type="range" min="1" max="20" class="slider" value="1" class="slider" id="myRange" oninput="sliderChange()" >
               <label for="range"></label>
-              </div>
+            </div>
               <div class="checkboxDiv">
-              <input type="checkbox" name="checkbox" id="checkbox" onclick="sliderChange()">
-              <label for="checkbox" >JESTEM STUDENTEM</label>
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="sliderChange()">
+                <label for="checkbox" >JESTEM STUDENTEM</label>
               </div>  
                <p>Liczba osób: <span id="demo"></span></p>  
                <p>CENA PODSTAWOWA: 20000zł</p>
@@ -315,7 +315,7 @@
                <p>Cena po zniżce: <span id="cena"></span></p>  
         </div>
       </div>
-      
+
       <div class="emailInfo"></div>
 
       <footer class="footer">
