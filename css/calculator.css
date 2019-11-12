@@ -39,11 +39,12 @@
 
 #calcButton {
     
-    background-color: var(--dark-primary-color);
+    background-color: #523f79;
     padding: 20px 10px;
     border-radius: 20px;
-    border: 4px solid black;
+    border: 2px solid #fff;
     font-weight: bold;
+    color: #fff;
 
 }
 
