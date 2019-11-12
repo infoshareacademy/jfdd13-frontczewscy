@@ -26,6 +26,7 @@ function calcDisplay() {
 function sliderChange() {
   let discount = 0;
   let value = slider.value;
+  let basicPrice = 200;
 
 
 
@@ -38,8 +39,8 @@ function sliderChange() {
 
 
 
-  output.innerHTML = `${slider.value} osób`;
+  output.innerHTML = slider.value;
   discountHTML.innerHTML = `${discount * 100} %`;
-  price.innerHTML = `${20000 - 20000 * discount} zł`;
+  price.innerHTML = `${((basicPrice - basicPrice * discount)).toFixed(2)} zł`;
 
 }
