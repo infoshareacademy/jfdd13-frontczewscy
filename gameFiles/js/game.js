@@ -340,9 +340,10 @@ function drawPoints() {
 }
 
 function drawHeightPoints() {
+  
   heigestPoints.innerHTML = `
     <h2>Heigest points</h2>
-    <p>${highest}</p>
+    <p>${(highest != null) ? highest : 0}</p>
   `
 }
 
