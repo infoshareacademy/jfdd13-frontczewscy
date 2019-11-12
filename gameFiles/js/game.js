@@ -2,6 +2,7 @@
 const board = document.querySelector(".board"),
     suppBoard = document.querySelector("#support-board"),
     pointsBoard = document.querySelector("#points"),
+    heigestPoints = document.querySelector("#highest-point"),
     openInstr = document.querySelector(".btnInstr"),
     popup = document.querySelector(".popup-wrapper"),
     startButton = document.querySelector(".startButton"),
@@ -23,6 +24,8 @@ let keys = [],
     makeMove1,
     makeMove2,
     randomPosition =  57;
+
+let highest = localStorage.getItem('hight');
 
     
 const playerSpeed = 5;
@@ -336,6 +339,15 @@ function drawPoints() {
   `;
 }
 
+function drawHeightPoints() {
+  heigestPoints.innerHTML = `
+    <h2>Heigest points</h2>
+    <p>${highest}</p>
+  `
+}
+
+drawHeightPoints();
+
 function startGame() {
   // inforamtion for player at start of the game
   const message = new Message("Masz minute, śpiesz się!", 2500, 30);
@@ -351,6 +363,9 @@ function startGame() {
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
+
+  //
+  drawHeightPoints()
 
   // 
   drinksArray = [];
@@ -426,14 +441,16 @@ function showEndGameScreen(points, highest, msg, moreInfo) {
   endGameCloseBtn.addEventListener('click', () => {    
     endGameScreen.classList.remove('shown');
   });
-  endGameScreen.classList.add('shown')
+  endGameScreen.classList.add('shown');
+
+  drawHeightPoints();
 
   // set playerPoints to 0
   playerPoints = 0;
 }
 
 function setHightScore(points, msg) {
-  let highest = localStorage.getItem('hight');
+  
 
   if (highest === null) {
     localStorage.setItem('hight', points)

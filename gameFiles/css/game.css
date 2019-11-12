@@ -68,6 +68,10 @@ body {
   cursor: pointer;
 }
 
+#highest-point {
+  width: 187px;
+}
+
 .board {
   background-image: url(../img/background.jpg);
   border: 2px solid #fff;
