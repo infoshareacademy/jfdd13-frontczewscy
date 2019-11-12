@@ -1,4 +1,4 @@
-function cookieQuest() {
+(function() {
     const cookieM = document.getElementById('cookie'),
         cookieBtn = document.getElementById('but'),        
         setMyCookie = () => {
@@ -42,5 +42,5 @@ function cookieQuest() {
     cookiePop();
 }
 
-cookieQuest();
+);
 
