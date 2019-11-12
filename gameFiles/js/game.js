@@ -2,7 +2,7 @@
 const board = document.querySelector(".board"),
     suppBoard = document.querySelector("#support-board"),
     pointsBoard = document.querySelector("#points"),
-    heigestPoints = document.querySelector("#highest-point"),
+    highestPoints = document.querySelector("#highest-point"),
     openInstr = document.querySelector(".btnInstr"),
     popup = document.querySelector(".popup-wrapper"),
     startButton = document.querySelector(".startButton"),
@@ -341,8 +341,8 @@ function drawPoints() {
 
 function drawHeightPoints() {
   
-  heigestPoints.innerHTML = `
-    <h2>Heigest points</h2>
+  highestPoints.innerHTML = `
+    <h2>Highest points</h2>
     <p>${(highest != null) ? highest : 0}</p>
   `
 }
