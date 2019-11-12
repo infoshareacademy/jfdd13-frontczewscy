@@ -1,4 +1,4 @@
-(function() {
+(function () {
     const cookieM = document.getElementById('cookie'),
         cookieBtn = document.getElementById('but'),        
         setMyCookie = () => {
@@ -40,7 +40,5 @@
     };
 
     cookiePop();
-}
-
-);
+})()
 

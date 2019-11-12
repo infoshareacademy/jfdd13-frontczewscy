@@ -33,14 +33,22 @@
 .front img{
   max-width: 200px;
   max-height: 200px;
-  /* border: 7px outset var(--secondary-text); */
 }
-/* .front{
+
+.front {
   transform: perspective(600px) rotateY(0deg);
-  display: flex;
-} */
-.back{
-  background: #f1f1f1;
+}
+
+.front.hidden {
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.back {
+  transform: perspective(600px) rotateY(0deg);
+  background: var(--divider-color);
+}
+
+.back.hidden {
   transform: perspective(600px) rotateY(180deg);
 }
 .back-content{

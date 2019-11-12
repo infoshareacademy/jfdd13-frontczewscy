@@ -2,6 +2,10 @@ const navigation = document.querySelector(".navigation__links");
 const navigationButton = document.querySelector("#navigation__button");
 const myNav = document.querySelector(".navigation");
 const scrollButton = document.querySelector('#scrollToTop');
+const link1 = document.getElementById('link1');
+const link2 = document.getElementById('link2');
+const link3 = document.getElementById('link3');
+const links = [link1, link2, link3];
 
 
 scrollButton.addEventListener('click', () => {
@@ -60,37 +64,30 @@ navigationButton.addEventListener("click", () => {
   
 });
 
+// Removes background from every navigation link
+function removeBackground() {
+  links.forEach(element => element.classList.remove('hightlight'));
+}
+
+// Hightlight proper navigation link
+function navHighlight() {
+  let currentPosition = window.scrollY + 80;
+  removeBackground();
+  if (currentPosition  >= functions.offsetTop && currentPosition < premier.offsetTop) {
+   link1.classList.add("hightlight");
+  }
+  else if (currentPosition >=  premier.offsetTop && currentPosition <  about.offsetTop) {
+    link2.classList.add("hightlight");
+  }
+  else if  (currentPosition >=  about.offsetTop) { 
+   link3.classList.add("hightlight");
+  }
+}
+
 // Checks for the scroll in window
 window.addEventListener("scroll", () => {
   addBackground();
   closeMenu();
   addScrollButton();
+  navHighlight();
 });
-
-
-document.addEventListener("scroll", navHighlight);
-
-
-function setBackground() {
-  link1.style.backgroundColor = "";
-  link2.style.backgroundColor = "";
-  link3.style.backgroundColor = "";
-}
-
-
-function navHighlight() {
-  var link1=document.getElementById('link1');
-  var link2=document.getElementById('link2');
-  var link3=document.getElementById('link3');
-  let currentPosition = window.scrollY + 80;
-  setBackground();
-  if (currentPosition  >= functions.offsetTop && currentPosition < premier.offsetTop) {
-   link1.style.backgroundColor = "#bd3161";
-  }
-  else if (currentPosition >=  premier.offsetTop && currentPosition <  about.offsetTop) {
-   link2.style.backgroundColor = "#bd3161";
-  }
-  else if  (currentPosition >=  about.offsetTop) { 
-   link3.style.backgroundColor = "#bd3161";
-  }
-}
