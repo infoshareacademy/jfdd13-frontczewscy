@@ -2,6 +2,7 @@
 const board = document.querySelector(".board"),
     suppBoard = document.querySelector("#support-board"),
     pointsBoard = document.querySelector("#points"),
+    heigestPoints = document.querySelector("#highest-point"),
     openInstr = document.querySelector(".btnInstr"),
     popup = document.querySelector(".popup-wrapper"),
     startButton = document.querySelector(".startButton"),
@@ -24,6 +25,8 @@ let keys = [],
     makeMove2,
     randomPosition =  57;
 
+let highest = localStorage.getItem('hight');
+
     
 const playerSpeed = 5;
 // Appearance of the new drink every 1.0 seconds
@@ -33,14 +36,16 @@ const spawnRate = 1000;
 
 // class for making message box
 class Message {
-  constructor(text, timeOut) {
+  constructor(text, timeOut, top) {
     this.box = document.createElement("div");
     this.text = text;
     this.timeOut = timeOut || 1000;
+    this.top = top || "";
   }
-  renderMessage() {
+  renderMessage() {    
+    this.box.style.top = `${this.top}%`
     this.box.innerHTML = `<h2>${this.text}<h2>`;
-    this.box.classList.add("pop-up");
+    this.box.classList.add("message");
     document.body.appendChild(this.box);
     setTimeout(() => {
       this.removeFromDom();
@@ -99,7 +104,7 @@ class DomControl {
     clearInterval(timeInterval);
 
     // create messageBox with msg on 2 sec
-    const message = new Message(msg, 2000);
+    const message = new Message(msg, 2000, 30);
     message.renderMessage();
 
     // removes listeners for keys, disable moving of the player
@@ -334,9 +339,18 @@ function drawPoints() {
   `;
 }
 
+function drawHeightPoints() {
+  heigestPoints.innerHTML = `
+    <h2>Heigest points</h2>
+    <p>${highest}</p>
+  `
+}
+
+drawHeightPoints();
+
 function startGame() {
   // inforamtion for player at start of the game
-  const message = new Message("Masz minute, śpiesz się!");
+  const message = new Message("Masz minute, śpiesz się!", 2500, 30);
   message.renderMessage();  
   
   //start the timer
@@ -349,6 +363,9 @@ function startGame() {
   // listening for pressed keys
   document.addEventListener("keydown", keyPressed);
   document.addEventListener("keyup", keyReleased);
+
+  //
+  drawHeightPoints()
 
   // 
   drinksArray = [];
@@ -386,7 +403,7 @@ function timerFunction() {
     sec--;
     
     if (sec == 40) {
-      const message = new Message("Poziom trudności wzrasta", 2000);
+      const message = new Message("Poziom trudności wzrasta", 2500, 30);
       message.renderMessage();
 
       enemy2.x = 0;
@@ -396,7 +413,7 @@ function timerFunction() {
       makeRandomMove2(true);
     }
     if (sec == 25 ) {
-      const message = new Message("Poziom trudności ponownie wzrasta", 2000);
+      const message = new Message("Poziom trudności ponownie wzrasta", 2500, 30);
       message.renderMessage();
 
       enemySpeed = 5;
@@ -424,14 +441,16 @@ function showEndGameScreen(points, highest, msg, moreInfo) {
   endGameCloseBtn.addEventListener('click', () => {    
     endGameScreen.classList.remove('shown');
   });
-  endGameScreen.classList.add('shown')
+  endGameScreen.classList.add('shown');
+
+  drawHeightPoints();
 
   // set playerPoints to 0
   playerPoints = 0;
 }
 
 function setHightScore(points, msg) {
-  let highest = localStorage.getItem('hight');
+  
 
   if (highest === null) {
     localStorage.setItem('hight', points)
