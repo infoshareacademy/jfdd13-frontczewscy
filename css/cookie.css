@@ -31,6 +31,7 @@
     border: 5px solid #7B1FA2;
     background-color: #FF4081;
     color: #fff;
+    cursor: pointer;
 }
 #cookie>p>a{
     color: rgb(233, 177, 177);

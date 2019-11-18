@@ -45,6 +45,7 @@
     border: 2px solid #fff;
     font-weight: bold;
     color: #fff;
+    cursor: pointer;
 
 }
 
@@ -58,4 +59,6 @@
 .slider{
     margin: 20px;
     width: 80%;
+    cursor: pointer;
+
 }
